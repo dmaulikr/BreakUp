@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
+		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
+		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
+		18C18E561AEE9D2C00622D72 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18C18E551AEE9D2C00622D72 /* GameScene.sks */; };
+		18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E581AEE9D2C00622D72 /* GameViewController.m */; };
+		18C18E5C1AEE9D2C00622D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C18E5A1AEE9D2C00622D72 /* Main.storyboard */; };
+		18C18E5E1AEE9D2D00622D72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C18E5D1AEE9D2D00622D72 /* Images.xcassets */; };
+		18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C18E5F1AEE9D2D00622D72 /* LaunchScreen.xib */; };
+		18C18E6D1AEE9D2D00622D72 /* BreakUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E6C1AEE9D2D00622D72 /* BreakUpTests.m */; };
+		18C18E781AEEB74100622D72 /* TitleScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E771AEEB74100622D72 /* TitleScreen.m */; };
+		18C18E7B1AEEC93900622D72 /* BallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E7A1AEEC93900622D72 /* BallNode.m */; };
+		18C18E801AEEDDA000622D72 /* FlipperNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E7F1AEEDDA000622D72 /* FlipperNode.m */; };
+		18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E851AEEEAA700622D72 /* DrainNode.m */; };
+		18C18E891AEF1D6000622D72 /* Utilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E881AEF1D6000622D72 /* Utilites.m */; };
+		18C18E8C1AEF291D00622D72 /* BrickNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E8B1AEF291D00622D72 /* BrickNode.m */; };
+		18C18E8F1AEFCB0600622D72 /* TapToStartNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */; };
+		18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 18F01F2E1AF019880049A0D4 /* Break-Up.atlas */; };
+		18F01F321AF15E580049A0D4 /* WallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F01F311AF15E580049A0D4 /* WallNode.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18C18E671AEE9D2D00622D72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18C18E401AEE9D2C00622D72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18C18E471AEE9D2C00622D72;
+			remoteInfo = BreakUp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18C18E4F1AEE9D2C00622D72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		18C18E501AEE9D2C00622D72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		18C18E521AEE9D2C00622D72 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		18C18E531AEE9D2C00622D72 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		18C18E551AEE9D2C00622D72 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		18C18E571AEE9D2C00622D72 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		18C18E581AEE9D2C00622D72 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		18C18E5B1AEE9D2C00622D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18C18E5D1AEE9D2D00622D72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		18C18E601AEE9D2D00622D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		18C18E661AEE9D2D00622D72 /* BreakUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C18E6B1AEE9D2D00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18C18E6C1AEE9D2D00622D72 /* BreakUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakUpTests.m; sourceTree = "<group>"; };
+		18C18E761AEEB74100622D72 /* TitleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScreen.h; sourceTree = "<group>"; };
+		18C18E771AEEB74100622D72 /* TitleScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScreen.m; sourceTree = "<group>"; };
+		18C18E791AEEC93900622D72 /* BallNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallNode.h; sourceTree = "<group>"; };
+		18C18E7A1AEEC93900622D72 /* BallNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallNode.m; sourceTree = "<group>"; };
+		18C18E7E1AEEDDA000622D72 /* FlipperNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperNode.h; sourceTree = "<group>"; };
+		18C18E7F1AEEDDA000622D72 /* FlipperNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipperNode.m; sourceTree = "<group>"; };
+		18C18E841AEEEAA700622D72 /* DrainNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrainNode.h; sourceTree = "<group>"; };
+		18C18E851AEEEAA700622D72 /* DrainNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrainNode.m; sourceTree = "<group>"; };
+		18C18E871AEF1D6000622D72 /* Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilites.h; sourceTree = "<group>"; };
+		18C18E881AEF1D6000622D72 /* Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilites.m; sourceTree = "<group>"; };
+		18C18E8A1AEF291D00622D72 /* BrickNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickNode.h; sourceTree = "<group>"; };
+		18C18E8B1AEF291D00622D72 /* BrickNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickNode.m; sourceTree = "<group>"; };
+		18C18E8D1AEFCB0600622D72 /* TapToStartNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToStartNode.h; sourceTree = "<group>"; };
+		18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToStartNode.m; sourceTree = "<group>"; };
+		18F01F2E1AF019880049A0D4 /* Break-Up.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Break-Up.atlas"; sourceTree = "<group>"; };
+		18F01F301AF15E580049A0D4 /* WallNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallNode.h; sourceTree = "<group>"; };
+		18F01F311AF15E580049A0D4 /* WallNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallNode.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18C18E451AEE9D2C00622D72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18C18E631AEE9D2D00622D72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18C18E3F1AEE9D2C00622D72 = {
+			isa = PBXGroup;
+			children = (
+				18C18E4A1AEE9D2C00622D72 /* BreakUp */,
+				18C18E691AEE9D2D00622D72 /* BreakUpTests */,
+				18C18E491AEE9D2C00622D72 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18C18E491AEE9D2C00622D72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E481AEE9D2C00622D72 /* BreakUp.app */,
+				18C18E661AEE9D2D00622D72 /* BreakUpTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18C18E4A1AEE9D2C00622D72 /* BreakUp */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E831AEEE33900622D72 /* Default */,
+				18C18E821AEEE31400622D72 /* GameScenes */,
+				18C18E811AEEE30700622D72 /* Sprite Nodes */,
+				18C18E871AEF1D6000622D72 /* Utilites.h */,
+				18C18E881AEF1D6000622D72 /* Utilites.m */,
+				18F01F2E1AF019880049A0D4 /* Break-Up.atlas */,
+				18C18E5D1AEE9D2D00622D72 /* Images.xcassets */,
+				18C18E5F1AEE9D2D00622D72 /* LaunchScreen.xib */,
+				18C18E4B1AEE9D2C00622D72 /* Supporting Files */,
+			);
+			path = BreakUp;
+			sourceTree = "<group>";
+		};
+		18C18E4B1AEE9D2C00622D72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E4C1AEE9D2C00622D72 /* Info.plist */,
+				18C18E4D1AEE9D2C00622D72 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18C18E691AEE9D2D00622D72 /* BreakUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E6C1AEE9D2D00622D72 /* BreakUpTests.m */,
+				18C18E6A1AEE9D2D00622D72 /* Supporting Files */,
+			);
+			path = BreakUpTests;
+			sourceTree = "<group>";
+		};
+		18C18E6A1AEE9D2D00622D72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E6B1AEE9D2D00622D72 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18C18E811AEEE30700622D72 /* Sprite Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E7E1AEEDDA000622D72 /* FlipperNode.h */,
+				18C18E7F1AEEDDA000622D72 /* FlipperNode.m */,
+				18C18E791AEEC93900622D72 /* BallNode.h */,
+				18C18E7A1AEEC93900622D72 /* BallNode.m */,
+				18C18E841AEEEAA700622D72 /* DrainNode.h */,
+				18C18E851AEEEAA700622D72 /* DrainNode.m */,
+				18C18E8A1AEF291D00622D72 /* BrickNode.h */,
+				18C18E8B1AEF291D00622D72 /* BrickNode.m */,
+				18F01F301AF15E580049A0D4 /* WallNode.h */,
+				18F01F311AF15E580049A0D4 /* WallNode.m */,
+				18C18E901AEFCB0B00622D72 /* Label Nodes */,
+			);
+			name = "Sprite Nodes";
+			sourceTree = "<group>";
+		};
+		18C18E821AEEE31400622D72 /* GameScenes */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E761AEEB74100622D72 /* TitleScreen.h */,
+				18C18E771AEEB74100622D72 /* TitleScreen.m */,
+				18C18E521AEE9D2C00622D72 /* GameScene.h */,
+				18C18E531AEE9D2C00622D72 /* GameScene.m */,
+			);
+			name = GameScenes;
+			sourceTree = "<group>";
+		};
+		18C18E831AEEE33900622D72 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E4F1AEE9D2C00622D72 /* AppDelegate.h */,
+				18C18E501AEE9D2C00622D72 /* AppDelegate.m */,
+				18C18E551AEE9D2C00622D72 /* GameScene.sks */,
+				18C18E571AEE9D2C00622D72 /* GameViewController.h */,
+				18C18E581AEE9D2C00622D72 /* GameViewController.m */,
+				18C18E5A1AEE9D2C00622D72 /* Main.storyboard */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
+		18C18E901AEFCB0B00622D72 /* Label Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				18C18E8D1AEFCB0600622D72 /* TapToStartNode.h */,
+				18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */,
+			);
+			name = "Label Nodes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18C18E471AEE9D2C00622D72 /* BreakUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18C18E701AEE9D2D00622D72 /* Build configuration list for PBXNativeTarget "BreakUp" */;
+			buildPhases = (
+				18C18E441AEE9D2C00622D72 /* Sources */,
+				18C18E451AEE9D2C00622D72 /* Frameworks */,
+				18C18E461AEE9D2C00622D72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreakUp;
+			productName = BreakUp;
+			productReference = 18C18E481AEE9D2C00622D72 /* BreakUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18C18E651AEE9D2D00622D72 /* BreakUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18C18E731AEE9D2D00622D72 /* Build configuration list for PBXNativeTarget "BreakUpTests" */;
+			buildPhases = (
+				18C18E621AEE9D2D00622D72 /* Sources */,
+				18C18E631AEE9D2D00622D72 /* Frameworks */,
+				18C18E641AEE9D2D00622D72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18C18E681AEE9D2D00622D72 /* PBXTargetDependency */,
+			);
+			name = BreakUpTests;
+			productName = BreakUpTests;
+			productReference = 18C18E661AEE9D2D00622D72 /* BreakUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18C18E401AEE9D2C00622D72 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Randall Lee";
+				TargetAttributes = {
+					18C18E471AEE9D2C00622D72 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					18C18E651AEE9D2D00622D72 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 18C18E471AEE9D2C00622D72;
+					};
+				};
+			};
+			buildConfigurationList = 18C18E431AEE9D2C00622D72 /* Build configuration list for PBXProject "BreakUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18C18E3F1AEE9D2C00622D72;
+			productRefGroup = 18C18E491AEE9D2C00622D72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18C18E471AEE9D2C00622D72 /* BreakUp */,
+				18C18E651AEE9D2D00622D72 /* BreakUpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18C18E461AEE9D2C00622D72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */,
+				18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */,
+				18C18E5E1AEE9D2D00622D72 /* Images.xcassets in Resources */,
+				18C18E561AEE9D2C00622D72 /* GameScene.sks in Resources */,
+				18C18E5C1AEE9D2C00622D72 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18C18E641AEE9D2D00622D72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18C18E441AEE9D2C00622D72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
+				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
+				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
+				18F01F321AF15E580049A0D4 /* WallNode.m in Sources */,
+				18C18E7B1AEEC93900622D72 /* BallNode.m in Sources */,
+				18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */,
+				18C18E801AEEDDA000622D72 /* FlipperNode.m in Sources */,
+				18C18E8F1AEFCB0600622D72 /* TapToStartNode.m in Sources */,
+				18C18E891AEF1D6000622D72 /* Utilites.m in Sources */,
+				18C18E8C1AEF291D00622D72 /* BrickNode.m in Sources */,
+				18C18E4E1AEE9D2C00622D72 /* main.m in Sources */,
+				18C18E781AEEB74100622D72 /* TitleScreen.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18C18E621AEE9D2D00622D72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18C18E6D1AEE9D2D00622D72 /* BreakUpTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18C18E681AEE9D2D00622D72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18C18E471AEE9D2C00622D72 /* BreakUp */;
+			targetProxy = 18C18E671AEE9D2D00622D72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18C18E5A1AEE9D2C00622D72 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18C18E5B1AEE9D2C00622D72 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		18C18E5F1AEE9D2D00622D72 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18C18E601AEE9D2D00622D72 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18C18E6E1AEE9D2D00622D72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		18C18E6F1AEE9D2D00622D72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18C18E711AEE9D2D00622D72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BreakUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		18C18E721AEE9D2D00622D72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BreakUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		18C18E741AEE9D2D00622D72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BreakUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakUp.app/BreakUp";
+			};
+			name = Debug;
+		};
+		18C18E751AEE9D2D00622D72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BreakUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakUp.app/BreakUp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18C18E431AEE9D2C00622D72 /* Build configuration list for PBXProject "BreakUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18C18E6E1AEE9D2D00622D72 /* Debug */,
+				18C18E6F1AEE9D2D00622D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18C18E701AEE9D2D00622D72 /* Build configuration list for PBXNativeTarget "BreakUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18C18E711AEE9D2D00622D72 /* Debug */,
+				18C18E721AEE9D2D00622D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18C18E731AEE9D2D00622D72 /* Build configuration list for PBXNativeTarget "BreakUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18C18E741AEE9D2D00622D72 /* Debug */,
+				18C18E751AEE9D2D00622D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18C18E401AEE9D2C00622D72 /* Project object */;
+}
