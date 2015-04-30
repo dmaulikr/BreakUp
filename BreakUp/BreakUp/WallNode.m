@@ -13,7 +13,7 @@
 
 + (instancetype)wallAtPosition:(CGPoint)position
 {
-    WallNode *wall = [self spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(10, 3000)];
+    WallNode *wall = [self spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(10, 5000)];
     wall.name = @"Wall";
     wall.position = position;
     wall.zPosition = 10;

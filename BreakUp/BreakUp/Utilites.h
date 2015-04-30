@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Utilites : NSObject
 
 typedef NS_OPTIONS(uint32_t, CollisionCategory)
 {
@@ -18,5 +17,10 @@ typedef NS_OPTIONS(uint32_t, CollisionCategory)
     CollisionCategoryFlipper    = 0x1 << 3,   // 1000?
     CollisionCategoryWall       = 0x1 << 4
 };
+
+
+@interface Utilites : NSObject
+
++ (NSInteger) randomWithMin:(NSInteger)min max:(NSInteger)max;
 
 @end

@@ -89,10 +89,25 @@ BOOL rightFlipperActive;
     
     if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryFlipper)
     {
-        if (leftFlipperActive | rightFlipperActive)
+        if (leftFlipperActive)
         {
             [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, 50.0)];
         }
+        else if (rightFlipperActive)
+        {
+            [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, 50.0)];
+        }
+    }
+    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryDrain)
+    {
+//        for (SKNode *node in [self children])
+//        {
+//            [node removeFromParent];
+//        }
+        NSLog(@"Drain and Ball");
+        GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:scene];
+        
     }
 }
 

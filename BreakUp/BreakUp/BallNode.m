@@ -32,7 +32,7 @@
     self.physicsBody.collisionBitMask = CollisionCategoryFlipper | CollisionCategoryBrick | CollisionCategoryWall;
     self.physicsBody.contactTestBitMask = CollisionCategoryDrain | CollisionCategoryBrick | CollisionCategoryFlipper | ~CollisionCategoryWall;
     self.physicsBody.usesPreciseCollisionDetection = YES;
-    self.physicsBody.restitution = 1.5; // BOUNCE
+//    self.physicsBody.restitution = 1.5; // BOUNCE
     self.physicsBody.density = 1.5;
 //    self.physicsBody.linearDamping = 1.5;
 }
