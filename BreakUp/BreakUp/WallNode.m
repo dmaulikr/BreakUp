@@ -17,8 +17,6 @@
     wall.name = @"Wall";
     wall.position = position;
     wall.zPosition = 10;
-//    wall.anchorPoint = CGPointMake(0.0, 0.0);
-    
     
     [wall setupPhysicsBody];
     return wall;

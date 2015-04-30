@@ -27,7 +27,6 @@
     flipperLeft.anchorPoint = CGPointMake(0.2, 0.5);
     flipperLeft.name = @"LeftFlipper";
     flipperLeft.zPosition = 7;
-    //    flipperLeft.size = CGSizeMake(flipperLeft.size.width, flipperLeft.size.height);
     
     CGFloat offsetX = flipperLeft.frame.size.width * flipperLeft.anchorPoint.x;
     CGFloat offsetY = flipperLeft.frame.size.height * flipperLeft.anchorPoint.y;
@@ -53,13 +52,7 @@
     
     flipperLeft.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     
-
-    
-    
-    
-    
-    
-    [flipperLeft setupPhysicsBody];
+    [flipperLeft setupPhysicsBodyLeft];
     return flipperLeft;
 }
 
@@ -71,8 +64,6 @@
     flipperRight.anchorPoint = CGPointMake(0.8, 0.5);
     flipperRight.name = @"RightFlipper";
     flipperRight.zPosition = 7;
-//    flipperRight.centerRect = 5;
-//    flipperRight.size = CGSizeMake(flipperRight.size.width, flipperRight.size.height);
     
     CGFloat offsetX = flipperRight.frame.size.width * flipperRight.anchorPoint.x;
     CGFloat offsetY = flipperRight.frame.size.height * flipperRight.anchorPoint.y;
@@ -97,61 +88,31 @@
     
     flipperRight.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     
-    [flipperRight setupPhysicsBody];
+    [flipperRight setupPhysicsBodyRight];
     return flipperRight;
 }
 
-- (void)setupPhysicsBody
+- (void)setupPhysicsBodyRight
 {
-//    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.affectedByGravity = NO;
     
-    self.physicsBody.categoryBitMask = CollisionCategoryFlipper;
+    self.physicsBody.categoryBitMask = CollisionCategoryFlipperRight;
     self.physicsBody.collisionBitMask = CollisionCategoryBall;
     self.physicsBody.contactTestBitMask = CollisionCategoryBall;
     self.physicsBody.dynamic = NO;
     self.physicsBody.restitution = 0.5; //bounce
-    
 }
 
-//- (void)performTapLeft
-//{
-//    [self runAction:self.tapActionLeft];
-//}
-//
-//- (void)performTapRight
-//{
-//    [self runAction:self.tapActionRight];
-//}
-//
-//-(SKAction *)tapActionLeft
-//{
-//    if (_tapActionLeft != nil)
-//    {
-//        return _tapActionLeft;
-//    }
-//
-//    NSArray *textures = @[[SKTexture textureWithImageNamed:@"Flipper_Left_Rotate20"],
-//                          [SKTexture textureWithImageNamed:@"Flipper_Left"]];
-//    
-//    _tapActionLeft = [SKAction animateWithTextures:textures timePerFrame:0.25];
-//    
-//    return _tapActionLeft;
-//}
-//
-//-(SKAction *)tapActionRight
-//{
-//    if (_tapActionRight != nil)
-//    {
-//        return _tapActionRight;
-//    }
-//    
-//    NSArray *textures = @[[SKTexture textureWithImageNamed:@"Flipper_Right_Rotate20"],
-//                          [SKTexture textureWithImageNamed:@"Flipper_Right"]];
-//    
-//    _tapActionRight = [SKAction animateWithTextures:textures timePerFrame:0.25];
-//    
-//    return _tapActionRight;
-//}
+- (void)setupPhysicsBodyLeft
+{
+    self.physicsBody.affectedByGravity = NO;
+    
+    self.physicsBody.categoryBitMask = CollisionCategoryFlipperLeft;
+    self.physicsBody.collisionBitMask = CollisionCategoryBall;
+    self.physicsBody.contactTestBitMask = CollisionCategoryBall;
+    self.physicsBody.dynamic = NO;
+    self.physicsBody.restitution = 0.5; //bounce
+}
+
 
 @end

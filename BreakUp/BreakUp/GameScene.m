@@ -37,12 +37,9 @@ BOOL rightFlipperActive;
     leftFlipperActive = NO;
     rightFlipperActive = NO;
     
-    
     /* Setup your scene here */
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-//    background.size = CGSizeMake(self.frame.size.width, self.frame.size.height);
-//    self.anchorPoint = CGPointMake(0.5, 0.5);
     
     world = [SKNode node];
     [self addChild:world];
@@ -86,24 +83,30 @@ BOOL rightFlipperActive;
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
-    
-    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryFlipper)
+    //Velocity from flipper flip
+    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryFlipperLeft)
     {
         if (leftFlipperActive)
         {
+            NSLog(@"Left Flip<");
             [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, 50.0)];
         }
-        else if (rightFlipperActive)
+    }
+    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryFlipperRight)
+    {
+        if (rightFlipperActive)
         {
+            NSLog(@"Right Flip>");
             [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, 50.0)];
         }
     }
+    //Game restart on Drain Contact
     if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryDrain)
     {
-//        for (SKNode *node in [self children])
-//        {
-//            [node removeFromParent];
-//        }
+        for (SKNode *node in [self children])
+        {
+            [node removeFromParent];
+        }
         NSLog(@"Drain and Ball");
         GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
         [self.view presentScene:scene];
@@ -116,7 +119,7 @@ BOOL rightFlipperActive;
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
-    NSLog(@"Touch Loc %f", touchLocation.x);
+//    NSLog(@"Touch Loc %f", touchLocation.x);
     
     
     // TAP TO START - Logic and Removal
@@ -152,6 +155,8 @@ BOOL rightFlipperActive;
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     if (touchLocation.x > 188)
@@ -171,16 +176,6 @@ BOOL rightFlipperActive;
     
 }
 
-//- (void)flipFlipperAtPosition:(CGPoint)position
-//{
-//    FlipperNode *leftFlipper = (FlipperNode *)[self childNodeWithName:@"LeftFlipper"];
-//    FlipperNode *rightFlipper = (FlipperNode *)[self childNodeWithName:@"RightFlipper"];
-//    
-////    [leftFlipper performTapLeft];
-////    [rightFlipper performTapRight];
-//    
-//    //insert SFX
-//}
 
 -(void)update:(CFTimeInterval)currentTime
 {

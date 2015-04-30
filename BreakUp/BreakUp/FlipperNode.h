@@ -14,8 +14,4 @@
 + (instancetype)rightFlipperAtPosition:(CGPoint)position;
 
 
-
-//- (void)performTapLeft;
-//- (void)performTapRight;
-
 @end
