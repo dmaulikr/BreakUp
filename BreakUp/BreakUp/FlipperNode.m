@@ -11,9 +11,6 @@
 
 @interface FlipperNode ()
 
-//@property (nonatomic) SKAction *tapActionLeft;
-//@property (nonatomic) SKAction *tapActionRight;
-
 @end
 
 @implementation FlipperNode
@@ -21,10 +18,10 @@
 
 + (instancetype)leftFlipperAtPosition:(CGPoint)position
 {
-    FlipperNode *flipperLeft = [self spriteNodeWithImageNamed:@"Flipper_left"];
+    FlipperNode *flipperLeft = [self spriteNodeWithImageNamed:@"Angle_Flipper_Left"];
     
     flipperLeft.position = position;
-    flipperLeft.anchorPoint = CGPointMake(0.2, 0.5);
+    flipperLeft.anchorPoint = CGPointMake(0.1, 0.8);
     flipperLeft.name = @"LeftFlipper";
     flipperLeft.zPosition = 7;
     
@@ -33,20 +30,31 @@
     
     CGMutablePathRef path = CGPathCreateMutable();
     
-    CGPathMoveToPoint(path, NULL, 24 - offsetX, 60 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 48 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 146 - offsetX, 46 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 44 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 151 - offsetX, 39 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 34 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 151 - offsetX, 30 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 23 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 20 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 25 - offsetX, 14 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 39 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 48 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 54 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 19 - offsetX, 58 - offsetY);
+    CGPathMoveToPoint(path, NULL, 21 - offsetX, 78 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 32 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 30 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 154 - offsetX, 25 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 154 - offsetX, 21 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 153 - offsetX, 18 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 15 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 2 - offsetX, 68 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 4 - offsetX, 72 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 8 - offsetX, 76 - offsetY);
+    
+//    CGPathMoveToPoint(path, NULL, 24 - offsetX, 60 - offsetY);       Fat left flipper
+//    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 48 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 146 - offsetX, 46 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 44 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 151 - offsetX, 39 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 34 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 151 - offsetX, 30 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 23 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 20 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 25 - offsetX, 14 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 39 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 48 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 54 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 19 - offsetX, 58 - offsetY);
     
     CGPathCloseSubpath(path);
     
@@ -58,10 +66,10 @@
 
 + (instancetype)rightFlipperAtPosition:(CGPoint)position
 {
-    FlipperNode *flipperRight = [self spriteNodeWithImageNamed:@"Flipper_Right"];
+    FlipperNode *flipperRight = [self spriteNodeWithImageNamed:@"Angle_Flipper_Right"];
     
     flipperRight.position = position;
-    flipperRight.anchorPoint = CGPointMake(0.8, 0.5);
+    flipperRight.anchorPoint = CGPointMake(0.9, 0.8);
     flipperRight.name = @"RightFlipper";
     flipperRight.zPosition = 7;
     
@@ -70,19 +78,30 @@
     
     CGMutablePathRef path = CGPathCreateMutable();
     
-    CGPathMoveToPoint(path, NULL, 138 - offsetX, 60 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 20 - offsetX, 47 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 43 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 40 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 33 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 29 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 24 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 21 - offsetX, 20 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 138 - offsetX, 14 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 37 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 46 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 148 - offsetX, 54 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 58 - offsetY);
+    CGPathMoveToPoint(path, NULL, 146 - offsetX, 78 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 16 - offsetX, 32 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 14 - offsetX, 29 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 26 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 23 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 20 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 16 - offsetX, 16 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 163 - offsetX, 71 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 160 - offsetX, 75 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 156 - offsetX, 77 - offsetY);
+    
+//    CGPathMoveToPoint(path, NULL, 138 - offsetX, 60 - offsetY);  // fat right flipper
+//    CGPathAddLineToPoint(path, NULL, 20 - offsetX, 47 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 43 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 40 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 33 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 29 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 24 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 21 - offsetX, 20 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 138 - offsetX, 14 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 37 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 46 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 148 - offsetX, 54 - offsetY);
+//    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 58 - offsetY);
     
     CGPathCloseSubpath(path);
     

@@ -45,7 +45,7 @@ BOOL rightFlipperActive;
     [self addChild:world];
     
     self.ball = [BallNode ballAtPosition:CGPointMake(100, 90)];
-    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-168, 30)];
+    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-168, 70)];
     self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+330, self.leftFlipper.position.y)];
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 22)];
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
