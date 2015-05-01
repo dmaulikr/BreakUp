@@ -65,8 +65,13 @@ BOOL rightFlipperActive;
     [world addChild:self.rightFlipper];
     [world addChild:drain];
 //    [world addChild:brick];
+    SKAction *spawn = [SKAction runBlock:^{
+        // make this whatever size you want, i'm just using the scene's size
+        [self addBrickRow:self.size];
+    }];
+    [self runAction:spawn];
     
-    [self addBrickRow];
+    
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
@@ -168,7 +173,6 @@ BOOL rightFlipperActive;
         
         [self.leftFlipper runAction:[SKAction sequence:sequence]];
     }
-    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -200,15 +204,21 @@ BOOL rightFlipperActive;
     /* Called before each frame is rendered */
 }
 
-- (void)addBrickRow
+- (void)addBrickRow:(CGSize)size
 {
-    BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+    for (int i = 0; i < 7; i++)
+    {
+        BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+        
+        int xPos = size.width/7.5 * (i+.5);
+        int yPos = 450;
+        brickA.position = CGPointMake(xPos, yPos);
+//      float y = self.frame.size.height-200 - brickA.size.height;
+//      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
     
-    float y = self.frame.size.height-200 - brickA.size.height;
-    float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
-    
-    brickA.position = CGPointMake(x, y);
-    [self addChild:brickA];
+//      brickA.position = CGPointMake(x, y);
+        [self addChild:brickA];
+    }
 }
 
 @end
