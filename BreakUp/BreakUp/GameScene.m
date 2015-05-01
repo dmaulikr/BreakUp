@@ -122,13 +122,13 @@ BOOL rightFlipperActive;
         secondBody.categoryBitMask == CollisionCategoryBrick)
     {
         NSLog(@"BOOM!");
-        BrickNode *brick = (BrickNode *)firstBody.node;
+        BrickNode *brick = (BrickNode *)secondBody.node;
 //        BallNode *ball = (BallNode *)secondBody.node;
         
-        if ([brick isDamaged])
-        {
+//        if ([brick isDamaged])
+//        {
             [brick removeFromParent];
-        }
+//        }
     }
 }
 
