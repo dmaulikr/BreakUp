@@ -44,10 +44,10 @@ BOOL rightFlipperActive;
     world = [SKNode node];
     [self addChild:world];
     
-    self.ball = [BallNode ballAtPosition:CGPointMake(100, 90)];
-    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-168, 70)];
+    self.ball = [BallNode ballAtPosition:CGPointMake(200, 100)];
+    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-168, 80)];
     self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+330, self.leftFlipper.position.y)];
-    DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 22)];
+    DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
     BrickNode *brick = [BrickNode brickAtPosition:CGPointMake(100, 500)];
@@ -127,7 +127,7 @@ BOOL rightFlipperActive;
     {
         [self.tapToStart removeFromParent];
         self.ball.physicsBody.dynamic = YES;
-        [self.ball.physicsBody applyImpulse:CGVectorMake(1.0, 20.0)];
+        [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:100.0])];
     }
     
 
@@ -182,4 +182,33 @@ BOOL rightFlipperActive;
     /* Called before each frame is rendered */
 }
 
+- (void)addBrickRow
+{
+    
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
