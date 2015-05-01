@@ -86,7 +86,8 @@ BOOL rightFlipperActive;
         secondBody = contact.bodyA;
     }
     //Velocity from flipper flip
-    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryFlipperLeft)
+    if (firstBody.categoryBitMask == CollisionCategoryBall &&
+        secondBody.categoryBitMask == CollisionCategoryFlipperLeft)
     {
         if (leftFlipperActive)
         {
@@ -94,7 +95,8 @@ BOOL rightFlipperActive;
             [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, 50.0)];
         }
     }
-    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryFlipperRight)
+    if (firstBody.categoryBitMask == CollisionCategoryBall &&
+        secondBody.categoryBitMask == CollisionCategoryFlipperRight)
     {
         if (rightFlipperActive)
         {
@@ -103,7 +105,8 @@ BOOL rightFlipperActive;
         }
     }
     //Game restart on Drain Contact
-    if (firstBody.categoryBitMask == CollisionCategoryBall && secondBody.categoryBitMask == CollisionCategoryDrain)
+    if (firstBody.categoryBitMask == CollisionCategoryBall &&
+        secondBody.categoryBitMask == CollisionCategoryDrain)
     {
         for (SKNode *node in [self children])
         {
@@ -113,6 +116,19 @@ BOOL rightFlipperActive;
         GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
         [self.view presentScene:scene];
         
+    }
+    // Brick Contact Logic
+    if (firstBody.categoryBitMask == CollisionCategoryBall &&
+        secondBody.categoryBitMask == CollisionCategoryBrick)
+    {
+        NSLog(@"BOOM!");
+        BrickNode *brick = (BrickNode *)firstBody.node;
+//        BallNode *ball = (BallNode *)secondBody.node;
+        
+        if ([brick isDamaged])
+        {
+            [brick removeFromParent];
+        }
     }
 }
 
@@ -188,11 +204,11 @@ BOOL rightFlipperActive;
 {
     BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
     
-    float y = self.frame.size.height-100 - brickA.size.height;
+    float y = self.frame.size.height-200 - brickA.size.height;
     float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
     
     brickA.position = CGPointMake(x, y);
-    [world addChild:brickA];
+    [self addChild:brickA];
 }
 
 @end

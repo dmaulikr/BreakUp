@@ -15,12 +15,10 @@ typedef NS_ENUM(NSUInteger, BrickType)
 
 @interface BrickNode : SKSpriteNode
 
-
-
 //+ (instancetype)brickAtPosition:(CGPoint)position;
-+ (instancetype)brickRowOfType:(BrickType)type;
-
 @property (nonatomic, getter = isDamaged) BOOL damaged;
 @property (nonatomic) BrickType type;
+
++ (instancetype)brickRowOfType:(BrickType)type;
 
 @end

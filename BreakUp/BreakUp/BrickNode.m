@@ -59,7 +59,7 @@
 //            textures = @[[SKTexture textureWithImageNamed:@""]];
 //        }
         
-        SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.4];
+        SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1];
         [self runAction:[SKAction repeatActionForever:animation] withKey:@"damage_animation"];
         
         _damaged = YES;
