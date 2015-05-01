@@ -184,7 +184,7 @@ BOOL rightFlipperActive;
 
 - (void)addBrickRow
 {
-    
+    BrickNode *brick [
 }
 
 @end

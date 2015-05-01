@@ -8,8 +8,19 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+typedef NS_ENUM(NSUInteger, BrickType)
+{
+    BrickTypeA
+};
+
 @interface BrickNode : SKSpriteNode
 
-+ (instancetype)brickAtPosition:(CGPoint)position;
+
+
+//+ (instancetype)brickAtPosition:(CGPoint)position;
++ (instancetype)brickRowOfType:(BrickType)type;
+
+@property (nonatomic, getter = isDamaged) BOOL damaged;
+@property (nonatomic) BrickType type;
 
 @end

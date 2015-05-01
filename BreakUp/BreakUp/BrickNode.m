@@ -11,12 +11,24 @@
 
 @implementation BrickNode
 
-+ (instancetype)brickAtPosition:(CGPoint)position
+//+ (instancetype)brickAtPosition:(CGPoint)position
+//{
+//    BrickNode *brick = [BrickNode spriteNodeWithImageNamed:@"Brick"];
+//    brick.name = @"Brick";
+//    brick.position = position;
+//    brick.zPosition = 8;
+//    
+//    [brick setupPhysicsBody];
+//    return brick;
+//}
+
++ (instancetype)brickRowOfType:(BrickType)type
 {
     BrickNode *brick = [BrickNode spriteNodeWithImageNamed:@"Brick"];
     brick.name = @"Brick";
-    brick.position = position;
+//    brick.position = position;
     brick.zPosition = 8;
+    
     
     [brick setupPhysicsBody];
     return brick;
@@ -30,6 +42,34 @@
     self.physicsBody.categoryBitMask = CollisionCategoryBrick;
     self.physicsBody.collisionBitMask = CollisionCategoryBall | CollisionCategoryWall;
     self.physicsBody.contactTestBitMask = CollisionCategoryBall;
+}
+
+-(BOOL)isDamaged
+{
+    NSArray *textures;
+    
+    if (!_damaged)
+    {
+//        [self removeActionForKey:@"animation"]; // removes the animation runAction
+//        if (self.type == SpaceDogTypeA)
+//        {
+            textures = @[[SKTexture textureWithImageNamed:@"Broken_Brick"]];
+//        }
+//        else
+//        {
+//            textures = @[[SKTexture textureWithImageNamed:@"spacedog_B_4"]];
+//        }
+        
+        SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.4];
+        [self runAction:[SKAction repeatActionForever:animation] withKey:@"damage_animation"];
+        
+        _damaged = YES;
+        
+        return NO;
+        
+    }
+    
+    return _damaged;
 }
 
 @end
