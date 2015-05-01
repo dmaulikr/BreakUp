@@ -50,7 +50,7 @@ BOOL rightFlipperActive;
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
-    BrickNode *brick = [BrickNode brickAtPosition:CGPointMake(100, 500)];
+//    BrickNode *brick = [BrickNode brickAtPosition:CGPointMake(100, 500)];
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
     
     self.physicsWorld.gravity = CGVectorMake(0, -9.8);
@@ -64,7 +64,9 @@ BOOL rightFlipperActive;
     [world addChild:self.leftFlipper];
     [world addChild:self.rightFlipper];
     [world addChild:drain];
-    [world addChild:brick];
+//    [world addChild:brick];
+    
+    [self addBrickRow];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
@@ -184,7 +186,13 @@ BOOL rightFlipperActive;
 
 - (void)addBrickRow
 {
-    BrickNode *brick [
+    BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+    
+    float y = self.frame.size.height-100 - brickA.size.height;
+    float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
+    
+    brickA.position = CGPointMake(x, y);
+    [world addChild:brickA];
 }
 
 @end

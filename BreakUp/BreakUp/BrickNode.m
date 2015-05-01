@@ -24,25 +24,24 @@
 
 + (instancetype)brickRowOfType:(BrickType)type
 {
-    BrickNode *brick = [BrickNode spriteNodeWithImageNamed:@"Brick"];
-    brick.name = @"Brick";
+    BrickNode *brick;
+    brick.damaged = NO;
+    NSArray *textures;
+    
+    if (type == BrickTypeA)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
+        brick.type = BrickTypeA;
+    }
+//    brick.name = @"Brick";
 //    brick.position = position;
     brick.zPosition = 8;
-    
-    
+   
     [brick setupPhysicsBody];
     return brick;
 }
 
-- (void)setupPhysicsBody
-{
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
-    self.physicsBody.affectedByGravity = NO;
-    
-    self.physicsBody.categoryBitMask = CollisionCategoryBrick;
-    self.physicsBody.collisionBitMask = CollisionCategoryBall | CollisionCategoryWall;
-    self.physicsBody.contactTestBitMask = CollisionCategoryBall;
-}
 
 -(BOOL)isDamaged
 {
@@ -51,13 +50,13 @@
     if (!_damaged)
     {
 //        [self removeActionForKey:@"animation"]; // removes the animation runAction
-//        if (self.type == SpaceDogTypeA)
-//        {
+        if (self.type == BrickTypeA)
+        {
             textures = @[[SKTexture textureWithImageNamed:@"Broken_Brick"]];
-//        }
+        }
 //        else
 //        {
-//            textures = @[[SKTexture textureWithImageNamed:@"spacedog_B_4"]];
+//            textures = @[[SKTexture textureWithImageNamed:@""]];
 //        }
         
         SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.4];
@@ -66,10 +65,18 @@
         _damaged = YES;
         
         return NO;
-        
-    }
-    
+    }    
     return _damaged;
+}
+
+- (void)setupPhysicsBody
+{
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    self.physicsBody.affectedByGravity = NO;
+    self.physicsBody.dynamic = NO;
+    self.physicsBody.categoryBitMask = CollisionCategoryBrick;
+    self.physicsBody.collisionBitMask = CollisionCategoryBall | CollisionCategoryWall;
+    self.physicsBody.contactTestBitMask = CollisionCategoryBall;
 }
 
 @end
