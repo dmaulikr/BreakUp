@@ -130,10 +130,10 @@ BOOL rightFlipperActive;
         BrickNode *brick = (BrickNode *)secondBody.node;
 //        BallNode *ball = (BallNode *)secondBody.node;
         
-//        if ([brick isDamaged] && brick == BrickTypeA)
-//        {
+        if ([brick isDamaged] && brick.type == BrickTypeA)
+        {
             [brick removeFromParent];
-//        }
+        }
     }
 }
 

@@ -30,9 +30,15 @@
     
     if (type == BrickTypeA)
     {
+        brick = [self spriteNodeWithImageNamed:@"Brick_Double_Hit"];
+        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
+        brick.type = BrickTypeA;
+    }
+    if (type == BrickTypeB)
+    {
         brick = [self spriteNodeWithImageNamed:@"Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
-        brick.type = BrickTypeA;
+        brick.type = BrickTypeB;
     }
 //    brick.name = @"Brick";
 //    brick.position = position;
@@ -52,7 +58,7 @@
 //        [self removeActionForKey:@"animation"]; // removes the animation runAction
         if (self.type == BrickTypeA)
         {
-            textures = @[[SKTexture textureWithImageNamed:@"Broken_Brick"]];
+            textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit_Cracked"]];
         }
 //        else
 //        {

@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSUInteger, BrickType)
 {
-    BrickTypeA
+    BrickTypeA, //Blue Block Takes Two Hits
+    BrickTypeB  //Red Block One Shot
 };
 
 @interface BrickNode : SKSpriteNode
