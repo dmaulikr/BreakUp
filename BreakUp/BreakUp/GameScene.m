@@ -131,6 +131,7 @@ BOOL rightFlipperActive;
         NSLog(@"POW!");
         BrickNode *brick = (BrickNode *)secondBody.node;
 //        BallNode *ball = (BallNode *)secondBody.node;
+        [self addPoints:25];
         
         if ([brick isDamaged] && brick.type == BrickTypeA)
         {
@@ -252,7 +253,7 @@ BOOL rightFlipperActive;
 
 - (void)addPoints:(NSInteger)points
 {
-    HUDNode *hud = (HUDNode *)[self childNodeWithName:@"HUD"];
+    HUDNode *hud = (HUDNode *)[world childNodeWithName:@"HUD"];
     [hud addPoints:points];
 }
 
