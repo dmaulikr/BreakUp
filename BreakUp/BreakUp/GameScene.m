@@ -211,6 +211,7 @@ BOOL rightFlipperActive;
         BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
         
         int xPos = size.width/7.5 * (i+.5);
+        // increment yPos by 20 for another row(size of brick)
         int yPos = 450;
         brickA.position = CGPointMake(xPos, yPos);
 //      float y = self.frame.size.height-200 - brickA.size.height;
@@ -224,12 +225,9 @@ BOOL rightFlipperActive;
         BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
         
         int xPos = size.width/7.5 * (i+.5);
-        int yPos = 450;
+        int yPos = 470;
         brickA.position = CGPointMake(xPos, yPos);
-        //      float y = self.frame.size.height-200 - brickA.size.height;
-        //      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
-        
-        //      brickA.position = CGPointMake(x, y);
+
         [self addChild:brickA];
     }
 }
