@@ -134,6 +134,10 @@ BOOL rightFlipperActive;
         {
             [brick removeFromParent];
         }
+        if (brick.type == BrickTypeB)
+        {
+            [brick removeFromParent];
+        }
     }
 }
 
@@ -224,11 +228,21 @@ BOOL rightFlipperActive;
     {
         BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
         
-        int xPos = size.width/7.5 * (i+.5);
+        int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
         int yPos = 470;
         brickA.position = CGPointMake(xPos, yPos);
 
         [self addChild:brickA];
+    }
+    for (int i = 0; i < 8; i++)
+    {
+        BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+        
+        int xPos = size.width/7.5 * (i+.5);
+        int yPos = 430;
+        brickB.position = CGPointMake(xPos, yPos);
+        
+        [self addChild:brickB];
     }
 }
 
