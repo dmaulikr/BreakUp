@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCC31AF568B9002FB21D /* HUDNode.m */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
 		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
 		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1803BCC21AF568B9002FB21D /* HUDNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDNode.h; sourceTree = "<group>"; };
+		1803BCC31AF568B9002FB21D /* HUDNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDNode.m; sourceTree = "<group>"; };
 		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				18C18E8B1AEF291D00622D72 /* BrickNode.m */,
 				18F01F301AF15E580049A0D4 /* WallNode.h */,
 				18F01F311AF15E580049A0D4 /* WallNode.m */,
+				1803BCC21AF568B9002FB21D /* HUDNode.h */,
+				1803BCC31AF568B9002FB21D /* HUDNode.m */,
 				18C18E901AEFCB0B00622D72 /* Label Nodes */,
 			);
 			name = "Sprite Nodes";
@@ -308,6 +313,7 @@
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
 				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
 				18F01F321AF15E580049A0D4 /* WallNode.m in Sources */,
+				1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */,
 				18C18E7B1AEEC93900622D72 /* BallNode.m in Sources */,
 				18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */,
 				18C18E801AEEDDA000622D72 /* FlipperNode.m in Sources */,
