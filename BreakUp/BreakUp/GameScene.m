@@ -14,6 +14,7 @@
 #import "TapToStartNode.h"
 #import "WallNode.h"
 #import "Utilites.h"
+#import "HUDNode.h"
 
 @interface GameScene ()
 
@@ -50,8 +51,8 @@ BOOL rightFlipperActive;
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
-//    BrickNode *brick = [BrickNode brickAtPosition:CGPointMake(100, 500)];
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
+    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(300, self.frame.size.height-40) inFrame:self.frame];
     
     self.physicsWorld.gravity = CGVectorMake(0, -9.8);
     self.physicsWorld.contactDelegate = self;
@@ -64,13 +65,14 @@ BOOL rightFlipperActive;
     [world addChild:self.leftFlipper];
     [world addChild:self.rightFlipper];
     [world addChild:drain];
-//    [world addChild:brick];
+    [world addChild:hud];
+
+    //Brick row spawning method
     SKAction *spawn = [SKAction runBlock:^{
-        // make this whatever size you want, i'm just using the scene's size
+        // scene's size
         [self addBrickRow:self.size];
     }];
     [self runAction:spawn];
-    
     
 }
 
@@ -126,17 +128,19 @@ BOOL rightFlipperActive;
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryBrick)
     {
-        NSLog(@"BOOM!");
+        NSLog(@"POW!");
         BrickNode *brick = (BrickNode *)secondBody.node;
 //        BallNode *ball = (BallNode *)secondBody.node;
         
         if ([brick isDamaged] && brick.type == BrickTypeA)
         {
             [brick removeFromParent];
+            [self addPoints:250];
         }
         if (brick.type == BrickTypeB)
         {
             [brick removeFromParent];
+            [self addPoints:100];
         }
     }
 }
@@ -244,6 +248,12 @@ BOOL rightFlipperActive;
         
         [self addChild:brickB];
     }
+}
+
+- (void)addPoints:(NSInteger)points
+{
+    HUDNode *hud = (HUDNode *)[self childNodeWithName:@"HUD"];
+    [hud addPoints:points];
 }
 
 @end

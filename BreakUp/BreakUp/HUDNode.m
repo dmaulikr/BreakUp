@@ -10,18 +10,20 @@
 
 @implementation HUDNode
 
+// Considering not having a HUD and just display score at the end
+
 + (instancetype)hudAtPosition:(CGPoint)position inFrame:(CGRect)frame
 {
     HUDNode *hud = [self node];
     hud.position = position;
-    hud.zPosition = 10;
+    hud.zPosition = 999;
     hud.name = @"HUD";
     
     SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
     scoreLabel.name = @"Score";
     scoreLabel.text = @"0";
-    scoreLabel.fontSize = 24;
-    scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
+    scoreLabel.fontSize = 30;
+    scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     [hud addChild:scoreLabel];
     
     return hud;
