@@ -18,6 +18,7 @@
 #import "HUDNode.h"
 
 #import "TapToStartNode.h"
+#import "GameOverNode.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -32,10 +33,12 @@
 @property (nonatomic) AVAudioPlayer *backgroundMusic;
 @property (nonatomic) AVAudioPlayer *gameOverMusic;
 
-@end
+@property (nonatomic) BOOL gameOver;
+@property (nonatomic) BOOL gameOverDisplayed;
+@property (nonatomic) BOOL leftFlipperActive;
+@property (nonatomic) BOOL rightFlipperActive;
 
-BOOL leftFlipperActive;
-BOOL rightFlipperActive;
+@end
 
 @implementation GameScene
 {
@@ -45,8 +48,9 @@ BOOL rightFlipperActive;
 - (void)didMoveToView:(SKView *)view
 {
     // Game mechanics setup
-    leftFlipperActive = NO;
-    rightFlipperActive = NO;
+    self.leftFlipperActive = NO;
+    self.rightFlipperActive = NO;
+    self.gameOver = NO;
     
     /* Setup your scene here */
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
@@ -121,7 +125,7 @@ BOOL rightFlipperActive;
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryFlipperLeft)
     {
-        if (leftFlipperActive)
+        if (self.leftFlipperActive)
         {
             NSLog(@"Left Flip<");
             [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, 50.0)];
@@ -130,7 +134,7 @@ BOOL rightFlipperActive;
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryFlipperRight)
     {
-        if (rightFlipperActive)
+        if (self.rightFlipperActive)
         {
             NSLog(@"Right Flip>");
             [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, 50.0)];
@@ -140,14 +144,14 @@ BOOL rightFlipperActive;
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryDrain)
     {
-        for (SKNode *node in [self children])
-        {
-            [node removeFromParent];
-        }
-        NSLog(@"Drain and Ball");
-        GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
-        [self.view presentScene:scene];
-        
+//        for (SKNode *node in [self children])
+//        {
+//            [node removeFromParent];
+//        }
+//        NSLog(@"Drain and Ball");
+//        GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
+//        [self.view presentScene:scene];
+        self.gameOver = YES;
     }
     // Brick Contact Logic and Brick scoring
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
@@ -174,11 +178,23 @@ BOOL rightFlipperActive;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    if (self.gameOver)
+    {
+        for (SKNode *node in [self children])
+        {
+            [node removeFromParent];
+        }
+        GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:scene];
+        [self.gameOverMusic stop];
+        [self.backgroundMusic stop];
+    }
+    
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
-//    NSLog(@"Touch Loc %f", touchLocation.x);
-    
+    //    NSLog(@"Touch Loc %f", touchLocation.x);
     
     // TAP TO START - Logic and Removal
     if (!self.ball.physicsBody.dynamic)
@@ -188,23 +204,22 @@ BOOL rightFlipperActive;
         [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
     }
     
-
     // Touch on Flippers logic
     if (touchLocation.x > 188)
     {
         NSLog(@"Right Flipper Tapped");
-        NSArray *sequence = @[[SKAction runBlock:^{rightFlipperActive = YES;}],
+        NSArray *sequence = @[[SKAction runBlock:^{self.rightFlipperActive = YES;}],
                               [SKAction rotateToAngle:-45 * M_PI / 180 duration:0.1],
-                              [SKAction runBlock:^{rightFlipperActive = NO;}]];
+                              [SKAction runBlock:^{self.rightFlipperActive = NO;}]];
         
         [self.rightFlipper runAction:[SKAction sequence:sequence]];
     }
     if (touchLocation.x < 188)
     {
         NSLog(@"Left Flipper Tapped");
-        NSArray *sequence = @[[SKAction runBlock:^{leftFlipperActive = YES;}],
+        NSArray *sequence = @[[SKAction runBlock:^{self.leftFlipperActive = YES;}],
                               [SKAction rotateToAngle:+45 * M_PI / 180 duration:0.1],
-                              [SKAction runBlock:^{leftFlipperActive = NO;}]];
+                              [SKAction runBlock:^{self.leftFlipperActive = NO;}]];
         
         [self.leftFlipper runAction:[SKAction sequence:sequence]];
     }
@@ -212,8 +227,6 @@ BOOL rightFlipperActive;
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     if (touchLocation.x > 188)
@@ -233,10 +246,14 @@ BOOL rightFlipperActive;
     
 }
 
-
 - (void)update:(CFTimeInterval)currentTime
 {
     /* Called before each frame is rendered */
+    if(self.gameOver)
+    {
+        [self performGameOver];
+        return;
+    }
 }
 
 #pragma mark - Setup Methods
@@ -249,6 +266,12 @@ BOOL rightFlipperActive;
     self.backgroundMusic.numberOfLoops = -1;
     [self.backgroundMusic prepareToPlay];
     [self.backgroundMusic play];
+    
+    // Gameover sound
+    NSURL *gameOverUrl = [[NSBundle mainBundle] URLForResource:@"DST-Drealing" withExtension:@"mp3"];
+    self.gameOverMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:gameOverUrl error:nil];
+    self.gameOverMusic.numberOfLoops = -1;
+    [self.gameOverMusic prepareToPlay];
 }
 
 #pragma mark - Custom Methods
@@ -295,6 +318,20 @@ BOOL rightFlipperActive;
 {
     HUDNode *hud = (HUDNode *)[world childNodeWithName:@"HUD"];
     [hud addPoints:points];
+}
+
+- (void)performGameOver
+{
+    if(!self.gameOverDisplayed)
+    {
+        GameOverNode *gameOver = [GameOverNode gameOverAtPosition:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidX(self.view.bounds))];
+        [self addChild:gameOver];
+        
+        self.gameOverDisplayed = YES;
+        
+        [self.backgroundMusic stop];
+        [self.gameOverMusic play];
+    }
 }
 
 @end

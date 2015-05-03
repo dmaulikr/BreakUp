@@ -11,6 +11,7 @@
 		1803BCC71AF6AA62002FB21D /* DST-Blam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCC51AF6AA62002FB21D /* DST-Blam.mp3 */; };
 		1803BCCB1AF6AD1C002FB21D /* DST-Drealing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCA1AF6AD1C002FB21D /* DST-Drealing.mp3 */; };
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
+		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
 		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
 		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
@@ -47,6 +48,8 @@
 		1803BCC51AF6AA62002FB21D /* DST-Blam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-Blam.mp3"; sourceTree = "<group>"; };
 		1803BCCA1AF6AD1C002FB21D /* DST-Drealing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-Drealing.mp3"; sourceTree = "<group>"; };
 		1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-GlassView.mp3"; sourceTree = "<group>"; };
+		1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverNode.h; sourceTree = "<group>"; };
+		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
 		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 		18C18E901AEFCB0B00622D72 /* Label Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */,
+				1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */,
 				18C18E8D1AEFCB0600622D72 /* TapToStartNode.h */,
 				18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */,
 			);
@@ -338,6 +343,7 @@
 				18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */,
 				18C18E801AEEDDA000622D72 /* FlipperNode.m in Sources */,
 				18C18E8F1AEFCB0600622D72 /* TapToStartNode.m in Sources */,
+				1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */,
 				18C18E891AEF1D6000622D72 /* Utilites.m in Sources */,
 				18C18E8C1AEF291D00622D72 /* BrickNode.m in Sources */,
 				18C18E4E1AEE9D2C00622D72 /* main.m in Sources */,
