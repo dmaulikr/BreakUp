@@ -7,14 +7,19 @@
 //
 
 #import "GameScene.h"
+#import "Utilites.h"
+
 #import "BallNode.h"
 #import "FlipperNode.h"
-#import "DrainNode.h"
 #import "BrickNode.h"
-#import "TapToStartNode.h"
+
+#import "DrainNode.h"
 #import "WallNode.h"
-#import "Utilites.h"
 #import "HUDNode.h"
+
+#import "TapToStartNode.h"
+
+#import <AVFoundation/AVFoundation.h>
 
 @interface GameScene ()
 
@@ -22,6 +27,10 @@
 @property (nonatomic)BallNode *ball;
 @property (nonatomic)FlipperNode *rightFlipper;
 @property (nonatomic)FlipperNode *leftFlipper;
+
+// Sounds
+@property (nonatomic) AVAudioPlayer *backgroundMusic;
+@property (nonatomic) AVAudioPlayer *gameOverMusic;
 
 @end
 
@@ -35,6 +44,7 @@ BOOL rightFlipperActive;
 
 - (void)didMoveToView:(SKView *)view
 {
+    // Game mechanics setup
     leftFlipperActive = NO;
     rightFlipperActive = NO;
     
@@ -42,20 +52,33 @@ BOOL rightFlipperActive;
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     
+    // Some sort of scene...
     world = [SKNode node];
     [self addChild:world];
     
-    self.ball = [BallNode ballAtPosition:CGPointMake(CGRectGetMidX(self.frame), 100)];
-    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-167, 80)];
-    self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+330, self.leftFlipper.position.y)];
-    DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
-    WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
-    WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
-    self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
-    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(CGRectGetMidX(self.frame)+100, self.frame.size.height-40) inFrame:self.frame];
-    
+    // Setup physics
     self.physicsWorld.gravity = CGVectorMake(0, -9.8);
     self.physicsWorld.contactDelegate = self;
+    
+    // Add ball
+    self.ball = [BallNode ballAtPosition:CGPointMake(CGRectGetMidX(self.frame), 100)];
+    
+    // Add flippers
+    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-167, 80)];
+    self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+330, self.leftFlipper.position.y)];
+    
+    // Add Drain/Ground
+    DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
+    
+    // Add Walls
+    WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
+    WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
+    
+    // Add taptostart label
+    self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
+    
+    // Add score HUD
+    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(CGRectGetMidX(self.frame)+100, self.frame.size.height-40) inFrame:self.frame];
     
     [world addChild:self.ball];
     [world addChild:self.tapToStart];
@@ -66,6 +89,8 @@ BOOL rightFlipperActive;
     [world addChild:self.rightFlipper];
     [world addChild:drain];
     [world addChild:hud];
+    
+    [self setupSounds];
 
     //Brick row spawning method
     SKAction *spawn = [SKAction runBlock:^{
@@ -213,6 +238,20 @@ BOOL rightFlipperActive;
 {
     /* Called before each frame is rendered */
 }
+
+#pragma mark - Setup Methods
+
+- (void)setupSounds
+{
+    // Background sound
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"DST-Blam" withExtension:@"mp3"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.backgroundMusic.numberOfLoops = -1;
+    [self.backgroundMusic prepareToPlay];
+    [self.backgroundMusic play];
+}
+
+#pragma mark - Custom Methods
 
 - (void)addBrickRow:(CGSize)size
 {
