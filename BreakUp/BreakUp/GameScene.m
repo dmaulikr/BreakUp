@@ -45,14 +45,14 @@ BOOL rightFlipperActive;
     world = [SKNode node];
     [self addChild:world];
     
-    self.ball = [BallNode ballAtPosition:CGPointMake(200, 100)];
-    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-168, 80)];
+    self.ball = [BallNode ballAtPosition:CGPointMake(CGRectGetMidX(self.frame), 100)];
+    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-167, 80)];
     self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+330, self.leftFlipper.position.y)];
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
-    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(300, self.frame.size.height-40) inFrame:self.frame];
+    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(CGRectGetMidX(self.frame)+100, self.frame.size.height-40) inFrame:self.frame];
     
     self.physicsWorld.gravity = CGVectorMake(0, -9.8);
     self.physicsWorld.contactDelegate = self;
@@ -159,7 +159,7 @@ BOOL rightFlipperActive;
     {
         [self.tapToStart removeFromParent];
         self.ball.physicsBody.dynamic = YES;
-        [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:100.0])];
+        [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
     }
     
 
