@@ -33,7 +33,7 @@ BOOL rightFlipperActive;
     SKNode *world;
 }
 
--(void)didMoveToView:(SKView *)view
+- (void)didMoveToView:(SKView *)view
 {
     leftFlipperActive = NO;
     rightFlipperActive = NO;
@@ -76,7 +76,7 @@ BOOL rightFlipperActive;
     
 }
 
--(void)didBeginContact:(SKPhysicsContact *)contact
+- (void)didBeginContact:(SKPhysicsContact *)contact
 {
     NSLog(@"Contact!");
     SKPhysicsBody *firstBody;
@@ -124,7 +124,7 @@ BOOL rightFlipperActive;
         [self.view presentScene:scene];
         
     }
-    // Brick Contact Logic
+    // Brick Contact Logic and Brick scoring
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryBrick)
     {
@@ -133,7 +133,8 @@ BOOL rightFlipperActive;
 //        BallNode *ball = (BallNode *)secondBody.node;
         [self addPoints:25];
         
-        if ([brick isDamaged] && brick.type == BrickTypeA)
+        if ([brick isDamaged] &&
+            brick.type == BrickTypeA)
         {
             [brick removeFromParent];
             [self addPoints:250];
@@ -146,7 +147,7 @@ BOOL rightFlipperActive;
     }
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
@@ -184,7 +185,7 @@ BOOL rightFlipperActive;
     }
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     
@@ -208,7 +209,7 @@ BOOL rightFlipperActive;
 }
 
 
--(void)update:(CFTimeInterval)currentTime
+- (void)update:(CFTimeInterval)currentTime
 {
     /* Called before each frame is rendered */
 }
