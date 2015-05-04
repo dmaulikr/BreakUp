@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+static const int BrickDescentSpeed = 0.1;
 
 typedef NS_OPTIONS(uint32_t, CollisionCategory)
 {

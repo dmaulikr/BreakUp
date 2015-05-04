@@ -29,6 +29,12 @@
 @property (nonatomic)FlipperNode *rightFlipper;
 @property (nonatomic)FlipperNode *leftFlipper;
 
+// Time
+@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+@property (nonatomic) NSTimeInterval timeSinceBrickAdded;
+@property (nonatomic) NSTimeInterval totalGameTime;
+@property (nonatomic) NSTimeInterval addBrickTimeInterval;
+
 // Sounds
 @property (nonatomic) AVAudioPlayer *backgroundMusic;
 @property (nonatomic) AVAudioPlayer *gameOverMusic;
@@ -48,6 +54,10 @@
 - (void)didMoveToView:(SKView *)view
 {
     // Game mechanics setup
+    self.lastUpdateTimeInterval = 0;
+    self.timeSinceBrickAdded = 0;
+    self.totalGameTime = 0;
+    self.addBrickTimeInterval = 30.0;
     self.leftFlipperActive = NO;
     self.rightFlipperActive = NO;
     self.gameOver = NO;
@@ -204,11 +214,7 @@
         self.ball.physicsBody.dynamic = YES;
         [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
         
-        SKAction *spawn = [SKAction runBlock:^{
-            // scene's size
-            [self addBrickRow:self.size];
-        }];
-        [self runAction:spawn];
+        [self spawnBrickRows];
     }
     
     // Touch on Flippers logic
@@ -262,6 +268,36 @@
         [self performGameOver];
         return;
     }
+    if (self.lastUpdateTimeInterval)
+    {
+        self.timeSinceBrickAdded += currentTime - self.lastUpdateTimeInterval;
+        self.totalGameTime += currentTime - self.lastUpdateTimeInterval;
+    }
+    if (self.timeSinceBrickAdded > self.addBrickTimeInterval)
+    {
+        [self spawnBrickRows];
+        self.timeSinceBrickAdded = 0;
+    }
+    
+    self.lastUpdateTimeInterval = currentTime;
+    
+    // Difficulty increase by game time
+    if (self.totalGameTime > 480)
+    {
+        self.addBrickTimeInterval = 6;
+    }
+    else if (self.totalGameTime > 240)
+    {
+        self.addBrickTimeInterval = 12;
+    }
+    else if (self.totalGameTime > 120)
+    {
+        self.addBrickTimeInterval = 18;
+    }
+    else if (self.totalGameTime > 30)
+    {
+        self.addBrickTimeInterval = 21;
+    }
 }
 
 #pragma mark - Setup Methods
@@ -293,7 +329,7 @@
         int xPos = size.width/7.5 * (i+.5);
         // increment yPos by 20 for another row(size of brick)
         int yPos = 450;
-        brickA.position = CGPointMake(xPos-10, yPos);
+        brickA.position = CGPointMake(xPos-10, yPos+220);
 //      float y = self.frame.size.height-200 - brickA.size.height;
 //      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
     
@@ -312,7 +348,7 @@
         
         int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
         int yPos = 470;
-        brickA.position = CGPointMake(xPos-10, yPos);
+        brickA.position = CGPointMake(xPos-10, yPos+220);
         
         [BrickNode moveBricks:brickA];
         [self addChild:brickA];
@@ -323,12 +359,21 @@
         
         int xPos = size.width/7.5 * (i+.5);
         int yPos = 430;
-        brickB.position = CGPointMake(xPos-10, yPos);
+        brickB.position = CGPointMake(xPos-10, yPos+220);
         
         [BrickNode moveBricks:brickB];
         [self addChild:brickB];
     }
 //    [self moveBricks:BrickTypeA];
+}
+
+- (void)spawnBrickRows
+{
+    SKAction *spawn = [SKAction runBlock:^{
+        // scene's size
+        [self addBrickRow:self.size];
+    }];
+    [self runAction:spawn];
 }
 
 - (void)addPoints:(NSInteger)points
