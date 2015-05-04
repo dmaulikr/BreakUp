@@ -21,18 +21,32 @@
     hud.name = @"HUD";
     hud.lives = MaxLives;
     
+    SKSpriteNode *lastLifeBar;
+    
     // Add pinball life icon
     SKSpriteNode *pinballLife = [SKSpriteNode spriteNodeWithImageNamed:@"Ball"];
     pinballLife.position = CGPointMake(position.x, -10);
     
     
     // Add initial lives
-    for(int i = 0; i < hud.lives; i++) {
-        SKSpriteNode *lifeBar = [SKSpriteNode spriteNodeWithImageNamed:@"Pinball"];
-        lifeBar.name = [NSString stringWithFormat:@"Life_%d", i+1];
-        lifeBar.position = CGPointMake(pinballLife.position.x + pinballLife.size.width + (10 * i), pinballLife.position.y);
+    for (int i = 0; i < hud.lives; i++)
+    {
+        SKSpriteNode *lifeBar = [SKSpriteNode spriteNodeWithImageNamed:@"Ball"];
+        lifeBar.name = [NSString stringWithFormat:@"Life%d", i+1];
+//        lifeBar.position = CGPointMake(pinballLife.position.x + pinballLife.size.width + (10 * i), pinballLife.position.y);
         
         [hud addChild:lifeBar];
+        
+        if (lastLifeBar == nil)
+        {
+            lifeBar.position = CGPointMake(pinballLife.position.x, pinballLife.position.y);
+        }
+        else
+        {
+            lifeBar.position = CGPointMake(lastLifeBar.position.x+10, pinballLife.position.y);
+        }
+        
+        lastLifeBar = lifeBar;
     }
     
     // Add score

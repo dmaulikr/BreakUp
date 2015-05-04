@@ -130,7 +130,7 @@
         if (self.leftFlipperActive)
         {
             NSLog(@"Left Flip<");
-            [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, 50.0)];
+            [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, ApplyFlipperVelocity)];
         }
     }
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
@@ -139,7 +139,7 @@
         if (self.rightFlipperActive)
         {
             NSLog(@"Right Flip>");
-            [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, 50.0)];
+            [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, ApplyFlipperVelocity)];
         }
     }
     // Game restart on Ball/Drain Contact
@@ -151,7 +151,8 @@
         [self loseLife];
         if (!self.gameOver)
         {
-            self.ball.position = CGPointMake(CGRectGetMidX(self.frame), 100);
+            SKNode *ball = [self childNodeWithName:@"Pinball"];
+            ball.position = CGPointMake(CGRectGetMidX(self.frame), 100);
         }
     }
     // Game restart on Brick/Drain Contact

@@ -10,6 +10,7 @@
 
 static const int BrickDescentSpeed = 0.1;
 static const int MaxLives = 3;
+static const int ApplyFlipperVelocity = 50;
 
 typedef NS_OPTIONS(uint32_t, CollisionCategory)
 {
