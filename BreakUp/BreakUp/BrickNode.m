@@ -48,6 +48,17 @@
     return brick;
 }
 
++ (instancetype)moveBricks:(BrickNode *)brick
+{
+//    BrickNode *brick;
+    NSArray *sequence = @[[SKAction waitForDuration:0.5],
+                          [SKAction moveByX:0 y:-20 duration:0.1]];
+    SKAction *repeatMove = [SKAction repeatActionForever:[SKAction sequence:sequence]];
+    
+    [brick runAction:repeatMove];
+    return brick;
+}
+
 
 -(BOOL)isDamaged
 {
@@ -79,10 +90,10 @@
 {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.affectedByGravity = NO;
-    self.physicsBody.dynamic = NO;
+    self.physicsBody.dynamic = YES;
     self.physicsBody.categoryBitMask = CollisionCategoryBrick;
-    self.physicsBody.collisionBitMask = CollisionCategoryBall | CollisionCategoryWall;
-    self.physicsBody.contactTestBitMask = CollisionCategoryBall;
+    self.physicsBody.collisionBitMask = 0;
+    self.physicsBody.contactTestBitMask = CollisionCategoryBall | CollisionCategoryDrain;
 }
 
 @end

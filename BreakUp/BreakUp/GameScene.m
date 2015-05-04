@@ -96,18 +96,17 @@
     
     [self setupSounds];
 
-    //Brick row spawning method
+    // Brick row spawning method
     SKAction *spawn = [SKAction runBlock:^{
         // scene's size
         [self addBrickRow:self.size];
     }];
     [self runAction:spawn];
-    
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
-    NSLog(@"Contact!");
+//    NSLog(@"Contact!");
     SKPhysicsBody *firstBody;
     SKPhysicsBody *secondBody;
     
@@ -121,7 +120,7 @@
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
-    //Velocity from flipper flip
+    // Velocity from flipper flip
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryFlipperLeft)
     {
@@ -140,17 +139,17 @@
             [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, 50.0)];
         }
     }
-    //Game restart on Drain Contact
+    // Game restart on Ball/Drain Contact
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryDrain)
     {
-//        for (SKNode *node in [self children])
-//        {
-//            [node removeFromParent];
-//        }
-//        NSLog(@"Drain and Ball");
-//        GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
-//        [self.view presentScene:scene];
+        self.gameOver = YES;
+    }
+    // Game restart on Brick/Drain Contact
+    if (firstBody.categoryBitMask == CollisionCategoryDrain &&
+        secondBody.categoryBitMask == CollisionCategoryBrick)
+    {
+        NSLog(@"Bricks have drained");
         self.gameOver = YES;
     }
     // Brick Contact Logic and Brick scoring
@@ -162,12 +161,14 @@
 //        BallNode *ball = (BallNode *)secondBody.node;
         [self addPoints:25];
         
+        // blue double hit brick
         if ([brick isDamaged] &&
             brick.type == BrickTypeA)
         {
             [brick removeFromParent];
             [self addPoints:250];
         }
+        // red single hit brick
         if (brick.type == BrickTypeB)
         {
             [brick removeFromParent];
@@ -224,6 +225,7 @@
         [self.leftFlipper runAction:[SKAction sequence:sequence]];
     }
 }
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -290,6 +292,12 @@
 //      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
     
 //      brickA.position = CGPointMake(x, y);
+//        NSArray *sequence = @[[SKAction waitForDuration:3],
+//                              [SKAction moveByX:0 y:-20 duration:0.1]];
+//        SKAction *repeatMove = [SKAction repeatActionForever:[SKAction sequence:sequence]];
+//        
+//        [brickA runAction:repeatMove];
+        [BrickNode moveBricks:brickA];
         [self addChild:brickA];
     }
     for (int i = 0; i < 8; i++)
@@ -312,6 +320,7 @@
         
         [self addChild:brickB];
     }
+//    [self moveBricks:BrickTypeA];
 }
 
 - (void)addPoints:(NSInteger)points

@@ -29,7 +29,7 @@
     self.physicsBody.dynamic = NO;
     self.physicsBody.categoryBitMask = CollisionCategoryDrain;
     self.physicsBody.collisionBitMask = 0;
-    self.physicsBody.contactTestBitMask = CollisionCategoryBall;
+    self.physicsBody.contactTestBitMask = CollisionCategoryBall | CollisionCategoryBrick;
 }
 
 @end

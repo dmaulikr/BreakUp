@@ -28,7 +28,7 @@
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = NO;
     self.physicsBody.categoryBitMask = CollisionCategoryWall;
-    self.physicsBody.collisionBitMask = CollisionCategoryBall;
+    self.physicsBody.collisionBitMask = 0;
     self.physicsBody.contactTestBitMask = CollisionCategoryBall;
 }
 
