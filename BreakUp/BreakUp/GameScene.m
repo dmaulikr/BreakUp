@@ -57,7 +57,7 @@
     self.lastUpdateTimeInterval = 0;
     self.timeSinceBrickAdded = 0;
     self.totalGameTime = 0;
-    self.addBrickTimeInterval = 30.0;
+    self.addBrickTimeInterval = 40.0;
     self.leftFlipperActive = NO;
     self.rightFlipperActive = NO;
     self.gameOver = NO;
@@ -160,7 +160,9 @@
         secondBody.categoryBitMask == CollisionCategoryBrick)
     {
         NSLog(@"Bricks have drained");
-        self.gameOver = YES;
+//        self.gameOver = YES;
+        [self addPoints:-100];
+        
     }
     // Brick Contact Logic and Brick scoring
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
@@ -294,7 +296,7 @@
     {
         self.addBrickTimeInterval = 18;
     }
-    else if (self.totalGameTime > 30)
+    else if (self.totalGameTime > 50)
     {
         self.addBrickTimeInterval = 21;
     }
@@ -322,14 +324,15 @@
 
 - (void)addBrickRow:(CGSize)size
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 6; i++)
     {
         BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
         
         int xPos = size.width/7.5 * (i+.5);
         // increment yPos by 20 for another row(size of brick)
         int yPos = 450;
-        brickA.position = CGPointMake(xPos-10, yPos+220);
+//        brickA.position = CGPointMake(xPos+44, yPos+220);
+        brickA.position = CGPointMake(CGRectGetMidX(self.frame), yPos);
 //      float y = self.frame.size.height-200 - brickA.size.height;
 //      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
     
