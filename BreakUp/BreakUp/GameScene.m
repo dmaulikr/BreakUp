@@ -85,8 +85,8 @@
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
     
     // Add Walls
-    WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame), 300)];
-    WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame), 300)];
+    WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame)-10, 300)];
+    WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame)+10, 300)];
     
     // Add taptostart label
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
@@ -105,13 +105,6 @@
     [world addChild:hud];
     
     [self setupSounds];
-
-    // Brick row spawning method
-//    SKAction *spawn = [SKAction runBlock:^{
-//        // scene's size
-//        [self addBrickRow:self.size];
-//    }];
-//    [self runAction:spawn];
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
@@ -161,7 +154,11 @@
     {
         NSLog(@"Bricks have drained");
 //        self.gameOver = YES;
-        [self addPoints:-100];
+        if (!self.gameOver)
+        {
+            [self addPoints:-100];
+        }
+        
         
     }
     // Brick Contact Logic and Brick scoring
@@ -330,18 +327,10 @@
         
         int xPos = size.width/7.5 * (i+.5);
         // increment yPos by 20 for another row(size of brick)
-        int yPos = 450;
+        int yPos = 670;
 //        brickA.position = CGPointMake(xPos+44, yPos+220);
-        brickA.position = CGPointMake(CGRectGetMidX(self.frame), yPos);
-//      float y = self.frame.size.height-200 - brickA.size.height;
-//      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
-    
-//      brickA.position = CGPointMake(x, y);
-//        NSArray *sequence = @[[SKAction waitForDuration:3],
-//                              [SKAction moveByX:0 y:-20 duration:0.1]];
-//        SKAction *repeatMove = [SKAction repeatActionForever:[SKAction sequence:sequence]];
-//        
-//        [brickA runAction:repeatMove];
+        brickA.position = CGPointMake(xPos-10, yPos);
+        
         [BrickNode moveBricks:brickA];
         [self addChild:brickA];
     }
@@ -350,8 +339,8 @@
         BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
         
         int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-        int yPos = 470;
-        brickA.position = CGPointMake(xPos-10, yPos+220);
+        int yPos = 690;
+        brickA.position = CGPointMake(xPos-10, yPos);
         
         [BrickNode moveBricks:brickA];
         [self addChild:brickA];
@@ -361,13 +350,12 @@
         BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
         
         int xPos = size.width/7.5 * (i+.5);
-        int yPos = 430;
-        brickB.position = CGPointMake(xPos-10, yPos+220);
+        int yPos = 650;
+        brickB.position = CGPointMake(xPos-10, yPos);
         
         [BrickNode moveBricks:brickB];
         [self addChild:brickB];
     }
-//    [self moveBricks:BrickTypeA];
 }
 
 - (void)spawnBrickRows
