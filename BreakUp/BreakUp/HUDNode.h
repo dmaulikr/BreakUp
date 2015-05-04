@@ -11,9 +11,11 @@
 @interface HUDNode : SKNode
 
 @property (nonatomic) NSInteger score;
+@property (nonatomic) NSInteger lives;
 
 + (instancetype)hudAtPosition:(CGPoint)position inFrame:(CGRect)frame;
 
 - (void)addPoints:(NSInteger)points;
+- (BOOL)loseLife;
 
 @end

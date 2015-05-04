@@ -92,7 +92,7 @@
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
     
     // Add score HUD
-    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(CGRectGetMidX(self.frame)+100, self.frame.size.height-40) inFrame:self.frame];
+    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-40) inFrame:self.frame];
     
     [world addChild:self.ball];
     [world addChild:self.tapToStart];
@@ -146,7 +146,13 @@
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryDrain)
     {
-        self.gameOver = YES;
+        NSLog(@"BALL/DRAIN contact");
+//        self.gameOver = YES;
+        [self loseLife];
+        if (!self.gameOver)
+        {
+            self.ball.position = CGPointMake(CGRectGetMidX(self.frame), 100);
+        }
     }
     // Game restart on Brick/Drain Contact
     if (firstBody.categoryBitMask == CollisionCategoryDrain &&
@@ -203,8 +209,6 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
-    
-    //    NSLog(@"Touch Loc %f", touchLocation.x);
     
     // TAP TO START - Logic and Removal
     if (!self.ball.physicsBody.dynamic)
@@ -371,6 +375,12 @@
 {
     HUDNode *hud = (HUDNode *)[world childNodeWithName:@"HUD"];
     [hud addPoints:points];
+}
+
+-(void)loseLife
+{
+    HUDNode *hud = (HUDNode *)[self childNodeWithName:@"HUD"];
+    self.gameOver = [hud loseLife];
 }
 
 - (void)performGameOver
