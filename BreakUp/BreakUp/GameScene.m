@@ -97,11 +97,11 @@
     [self setupSounds];
 
     // Brick row spawning method
-    SKAction *spawn = [SKAction runBlock:^{
-        // scene's size
-        [self addBrickRow:self.size];
-    }];
-    [self runAction:spawn];
+//    SKAction *spawn = [SKAction runBlock:^{
+//        // scene's size
+//        [self addBrickRow:self.size];
+//    }];
+//    [self runAction:spawn];
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
@@ -203,6 +203,12 @@
         [self.tapToStart removeFromParent];
         self.ball.physicsBody.dynamic = YES;
         [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
+        
+        SKAction *spawn = [SKAction runBlock:^{
+            // scene's size
+            [self addBrickRow:self.size];
+        }];
+        [self runAction:spawn];
     }
     
     // Touch on Flippers logic
@@ -287,7 +293,7 @@
         int xPos = size.width/7.5 * (i+.5);
         // increment yPos by 20 for another row(size of brick)
         int yPos = 450;
-        brickA.position = CGPointMake(xPos, yPos);
+        brickA.position = CGPointMake(xPos-10, yPos);
 //      float y = self.frame.size.height-200 - brickA.size.height;
 //      float x = [Utilites randomWithMin:10+brickA.size.width max:self.frame.size.width-brickA.size.width-10];
     
@@ -306,8 +312,9 @@
         
         int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
         int yPos = 470;
-        brickA.position = CGPointMake(xPos, yPos);
-
+        brickA.position = CGPointMake(xPos-10, yPos);
+        
+        [BrickNode moveBricks:brickA];
         [self addChild:brickA];
     }
     for (int i = 0; i < 8; i++)
@@ -316,8 +323,9 @@
         
         int xPos = size.width/7.5 * (i+.5);
         int yPos = 430;
-        brickB.position = CGPointMake(xPos, yPos);
+        brickB.position = CGPointMake(xPos-10, yPos);
         
+        [BrickNode moveBricks:brickB];
         [self addChild:brickB];
     }
 //    [self moveBricks:BrickTypeA];
