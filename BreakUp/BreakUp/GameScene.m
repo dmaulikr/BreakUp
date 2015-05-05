@@ -384,7 +384,7 @@
 
 -(void)loseLife
 {
-    HUDNode *hud = (HUDNode *)[self childNodeWithName:@"HUD"];
+    HUDNode *hud = (HUDNode *)[world childNodeWithName:@"HUD"];
     self.gameOver = [hud loseLife];
 }
 
