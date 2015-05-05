@@ -41,21 +41,6 @@
     CGPathAddLineToPoint(path, NULL, 4 - offsetX, 72 - offsetY);
     CGPathAddLineToPoint(path, NULL, 8 - offsetX, 76 - offsetY);
     
-//    CGPathMoveToPoint(path, NULL, 24 - offsetX, 60 - offsetY);       Fat left flipper
-//    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 48 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 146 - offsetX, 46 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 44 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 151 - offsetX, 39 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 34 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 151 - offsetX, 30 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 149 - offsetX, 23 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 20 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 25 - offsetX, 14 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 39 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 48 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 54 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 19 - offsetX, 58 - offsetY);
-    
     CGPathCloseSubpath(path);
     
     flipperLeft.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
@@ -88,20 +73,6 @@
     CGPathAddLineToPoint(path, NULL, 163 - offsetX, 71 - offsetY);
     CGPathAddLineToPoint(path, NULL, 160 - offsetX, 75 - offsetY);
     CGPathAddLineToPoint(path, NULL, 156 - offsetX, 77 - offsetY);
-    
-//    CGPathMoveToPoint(path, NULL, 138 - offsetX, 60 - offsetY);  // fat right flipper
-//    CGPathAddLineToPoint(path, NULL, 20 - offsetX, 47 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 43 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 40 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 12 - offsetX, 33 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 13 - offsetX, 29 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 15 - offsetX, 24 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 21 - offsetX, 20 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 138 - offsetX, 14 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 37 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 152 - offsetX, 46 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 148 - offsetX, 54 - offsetY);
-//    CGPathAddLineToPoint(path, NULL, 144 - offsetX, 58 - offsetY);
     
     CGPathCloseSubpath(path);
     

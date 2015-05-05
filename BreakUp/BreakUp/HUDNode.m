@@ -25,7 +25,7 @@
     
     // Add pinball life icon
     SKSpriteNode *pinballLife = [SKSpriteNode spriteNodeWithImageNamed:@"Ball"];
-    pinballLife.position = CGPointMake(position.x, -10);
+    pinballLife.position = CGPointMake(position.x+20, -10);
     
     
     // Add initial lives

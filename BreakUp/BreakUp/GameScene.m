@@ -149,10 +149,14 @@
         NSLog(@"BALL/DRAIN contact");
 //        self.gameOver = YES;
         [self loseLife];
+        
+        // Moves the ball after a *life is lost
         if (!self.gameOver)
         {
-            SKNode *ball = [self childNodeWithName:@"Pinball"];
-            ball.position = CGPointMake(CGRectGetMidX(self.frame), 100);
+//            self.ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+100);
+            SKAction *moveBall = [SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame)+[Utilites randomWithMin:-50.0 max:50.0], CGRectGetMidY(self.frame)) duration:0.1];
+
+            [self.ball runAction:moveBall];
         }
     }
     // Game restart on Brick/Drain Contact
@@ -277,7 +281,7 @@
         self.timeSinceBrickAdded += currentTime - self.lastUpdateTimeInterval;
         self.totalGameTime += currentTime - self.lastUpdateTimeInterval;
     }
-    if (self.timeSinceBrickAdded > self.addBrickTimeInterval)
+    if (self.timeSinceBrickAdded > self.addBrickTimeInterval && !self.gameOver)
     {
         [self spawnBrickRows];
         self.timeSinceBrickAdded = 0;
