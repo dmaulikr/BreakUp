@@ -57,7 +57,7 @@
     self.lastUpdateTimeInterval = 0;
     self.timeSinceBrickAdded = 0;
     self.totalGameTime = 0;
-    self.addBrickTimeInterval = 40.0;
+    self.addBrickTimeInterval = 30.0;
     self.leftFlipperActive = NO;
     self.rightFlipperActive = NO;
     self.gameOver = NO;
@@ -78,8 +78,8 @@
     self.ball = [BallNode ballAtPosition:CGPointMake(CGRectGetMidX(self.frame), 100)];
     
     // Add flippers
-    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-167, 80)];
-    self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+330, self.leftFlipper.position.y)];
+    self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-180, 80)];
+    self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+358, self.leftFlipper.position.y)];
     
     // Add Drain/Ground
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
@@ -106,6 +106,8 @@
     
     [self setupSounds];
 }
+
+#pragma mark - Contact and Touchs
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
@@ -163,12 +165,15 @@
     if (firstBody.categoryBitMask == CollisionCategoryDrain &&
         secondBody.categoryBitMask == CollisionCategoryBrick)
     {
+        BrickNode *brick = (BrickNode *)secondBody.node;
         NSLog(@"Bricks have drained");
-//        self.gameOver = YES;
+        
+        // Remove points per brick
         if (!self.gameOver)
         {
             [self addPoints:-100];
         }
+        [brick removeFromParent];
         
         
     }
@@ -330,7 +335,7 @@
 
 - (void)addBrickRow:(CGSize)size
 {
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 8; i++)
     {
         BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
         

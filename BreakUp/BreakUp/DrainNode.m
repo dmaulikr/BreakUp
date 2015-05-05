@@ -15,7 +15,7 @@
 {
     DrainNode *drain = [self spriteNodeWithColor:[SKColor greenColor] size:size];
     drain.name = @"Drain";
-    drain.position = CGPointMake(size.width/2, size.height/2);//size.height/2-70
+    drain.position = CGPointMake(size.width/2, size.height/2-70);//size.height/2-70
     drain.zPosition = 7;
     
     [drain setupPhysicsBody];
