@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCC31AF568B9002FB21D /* HUDNode.m */; };
-		1803BCC71AF6AA62002FB21D /* DST-Blam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCC51AF6AA62002FB21D /* DST-Blam.mp3 */; };
-		1803BCCB1AF6AD1C002FB21D /* DST-Drealing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCA1AF6AD1C002FB21D /* DST-Drealing.mp3 */; };
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
@@ -46,8 +44,6 @@
 /* Begin PBXFileReference section */
 		1803BCC21AF568B9002FB21D /* HUDNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDNode.h; sourceTree = "<group>"; };
 		1803BCC31AF568B9002FB21D /* HUDNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDNode.m; sourceTree = "<group>"; };
-		1803BCC51AF6AA62002FB21D /* DST-Blam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-Blam.mp3"; sourceTree = "<group>"; };
-		1803BCCA1AF6AD1C002FB21D /* DST-Drealing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-Drealing.mp3"; sourceTree = "<group>"; };
 		1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-GlassView.mp3"; sourceTree = "<group>"; };
 		1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverNode.h; sourceTree = "<group>"; };
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
@@ -109,9 +105,7 @@
 		1803BCC91AF6AA77002FB21D /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				1803BCCA1AF6AD1C002FB21D /* DST-Drealing.mp3 */,
 				1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */,
-				1803BCC51AF6AA62002FB21D /* DST-Blam.mp3 */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -314,8 +308,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1803BCC71AF6AA62002FB21D /* DST-Blam.mp3 in Resources */,
-				1803BCCB1AF6AD1C002FB21D /* DST-Drealing.mp3 in Resources */,
 				18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */,
 				18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */,
 				1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */,

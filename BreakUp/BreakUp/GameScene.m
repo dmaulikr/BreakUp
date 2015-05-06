@@ -60,7 +60,7 @@
     self.lastUpdateTimeInterval = 0;
     self.timeSinceBrickAdded = 0;
     self.totalGameTime = 0;
-    self.addBrickTimeInterval = 25.0;
+    self.addBrickTimeInterval = 20.0;
     self.leftFlipperActive = NO;
     self.rightFlipperActive = NO;
     self.gameOver = NO;
@@ -109,6 +109,11 @@
     [world addChild:self.rightFlipper];
     [world addChild:drain];
     [world addChild:hud];
+    
+//    if (self.ball.position.y > self.leftFlipper.position.y)
+//    {
+//        self.ball.physicsBody.restitution = 1.0;
+//    }
     
     [self setupSounds];
     
@@ -194,7 +199,7 @@
         // Moves the ball after a *life is lost
         if (!self.gameOver)
         {
-            SKAction *moveBall = [SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame)+[Utilites randomWithMin:-50.0 max:50.0], CGRectGetMidY(self.frame)) duration:0.1];
+            SKAction *moveBall = [SKAction moveTo:CGPointMake(CGRectGetMaxX(self.frame)+[Utilites randomWithMin:-50.0 max:-15.0], CGRectGetMidY(self.frame)) duration:0.1];
             [self.ball runAction:moveBall];
         }
     }
@@ -338,19 +343,19 @@
     // Difficulty increase by game time
     if (self.totalGameTime > 480)
     {
-        self.addBrickTimeInterval = 6;
+        self.addBrickTimeInterval = 8;
     }
     else if (self.totalGameTime > 240)
     {
-        self.addBrickTimeInterval = 12;
+        self.addBrickTimeInterval = 14;
     }
     else if (self.totalGameTime > 120)
     {
-        self.addBrickTimeInterval = 18;
+        self.addBrickTimeInterval = 16;
     }
     else if (self.totalGameTime > 50)
     {
-        self.addBrickTimeInterval = 21;
+        self.addBrickTimeInterval = 18;
     }
 }
 
@@ -359,17 +364,17 @@
 - (void)setupSounds
 {
     // Background sound
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"DST-Blam" withExtension:@"mp3"];
-    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    self.backgroundMusic.numberOfLoops = -1;
-    [self.backgroundMusic prepareToPlay];
-    [self.backgroundMusic play];
-    
-    // Gameover sound
-    NSURL *gameOverUrl = [[NSBundle mainBundle] URLForResource:@"DST-Drealing" withExtension:@"mp3"];
-    self.gameOverMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:gameOverUrl error:nil];
-    self.gameOverMusic.numberOfLoops = -1;
-    [self.gameOverMusic prepareToPlay];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"" withExtension:@"mp3"];
+//    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+//    self.backgroundMusic.numberOfLoops = -1;
+//    [self.backgroundMusic prepareToPlay];
+//    [self.backgroundMusic play];
+//    
+//    // Gameover sound
+//    NSURL *gameOverUrl = [[NSBundle mainBundle] URLForResource:@"" withExtension:@"mp3"];
+//    self.gameOverMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:gameOverUrl error:nil];
+//    self.gameOverMusic.numberOfLoops = -1;
+//    [self.gameOverMusic prepareToPlay];
 }
 
 #pragma mark - Custom Methods

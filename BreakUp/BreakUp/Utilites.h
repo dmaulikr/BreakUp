@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 static const int BrickDurationSpeed = 0.001;
-static const int BrickDropSpeed = -0.7;
+static const float BrickDropSpeed = -0.7;
 static const int MaxLives = 3;
 static const int ApplyFlipperVelocity = 30;
 

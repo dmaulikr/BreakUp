@@ -22,6 +22,10 @@
 //    ball.yScale = 0.8;
     
     [ball setupPhysicsBody];
+    if (ball.position.y > 200)
+    {
+        ball.physicsBody.restitution = 1.0;
+    }
     
     return ball;
 }
@@ -38,6 +42,7 @@
 //    self.physicsBody.restitution = 1.0; // BOUNCE
     self.physicsBody.density = 1.5;
 //    self.physicsBody.linearDamping = 1.5;
+    
 }
 
 
