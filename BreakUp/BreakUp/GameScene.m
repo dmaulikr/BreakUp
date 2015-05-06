@@ -85,7 +85,8 @@
     
     // Add flippers
     self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-175, 80)];
-    self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+348, self.leftFlipper.position.y)];
+    self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+348,
+                                                                        self.leftFlipper.position.y)];
     
     // Add Drain/Ground
     DrainNode *drain = [DrainNode drainWithSize:CGSizeMake(self.frame.size.width, 5)];
@@ -128,7 +129,8 @@
             [self.leftFlipper removeFromParent];
             [self.rightFlipper removeFromParent];
             self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-170, 80)];
-            self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+338, self.leftFlipper.position.y)];
+            self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+338,
+                                                                                self.leftFlipper.position.y)];
             
             [world addChild:self.leftFlipper];
             [world addChild:self.rightFlipper];
@@ -142,9 +144,9 @@
         else if (self.screenSize.height == 736)
         {
             FlipperGuardNode *leftGuard = [FlipperGuardNode leftFlipperGuardAtPosition:CGPointMake(self.leftFlipper.position.x-15,
-                                                                                                   self.leftFlipper.position.y+3)];
+                                                                                                   self.leftFlipper.position.y+4)];
             FlipperGuardNode *rightGuard = [FlipperGuardNode rightFlipperGuardAtPosition:CGPointMake(self.rightFlipper.position.x+15,
-                                                                                                     self.rightFlipper.position.y+3)];
+                                                                                                     self.rightFlipper.position.y+4)];
             [world addChild:leftGuard];
             [world addChild:rightGuard];
         }

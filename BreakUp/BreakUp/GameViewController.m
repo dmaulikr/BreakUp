@@ -37,8 +37,8 @@
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
-    skView.showsNodeCount = NO;
-    skView.showsPhysics = YES;
+    skView.showsNodeCount = YES;
+    skView.showsPhysics = NO;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     

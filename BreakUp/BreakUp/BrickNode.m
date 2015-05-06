@@ -94,6 +94,7 @@
     self.physicsBody.categoryBitMask = CollisionCategoryBrick;
     self.physicsBody.collisionBitMask = 0;
     self.physicsBody.contactTestBitMask = CollisionCategoryBall | CollisionCategoryDrain;
+    self.physicsBody.restitution = 0.5;
 }
 
 @end
