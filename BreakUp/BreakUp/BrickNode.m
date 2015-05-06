@@ -52,7 +52,7 @@
 {
 //    BrickNode *brick;
     NSArray *sequence = @[[SKAction waitForDuration:0.0],
-                          [SKAction moveByX:0 y:-1 duration:BrickDescentSpeed]];
+                          [SKAction moveByX:0 y:BrickDropSpeed duration:BrickDurationSpeed]];
     SKAction *repeatMove = [SKAction repeatActionForever:[SKAction sequence:sequence]];
     
     [brick runAction:repeatMove];
