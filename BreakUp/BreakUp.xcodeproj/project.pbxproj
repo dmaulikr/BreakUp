@@ -12,6 +12,7 @@
 		1803BCCB1AF6AD1C002FB21D /* DST-Drealing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCA1AF6AD1C002FB21D /* DST-Drealing.mp3 */; };
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
+		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
 		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
 		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
@@ -50,6 +51,8 @@
 		1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-GlassView.mp3"; sourceTree = "<group>"; };
 		1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverNode.h; sourceTree = "<group>"; };
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
+		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
+		1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipperGuardNode.m; sourceTree = "<group>"; };
 		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				18C18E8B1AEF291D00622D72 /* BrickNode.m */,
 				18F01F301AF15E580049A0D4 /* WallNode.h */,
 				18F01F311AF15E580049A0D4 /* WallNode.m */,
+				1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */,
+				1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */,
 				1803BCC21AF568B9002FB21D /* HUDNode.h */,
 				1803BCC31AF568B9002FB21D /* HUDNode.m */,
 				18C18E901AEFCB0B00622D72 /* Label Nodes */,
@@ -335,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
+				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
 				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
 				18F01F321AF15E580049A0D4 /* WallNode.m in Sources */,

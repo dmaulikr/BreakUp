@@ -62,6 +62,8 @@
     self.rightFlipperActive = NO;
     self.gameOver = NO;
     
+    
+    
     /* Setup your scene here */
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -105,6 +107,39 @@
     [world addChild:hud];
     
     [self setupSounds];
+    
+#pragma mark - Size Classes
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        // iPhone 5/5s/5c
+        if (result.height == 568)
+        {
+            SKSpriteNode *test = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(self.frame.size.width, 5)];
+            test.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+10);
+            [world addChild:test];
+        }
+        // iPhone 6
+        else if (result.height == 667)
+        {
+            SKSpriteNode *test = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(self.frame.size.width, 5)];
+            test.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+            [world addChild:test];
+        }
+        // iPhone 6+
+        else if (result.height == 736)
+        {
+            SKSpriteNode *test = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(self.frame.size.width, 5)];
+            test.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-10);
+            [world addChild:test];
+            
+            SKSpriteNode *leftGuard = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(50, 5)];
+            leftGuard.position = CGPointMake(self.leftFlipper.position.x, self.leftFlipper.position.y+5);
+            leftGuard.zRotation = M_PI/-6.0f;
+            [world addChild:leftGuard];
+        }
+    }
 }
 
 #pragma mark - Contact and Touchs
@@ -131,7 +166,7 @@
     {
         if (self.leftFlipperActive)
         {
-            NSLog(@"Left Flip<");
+//            NSLog(@"Left Flip<");
             [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, ApplyFlipperVelocity)];
         }
     }
@@ -140,7 +175,7 @@
     {
         if (self.rightFlipperActive)
         {
-            NSLog(@"Right Flip>");
+//            NSLog(@"Right Flip>");
             [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, ApplyFlipperVelocity)];
         }
     }
@@ -155,9 +190,7 @@
         // Moves the ball after a *life is lost
         if (!self.gameOver)
         {
-//            self.ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+100);
             SKAction *moveBall = [SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame)+[Utilites randomWithMin:-50.0 max:50.0], CGRectGetMidY(self.frame)) duration:0.1];
-
             [self.ball runAction:moveBall];
         }
     }
@@ -184,21 +217,25 @@
         NSLog(@"POW!");
         BrickNode *brick = (BrickNode *)secondBody.node;
 //        BallNode *ball = (BallNode *)secondBody.node;
-        [self addPoints:25];
+        if (!self.gameOver)
+        {
+            [self addPoints:25];
+            
+            // blue double hit brick
+            if ([brick isDamaged] &&
+                brick.type == BrickTypeA)
+            {
+                [brick removeFromParent];
+                [self addPoints:250];
+            }
+            // red single hit brick
+            if (brick.type == BrickTypeB)
+            {
+                [brick removeFromParent];
+                [self addPoints:100];
+            }
+        }
         
-        // blue double hit brick
-        if ([brick isDamaged] &&
-            brick.type == BrickTypeA)
-        {
-            [brick removeFromParent];
-            [self addPoints:250];
-        }
-        // red single hit brick
-        if (brick.type == BrickTypeB)
-        {
-            [brick removeFromParent];
-            [self addPoints:100];
-        }
     }
 }
 
@@ -233,7 +270,7 @@
     // Touch on Flippers logic
     if (touchLocation.x > 188)
     {
-        NSLog(@"Right Flipper Tapped");
+//        NSLog(@"Right Flipper Tapped");
         NSArray *sequence = @[[SKAction runBlock:^{self.rightFlipperActive = YES;}],
                               [SKAction rotateToAngle:-45 * M_PI / 180 duration:0.1],
                               [SKAction runBlock:^{self.rightFlipperActive = NO;}]];
@@ -242,7 +279,7 @@
     }
     if (touchLocation.x < 188)
     {
-        NSLog(@"Left Flipper Tapped");
+//        NSLog(@"Left Flipper Tapped");
         NSArray *sequence = @[[SKAction runBlock:^{self.leftFlipperActive = YES;}],
                               [SKAction rotateToAngle:+45 * M_PI / 180 duration:0.1],
                               [SKAction runBlock:^{self.leftFlipperActive = NO;}]];
@@ -258,14 +295,14 @@
     CGPoint touchLocation = [touch locationInNode:self];
     if (touchLocation.x > 188)
     {
-        NSLog(@"Right Flipper Tapped");
+//        NSLog(@"Right Flipper Tapped");
         NSArray *sequence = @[[SKAction rotateToAngle:0 * M_PI / 180 duration:0.1]];
         
         [self.rightFlipper runAction:[SKAction sequence:sequence]];
     }
     if (touchLocation.x < 188)
     {
-        NSLog(@"Left Flipper Tapped");
+//        NSLog(@"Left Flipper Tapped");
         NSArray *sequence = @[[SKAction rotateToAngle:0 * M_PI / 180 duration:0.1]];
         
         [self.leftFlipper runAction:[SKAction sequence:sequence]];
