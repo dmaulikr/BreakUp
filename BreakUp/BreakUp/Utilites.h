@@ -14,12 +14,13 @@ static const int ApplyFlipperVelocity = 50;
 
 typedef NS_OPTIONS(uint32_t, CollisionCategory)
 {
-    CollisionCategoryBall         = 0x1 << 0,   // 0000?
-    CollisionCategoryDrain        = 0x1 << 1,   // 0010?
-    CollisionCategoryBrick        = 0x1 << 2,   // 0100?
-    CollisionCategoryFlipperLeft  = 0x1 << 3,   // 1000?
-    CollisionCategoryFlipperRight = 0x1 << 4,
-    CollisionCategoryWall         = 0x1 << 5
+    CollisionCategoryBall               = 0x1 << 0,   // 0000?
+    CollisionCategoryDrain              = 0x1 << 1,   // 0010?
+    CollisionCategoryBrick              = 0x1 << 2,   // 0100?
+    CollisionCategoryFlipperLeft        = 0x1 << 3,   // 1000?
+    CollisionCategoryFlipperRight       = 0x1 << 4,
+    CollisionCategoryWall               = 0x1 << 5,
+    CollisionCategoryFlipperGuard       = 0x1 << 6
 };
 
 

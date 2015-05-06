@@ -15,6 +15,7 @@
 
 #import "DrainNode.h"
 #import "WallNode.h"
+#import "FlipperGuardNode.h"
 #import "HUDNode.h"
 
 #import "TapToStartNode.h"
@@ -28,6 +29,8 @@
 @property (nonatomic)BallNode *ball;
 @property (nonatomic)FlipperNode *rightFlipper;
 @property (nonatomic)FlipperNode *leftFlipper;
+
+@property (nonatomic) CGSize screenSize;
 
 // Time
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
@@ -61,6 +64,7 @@
     self.leftFlipperActive = NO;
     self.rightFlipperActive = NO;
     self.gameOver = NO;
+    self.screenSize = [[UIScreen mainScreen] bounds].size;
     
     
     
@@ -112,32 +116,26 @@
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
-        CGSize result = [[UIScreen mainScreen] bounds].size;
+//        CGSize result = [[UIScreen mainScreen] bounds].size;
         // iPhone 5/5s/5c
-        if (result.height == 568)
+        if (self.screenSize.height == 568)
         {
-            SKSpriteNode *test = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(self.frame.size.width, 5)];
-            test.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+10);
-            [world addChild:test];
+
         }
         // iPhone 6
-        else if (result.height == 667)
+        else if (self.screenSize.height == 667)
         {
-            SKSpriteNode *test = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(self.frame.size.width, 5)];
-            test.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-            [world addChild:test];
+
         }
         // iPhone 6+
-        else if (result.height == 736)
+        else if (self.screenSize.height == 736)
         {
-            SKSpriteNode *test = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(self.frame.size.width, 5)];
-            test.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-10);
-            [world addChild:test];
-            
-            SKSpriteNode *leftGuard = [SKSpriteNode spriteNodeWithColor:[SKColor blueColor] size:CGSizeMake(50, 5)];
-            leftGuard.position = CGPointMake(self.leftFlipper.position.x, self.leftFlipper.position.y+5);
-            leftGuard.zRotation = M_PI/-6.0f;
+            FlipperGuardNode *leftGuard = [FlipperGuardNode leftFlipperGuardAtPosition:CGPointMake(self.leftFlipper.position.x-15,
+                                                                                                   self.leftFlipper.position.y+3)];
+            FlipperGuardNode *rightGuard = [FlipperGuardNode rightFlipperGuardAtPosition:CGPointMake(self.rightFlipper.position.x+15,
+                                                                                                     self.rightFlipper.position.y+3)];
             [world addChild:leftGuard];
+            [world addChild:rightGuard];
         }
     }
 }
@@ -370,50 +368,105 @@
 
 #pragma mark - Custom Methods
 
-- (void)addBrickRow:(CGSize)size
+- (void)addBrickRowWithSize:(CGSize)size AndScreenSize:(CGSize)screenSize
 {
-    for (int i = 0; i < 8; i++)
+//    int xPos;
+//    int yPos;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
-        BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-        
-        int xPos = size.width/7.5 * (i+.5);
-        // increment yPos by 20 for another row(size of brick)
-        int yPos = 670;
-//        brickA.position = CGPointMake(xPos+44, yPos+220);
-        brickA.position = CGPointMake(xPos-10, yPos);
-        
-        [BrickNode moveBricks:brickA];
-        [self addChild:brickA];
+        screenSize = [[UIScreen mainScreen] bounds].size;
+        // iPhone 5/5s/5c RCL: spacing issues
+        if (screenSize.height == 568)
+        {
+            
+        }
+        // iPhone 6 RCL: correct spacing
+        else if (screenSize.height == 667)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                
+                int xPos = size.width/7.5 * (i+.5);
+                // increment yPos by 20 for another row(size of brick)
+                int yPos = 670;
+                //        brickA.position = CGPointMake(xPos+44, yPos+220);
+                brickA.position = CGPointMake(xPos-10, yPos);
+                
+                [BrickNode moveBricks:brickA];
+                [self addChild:brickA];
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                
+                int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
+                int yPos = 690;
+                brickA.position = CGPointMake(xPos-10, yPos);
+                
+                [BrickNode moveBricks:brickA];
+                [self addChild:brickA];
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+                
+                int xPos = size.width/7.5 * (i+.5);
+                int yPos = 650;
+                brickB.position = CGPointMake(xPos-10, yPos);
+                
+                [BrickNode moveBricks:brickB];
+                [self addChild:brickB];
+            }
+        }
+        // iPhone 6+ RCL: spacing issues
+        else if (screenSize.height == 736)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                
+                int xPos = size.width/7.5 * (i+.5);
+                // increment yPos by 20 for another row(size of brick)
+                int yPos = 670;
+                //        brickA.position = CGPointMake(xPos+44, yPos+220);
+                brickA.position = CGPointMake(xPos-10, yPos);
+                
+                [BrickNode moveBricks:brickA];
+                [self addChild:brickA];
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                
+                int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
+                int yPos = 690;
+                brickA.position = CGPointMake(xPos-10, yPos);
+                
+                [BrickNode moveBricks:brickA];
+                [self addChild:brickA];
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+                
+                int xPos = size.width/7.5 * (i+.5);
+                int yPos = 650;
+                brickB.position = CGPointMake(xPos-10, yPos);
+                
+                [BrickNode moveBricks:brickB];
+                [self addChild:brickB];
+            }
+        }
     }
-    for (int i = 0; i < 8; i++)
-    {
-        BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-        
-        int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-        int yPos = 690;
-        brickA.position = CGPointMake(xPos-10, yPos);
-        
-        [BrickNode moveBricks:brickA];
-        [self addChild:brickA];
-    }
-    for (int i = 0; i < 8; i++)
-    {
-        BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
-        
-        int xPos = size.width/7.5 * (i+.5);
-        int yPos = 650;
-        brickB.position = CGPointMake(xPos-10, yPos);
-        
-        [BrickNode moveBricks:brickB];
-        [self addChild:brickB];
-    }
+    
 }
 
 - (void)spawnBrickRows
 {
     SKAction *spawn = [SKAction runBlock:^{
         // scene's size
-        [self addBrickRow:self.size];
+        [self addBrickRowWithSize:self.size AndScreenSize:(self.screenSize)];
     }];
     [self runAction:spawn];
 }

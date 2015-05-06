@@ -10,4 +10,7 @@
 
 @interface FlipperGuardNode : SKSpriteNode
 
++ (instancetype)leftFlipperGuardAtPosition:(CGPoint)position;
++ (instancetype)rightFlipperGuardAtPosition:(CGPoint)position;
+
 @end

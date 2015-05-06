@@ -32,8 +32,8 @@
 //    self.physicsBody.affectedByGravity = YES;
     self.physicsBody.dynamic = NO;
     self.physicsBody.categoryBitMask = CollisionCategoryBall;
-    self.physicsBody.collisionBitMask = CollisionCategoryFlipperLeft | CollisionCategoryFlipperRight | CollisionCategoryBrick | CollisionCategoryWall;
-    self.physicsBody.contactTestBitMask = CollisionCategoryDrain | CollisionCategoryBrick | CollisionCategoryFlipperLeft | CollisionCategoryFlipperRight | ~CollisionCategoryWall;
+    self.physicsBody.collisionBitMask = CollisionCategoryFlipperLeft | CollisionCategoryFlipperRight | CollisionCategoryBrick | CollisionCategoryWall | CollisionCategoryFlipperGuard;
+    self.physicsBody.contactTestBitMask = CollisionCategoryDrain | CollisionCategoryBrick | CollisionCategoryFlipperLeft | ~CollisionCategoryWall;
     self.physicsBody.usesPreciseCollisionDetection = YES;
 //    self.physicsBody.restitution = 1.5; // BOUNCE
     self.physicsBody.density = 1.5;
