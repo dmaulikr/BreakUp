@@ -15,12 +15,27 @@
 // Add a new brick row with different color for patterns...
 + (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color
 {
-    BrickNode *brick = [BrickNode spriteNodeWithImageNamed:@"Brick"];
+    BrickNode *brick;
+    brick.damaged = NO;
+    
+//    NSArray *textures;
+    if (type == BrickTypeA)
+    {
+        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
+//        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
+        brick.type = BrickTypeA;
+    }
+    if (type == BrickTypeB)
+    {
+        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
+//        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
+        brick.type = BrickTypeB;
+    }
 //    brick.name = @"Brick";
 //    brick.position = position;
-//    brick.zPosition = 8;
-//    
-//    [brick setupPhysicsBody];
+    brick.zPosition = 8;
+//
+    [brick setupPhysicsBody];
     return brick;
 }
 
@@ -71,7 +86,7 @@
 //        [self removeActionForKey:@"animation"]; // removes the animation runAction
         if (self.type == BrickTypeA)
         {
-            textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit_Cracked"]];
+            textures = @[[SKTexture textureWithImageNamed:@"Damaged_Texture"]];
         }
 //        else
 //        {

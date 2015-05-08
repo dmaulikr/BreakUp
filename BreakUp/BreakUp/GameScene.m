@@ -433,9 +433,12 @@
         // iPhone 6 RCL: correct spacing
         else if (screenSize.height == 667)
         {
+            SKColor *red = [SKColor redColor];
+            SKColor *green = [SKColor greenColor];
+            
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA AndBrickColor:red];
                 
                 int xPos = size.width/7.5 * (i+.5);
                 // increment yPos by 20 for another row(size of brick)
@@ -448,7 +451,7 @@
             }
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA AndBrickColor:red];
                 
                 int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
                 int yPos = rowTwoHeight;
@@ -459,7 +462,7 @@
             }
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB AndBrickColor:green];
                 
                 int xPos = size.width/7.5 * (i+.5);
                 int yPos = rowOneHeight;
@@ -468,6 +471,41 @@
                 [BrickNode moveBricks:brickB];
                 [self addChild:brickB];
             }
+//            for (int i = 0; i < 8; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/7.5 * (i+.5);
+//                // increment yPos by 20 for another row(size of brick)
+//                int yPos = rowThreeHeight;
+//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < 8; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
+//                int yPos = rowTwoHeight;
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < 8; i++)
+//            {
+//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+//                
+//                int xPos = size.width/7.5 * (i+.5);
+//                int yPos = rowOneHeight;
+//                brickB.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickB];
+//                [self addChild:brickB];
+//            }
         }
         // iPhone 6+ RCL: close nuff...added an extra brick
         else if (screenSize.height == 736)
