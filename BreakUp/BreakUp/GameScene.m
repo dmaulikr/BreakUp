@@ -77,7 +77,7 @@
     [self addChild:world];
     
     // Setup physics
-    self.physicsWorld.gravity = CGVectorMake(0, -9.8);
+    self.physicsWorld.gravity = CGVectorMake(0, -7.8); // -9.8
     self.physicsWorld.contactDelegate = self;
     
     // Add ball
@@ -237,7 +237,7 @@
                 brick.type == BrickTypeA)
             {
                 [brick removeFromParent];
-                [self addPoints:250];
+                [self addPoints:150];
             }
             // red single hit brick
             if (brick.type == BrickTypeB)

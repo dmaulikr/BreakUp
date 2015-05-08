@@ -11,16 +11,18 @@
 
 @implementation BrickNode
 
-//+ (instancetype)brickAtPosition:(CGPoint)position
-//{
-//    BrickNode *brick = [BrickNode spriteNodeWithImageNamed:@"Brick"];
+
+// Add a new brick row with different color for patterns...
++ (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color
+{
+    BrickNode *brick = [BrickNode spriteNodeWithImageNamed:@"Brick"];
 //    brick.name = @"Brick";
 //    brick.position = position;
 //    brick.zPosition = 8;
 //    
 //    [brick setupPhysicsBody];
-//    return brick;
-//}
+    return brick;
+}
 
 + (instancetype)brickRowOfType:(BrickType)type
 {
