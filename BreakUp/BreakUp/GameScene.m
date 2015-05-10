@@ -435,6 +435,18 @@
         {
             SKColor *red = [SKColor redColor];
             SKColor *green = [SKColor greenColor];
+            SKColor *darkGray = [SKColor darkGrayColor];
+            SKColor *cyan = [SKColor cyanColor];
+            SKColor *white = [SKColor whiteColor];
+            SKColor *yellow = [SKColor yellowColor];
+            SKColor *orange = [SKColor orangeColor];
+            SKColor *purple = [SKColor purpleColor];
+            SKColor *gray = [SKColor grayColor];
+            SKColor *lightGray = [SKColor lightGrayColor];
+            SKColor *black = [SKColor blackColor];
+            SKColor *blue = [SKColor blueColor];
+            SKColor *brown = [SKColor brownColor];
+            SKColor *magenta = [SKColor magentaColor];
             
             for (int i = 0; i < 8; i++)
             {

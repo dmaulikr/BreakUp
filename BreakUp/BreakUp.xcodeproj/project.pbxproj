@@ -11,6 +11,7 @@
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
+		1866FD7B1AFEC09D00C25ACE /* LightNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD7A1AFEC09D00C25ACE /* LightNode.m */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
 		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
 		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
@@ -49,6 +50,8 @@
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
 		1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipperGuardNode.m; sourceTree = "<group>"; };
+		1866FD791AFEC09D00C25ACE /* LightNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightNode.h; sourceTree = "<group>"; };
+		1866FD7A1AFEC09D00C25ACE /* LightNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightNode.m; sourceTree = "<group>"; };
 		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */,
 				1803BCC21AF568B9002FB21D /* HUDNode.h */,
 				1803BCC31AF568B9002FB21D /* HUDNode.m */,
+				1866FD791AFEC09D00C25ACE /* LightNode.h */,
+				1866FD7A1AFEC09D00C25ACE /* LightNode.m */,
 				18C18E901AEFCB0B00622D72 /* Label Nodes */,
 			);
 			name = "Sprite Nodes";
@@ -335,6 +340,7 @@
 				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
 				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
+				1866FD7B1AFEC09D00C25ACE /* LightNode.m in Sources */,
 				18F01F321AF15E580049A0D4 /* WallNode.m in Sources */,
 				1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */,
 				18C18E7B1AEEC93900622D72 /* BallNode.m in Sources */,
