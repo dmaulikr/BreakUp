@@ -238,12 +238,14 @@
             {
                 [brick removeFromParent];
                 [self addPoints:150];
+                [self explosionAtPosition:contact.contactPoint];
             }
             // red single hit brick
             if (brick.type == BrickTypeB)
             {
                 [brick removeFromParent];
                 [self addPoints:100];
+                [self explosionAtPosition:contact.contactPoint];
             }
         }
         
@@ -595,6 +597,18 @@
         [self.backgroundMusic stop];
         [self.gameOverMusic play];
     }
+}
+
+- (void)explosionAtPosition:(CGPoint)position
+{
+    NSString *explosionPath = [[NSBundle mainBundle] pathForResource:@"BrickExplosion" ofType:@"sks"]; // particle effect
+    SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
+    explosion.position = position;
+    [self addChild:explosion];
+    
+    [explosion runAction:[SKAction waitForDuration:0.2] completion:^{
+        [explosion removeFromParent];
+    }];
 }
 
 @end

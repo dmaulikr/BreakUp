@@ -22,10 +22,10 @@
 //    ball.yScale = 0.8;
     
     [ball setupPhysicsBody];
-    if (ball.position.y > 200)
-    {
-        ball.physicsBody.restitution = 1.0;
-    }
+//    if (ball.position.y > 200)
+//    {
+//        ball.physicsBody.restitution = 1.0;
+//    }
     
     return ball;
 }
