@@ -12,7 +12,8 @@
 
 + (instancetype)lightOnSprite:(SKSpriteNode *)sprite
 {
-    SKLightNode *light = [SKLightNode ]
+//    SKLightNode *light = [SKLightNode ]
+    return sprite;
 }
 
 @end

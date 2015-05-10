@@ -12,6 +12,8 @@
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
 		1866FD7B1AFEC09D00C25ACE /* LightNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD7A1AFEC09D00C25ACE /* LightNode.m */; };
+		1866FD821AFFDFFE00C25ACE /* BrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* BrickExplosion.sks */; };
+		1866FD831AFFDFFE00C25ACE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD811AFFDFFE00C25ACE /* spark.png */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
 		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
 		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
@@ -52,6 +54,8 @@
 		1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipperGuardNode.m; sourceTree = "<group>"; };
 		1866FD791AFEC09D00C25ACE /* LightNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightNode.h; sourceTree = "<group>"; };
 		1866FD7A1AFEC09D00C25ACE /* LightNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightNode.m; sourceTree = "<group>"; };
+		1866FD801AFFDFFE00C25ACE /* BrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrickExplosion.sks; sourceTree = "<group>"; };
+		1866FD811AFFDFFE00C25ACE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +115,15 @@
 				1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */,
 			);
 			name = Sounds;
+			sourceTree = "<group>";
+		};
+		1866FD841AFFE47300C25ACE /* Particle Effects */ = {
+			isa = PBXGroup;
+			children = (
+				1866FD801AFFDFFE00C25ACE /* BrickExplosion.sks */,
+				1866FD811AFFDFFE00C25ACE /* spark.png */,
+			);
+			name = "Particle Effects";
 			sourceTree = "<group>";
 		};
 		18C18E3F1AEE9D2C00622D72 = {
@@ -194,6 +207,7 @@
 				1866FD791AFEC09D00C25ACE /* LightNode.h */,
 				1866FD7A1AFEC09D00C25ACE /* LightNode.m */,
 				18C18E901AEFCB0B00622D72 /* Label Nodes */,
+				1866FD841AFFE47300C25ACE /* Particle Effects */,
 			);
 			name = "Sprite Nodes";
 			sourceTree = "<group>";
@@ -315,8 +329,10 @@
 			files = (
 				18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */,
 				18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */,
+				1866FD821AFFDFFE00C25ACE /* BrickExplosion.sks in Resources */,
 				1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */,
 				18C18E5E1AEE9D2D00622D72 /* Images.xcassets in Resources */,
+				1866FD831AFFDFFE00C25ACE /* spark.png in Resources */,
 				18C18E561AEE9D2C00622D72 /* GameScene.sks in Resources */,
 				18C18E5C1AEE9D2C00622D72 /* Main.storyboard in Resources */,
 			);
