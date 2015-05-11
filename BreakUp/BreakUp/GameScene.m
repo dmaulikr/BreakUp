@@ -12,6 +12,7 @@
 #import "BallNode.h"
 #import "FlipperNode.h"
 #import "BrickNode.h"
+#import "TrailingSpriteNode.h"
 
 #import "DrainNode.h"
 #import "WallNode.h"
@@ -230,21 +231,33 @@
 //        BallNode *ball = (BallNode *)secondBody.node;
         if (!self.gameOver)
         {
-            [self addPoints:25];
+            if (brick.position.y > 500)
+            {
+                [self addPoints:30];
+            }
+            [self addPoints:10];
             
             // blue double hit brick
             if ([brick isDamaged] &&
                 brick.type == BrickTypeA)
             {
                 [brick removeFromParent];
-                [self addPoints:150];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:200];
+                }
+                [self addPoints:100];
                 [self explosionAtPosition:contact.contactPoint];
             }
             // red single hit brick
             if (brick.type == BrickTypeB)
             {
                 [brick removeFromParent];
-                [self addPoints:100];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
                 [self explosionAtPosition:contact.contactPoint];
             }
         }
@@ -414,6 +427,7 @@
             for (int i = 0; i < 7; i++)
             {
                 BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                
                 
                 int xPos = size.width/6.5 * (i+.5);
                 // increment yPos by 20 for another row(size of brick)

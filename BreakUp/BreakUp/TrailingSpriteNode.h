@@ -10,4 +10,6 @@
 
 @interface TrailingSpriteNode : SKSpriteNode
 
++ (instancetype)trailingSpriteAtPosition:(CGPoint)position;
+
 @end
