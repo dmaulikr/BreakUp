@@ -45,6 +45,7 @@
 + (instancetype)brickRowOfType:(BrickType)type
 {
     BrickNode *brick;
+    BrickNode *trailSprite1;
     brick.damaged = NO;
     SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
 
@@ -54,21 +55,35 @@
     {
         brick = [self spriteNodeWithImageNamed:@"Red_Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Red_Brick"]];
+        trailSprite1 = [self spriteNodeWithImageNamed:@"Red_Brick"];
         brick.type = BrickTypeA;
     }
     if (type == BrickTypeB)
     {
         brick = [self spriteNodeWithImageNamed:@"Pink_Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Pink_Brick"]];
+        trailSprite1 = [self spriteNodeWithImageNamed:@"Pink_Brick"];
         brick.type = BrickTypeB;
     }
 //    brick.name = @"Brick";
 //    brick.position = position;
     brick.zPosition = 8;
    
+    brick.name = @"Brick";
     [brick setupPhysicsBody];
     brick.shader = bloom;
     brick.blendMode = SKBlendModeAdd;
+//    SKNode *sprite = [world childNodeWithName:@"Brick"];
+    
+//    trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Red_Brick"];
+    trailSprite1.zRotation = brick.zRotation;
+    trailSprite1.blendMode = SKBlendModeAdd;
+    trailSprite1.position = CGPointMake(brick.position.x, brick.position.y -2);
+    
+    [brick addChild:trailSprite1];
+    
+    [trailSprite1 runAction:[SKAction sequence:@[[SKAction fadeAlphaTo:0 duration:1.0],
+                                                 [SKAction removeFromParent]]]];
     return brick;
 }
 
@@ -82,6 +97,11 @@
     [brick runAction:repeatMove];
     return brick;
 }
+
+//+ (instancetype)addTrailingSprite:(NSString *)texture AndWorld:(SKNode *)world
+//{
+//    
+//}
 
 
 -(BOOL)isDamaged       // RCL: find out how to animate this over the colored physics body

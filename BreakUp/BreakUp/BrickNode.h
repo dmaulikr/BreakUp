@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, BrickType)
 
 + (instancetype)brickRowOfType:(BrickType)type;
 + (instancetype)moveBricks:(BrickNode *)brick;
+//+ (instancetype)addTrailingSprite:(NSString *)texture AndWorld:(SKNode *)world AndBrick:(BrickNode *)brick;
 //+ (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color;
 
 @end
