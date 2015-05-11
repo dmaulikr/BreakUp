@@ -16,6 +16,7 @@
 + (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color
 {
     BrickNode *brick;
+    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
     brick.damaged = NO;
     
 //    NSArray *textures;
@@ -34,8 +35,10 @@
 //    brick.name = @"Brick";
 //    brick.position = position;
     brick.zPosition = 8;
-//
+
+    
     [brick setupPhysicsBody];
+    brick.shader = bloom;
     return brick;
 }
 
@@ -43,6 +46,8 @@
 {
     BrickNode *brick;
     brick.damaged = NO;
+    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
+
     NSArray *textures;
     
     if (type == BrickTypeA)
@@ -62,6 +67,7 @@
     brick.zPosition = 8;
    
     [brick setupPhysicsBody];
+    brick.shader = bloom;
     return brick;
 }
 
