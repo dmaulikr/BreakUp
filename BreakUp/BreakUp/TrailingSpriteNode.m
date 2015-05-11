@@ -13,11 +13,11 @@
 + (instancetype)trailingSpriteAtPosition:(CGPoint)position
 {
     
-    TrailingSpriteNode *trailSprite = [self spriteNodeWithImageNamed:@"YourTexture"];
+    TrailingSpriteNode *trailSprite = [self spriteNodeWithImageNamed:@"Red_Brick"];
 //    trailSprite1.zRotation = sprite.zRotation;
     trailSprite.blendMode = SKBlendModeAdd;
     trailSprite.position = position;
-    [trailSprite runAction:[SKAction sequence:@[[SKAction fadeAlphaTo:0 duration:0.1],
+    [trailSprite runAction:[SKAction sequence:@[[SKAction fadeAlphaTo:0 duration:1.0],
                                                  [SKAction removeFromParent]]]];
     
     return trailSprite;

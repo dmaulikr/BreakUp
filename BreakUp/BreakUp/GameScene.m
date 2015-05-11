@@ -237,7 +237,6 @@
             }
             [self addPoints:10];
             
-            // blue double hit brick
             if ([brick isDamaged] &&
                 brick.type == BrickTypeA)
             {
@@ -249,7 +248,7 @@
                 [self addPoints:100];
                 [self explosionAtPosition:contact.contactPoint];
             }
-            // red single hit brick
+            
             if (brick.type == BrickTypeB)
             {
                 [brick removeFromParent];
@@ -374,7 +373,7 @@
     {
         self.addBrickTimeInterval = 18;
     }
-    if (self.lastUpdateTimeInterval == 0 || currentTime - self.lastUpdateTimeInterval > 0.025) {
+    if (self.timeSinceBrickAdded == 0 || currentTime - self.timeSinceBrickAdded > 0.025) {
         SKNode *sprite = [world childNodeWithName:@"Brick"];
         
         SKSpriteNode *trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Red_Brick"];
@@ -434,10 +433,13 @@
                 int yPos = rowThreeHeight-30;
                 //        brickA.position = CGPointMake(xPos+44, yPos+220);
                 brickA.position = CGPointMake(xPos-10, yPos);
-                
+                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
+                trailSprite.zRotation = brickA.zRotation;
+                trailSprite.zPosition = 9;
                 
                 [BrickNode moveBricks:brickA];
                 [self addChild:brickA];
+                [self addChild:trailSprite];
             }
             for (int i = 0; i < 7; i++)
             {
