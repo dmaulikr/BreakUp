@@ -66,7 +66,7 @@
     self.gameOver = NO;
     self.screenSize = [[UIScreen mainScreen] bounds].size;
     
-    SKShader *pattern = [SKShader shaderWithSource:@""];
+//    SKShader *pattern = [SKShader shaderWithSource:@""];
     
     /* Setup your scene here */
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
@@ -435,28 +435,13 @@
         // iPhone 6 RCL: correct spacing
         else if (screenSize.height == 667)
         {
-            SKColor *red = [SKColor redColor];
-            SKColor *green = [SKColor greenColor];
-            SKColor *darkGray = [SKColor darkGrayColor];
-            SKColor *cyan = [SKColor cyanColor];
-            SKColor *white = [SKColor whiteColor];
-            SKColor *yellow = [SKColor yellowColor];
-            SKColor *orange = [SKColor orangeColor];
-            SKColor *purple = [SKColor purpleColor];
-            SKColor *gray = [SKColor grayColor];
-            SKColor *lightGray = [SKColor lightGrayColor];
-            SKColor *black = [SKColor blackColor];
-            SKColor *blue = [SKColor blueColor];
-            SKColor *brown = [SKColor brownColor];
-            SKColor *magenta = [SKColor magentaColor];
-            
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA AndBrickColor:red];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
                 
                 int xPos = size.width/7.5 * (i+.5);
                 // increment yPos by 20 for another row(size of brick)
-                int yPos = rowThreeHeight;
+                int yPos = rowThreeHeight-70;
                 //        brickA.position = CGPointMake(xPos+44, yPos+220);
                 brickA.position = CGPointMake(xPos-10, yPos);
                 
@@ -465,10 +450,10 @@
             }
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA AndBrickColor:red];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
                 
                 int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-                int yPos = rowTwoHeight;
+                int yPos = rowTwoHeight-70;
                 brickA.position = CGPointMake(xPos-10, yPos);
                 
                 [BrickNode moveBricks:brickA];
@@ -476,50 +461,15 @@
             }
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB AndBrickColor:green];
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
                 
                 int xPos = size.width/7.5 * (i+.5);
-                int yPos = rowOneHeight;
+                int yPos = rowOneHeight-70;
                 brickB.position = CGPointMake(xPos-10, yPos);
                 
                 [BrickNode moveBricks:brickB];
                 [self addChild:brickB];
             }
-//            for (int i = 0; i < 8; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/7.5 * (i+.5);
-//                // increment yPos by 20 for another row(size of brick)
-//                int yPos = rowThreeHeight;
-//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < 8; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-//                int yPos = rowTwoHeight;
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < 8; i++)
-//            {
-//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
-//                
-//                int xPos = size.width/7.5 * (i+.5);
-//                int yPos = rowOneHeight;
-//                brickB.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickB];
-//                [self addChild:brickB];
-//            }
         }
         // iPhone 6+ RCL: close nuff...added an extra brick
         else if (screenSize.height == 736)

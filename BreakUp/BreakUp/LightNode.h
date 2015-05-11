@@ -10,6 +10,6 @@
 
 @interface LightNode : SKNode
 
-+ (instancetype)lightOnSprite:(SKSpriteNode *)sprite;
+//+ (instancetype)lightOnSprite:(SKSpriteNode *)sprite;
 
 @end

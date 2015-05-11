@@ -10,10 +10,10 @@
 
 @implementation LightNode
 
-+ (instancetype)lightOnSprite:(SKSpriteNode *)sprite
-{
-//    SKLightNode *light = [SKLightNode ]
-    return sprite;
-}
+//+ (instancetype)lightOnSprite:(SKSpriteNode *)sprite
+//{
+////    SKLightNode *light = [SKLightNode ]
+////    return sprite;
+//}
 
 @end

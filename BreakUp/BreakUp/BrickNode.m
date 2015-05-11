@@ -13,34 +13,34 @@
 
 
 // Add a new brick row with different color for patterns...
-+ (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color
-{
-    BrickNode *brick;
-    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
-    brick.damaged = NO;
-    
-//    NSArray *textures;
-    if (type == BrickTypeA)
-    {
-        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
-//        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
-        brick.type = BrickTypeA;
-    }
-    if (type == BrickTypeB)
-    {
-        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
-//        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
-        brick.type = BrickTypeB;
-    }
-//    brick.name = @"Brick";
-//    brick.position = position;
-    brick.zPosition = 8;
-
-    
-    [brick setupPhysicsBody];
-    brick.shader = bloom;
-    return brick;
-}
+//+ (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color
+//{
+//    BrickNode *brick;
+//    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
+//    brick.damaged = NO;
+//    
+////    NSArray *textures;
+//    if (type == BrickTypeA)
+//    {
+//        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
+////        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
+//        brick.type = BrickTypeA;
+//    }
+//    if (type == BrickTypeB)
+//    {
+//        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
+////        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
+//        brick.type = BrickTypeB;
+//    }
+////    brick.name = @"Brick";
+////    brick.position = position;
+//    brick.zPosition = 8;
+//
+//    
+//    [brick setupPhysicsBody];
+//    brick.shader = bloom;
+//    return brick;
+//}
 
 + (instancetype)brickRowOfType:(BrickType)type
 {
@@ -52,14 +52,14 @@
     
     if (type == BrickTypeA)
     {
-        brick = [self spriteNodeWithImageNamed:@"Brick_Double_Hit"];
-        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
+        brick = [self spriteNodeWithImageNamed:@"Red_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Red_Brick"]];
         brick.type = BrickTypeA;
     }
     if (type == BrickTypeB)
     {
-        brick = [self spriteNodeWithImageNamed:@"Brick"];
-        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
+        brick = [self spriteNodeWithImageNamed:@"Pink_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Pink_Brick"]];
         brick.type = BrickTypeB;
     }
 //    brick.name = @"Brick";
@@ -68,6 +68,7 @@
    
     [brick setupPhysicsBody];
     brick.shader = bloom;
+    brick.blendMode = SKBlendModeAdd;
     return brick;
 }
 
@@ -92,7 +93,7 @@
 //        [self removeActionForKey:@"animation"]; // removes the animation runAction
         if (self.type == BrickTypeA)
         {
-            textures = @[[SKTexture textureWithImageNamed:@"Damaged_Texture"]];
+            textures = @[[SKTexture textureWithImageNamed:@"Red_Brick_Damaged"]];
         }
 //        else
 //        {
