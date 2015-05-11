@@ -39,31 +39,31 @@
     return brick;
 }
 
-//+ (instancetype)brickRowOfType:(BrickType)type
-//{
-//    BrickNode *brick;
-//    brick.damaged = NO;
-//    NSArray *textures;
-//    
-//    if (type == BrickTypeA)
-//    {
-//        brick = [self spriteNodeWithImageNamed:@"Brick_Double_Hit"];
-//        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
-//        brick.type = BrickTypeA;
-//    }
-//    if (type == BrickTypeB)
-//    {
-//        brick = [self spriteNodeWithImageNamed:@"Brick"];
-//        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
-//        brick.type = BrickTypeB;
-//    }
-////    brick.name = @"Brick";
-////    brick.position = position;
-//    brick.zPosition = 8;
-//   
-//    [brick setupPhysicsBody];
-//    return brick;
-//}
++ (instancetype)brickRowOfType:(BrickType)type
+{
+    BrickNode *brick;
+    brick.damaged = NO;
+    NSArray *textures;
+    
+    if (type == BrickTypeA)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Brick_Double_Hit"];
+        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
+        brick.type = BrickTypeA;
+    }
+    if (type == BrickTypeB)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
+        brick.type = BrickTypeB;
+    }
+//    brick.name = @"Brick";
+//    brick.position = position;
+    brick.zPosition = 8;
+   
+    [brick setupPhysicsBody];
+    return brick;
+}
 
 + (instancetype)moveBricks:(BrickNode *)brick
 {

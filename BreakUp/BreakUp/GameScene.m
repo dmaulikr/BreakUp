@@ -66,7 +66,7 @@
     self.gameOver = NO;
     self.screenSize = [[UIScreen mainScreen] bounds].size;
     
-    
+    SKShader *pattern = [SKShader shaderWithSource:@""];
     
     /* Setup your scene here */
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
