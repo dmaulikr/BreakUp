@@ -28,6 +28,7 @@
 @interface GameScene ()
 
 @property (nonatomic)TapToStartNode *tapToStart;
+@property (nonatomic)HUDNode *hud;
 @property (nonatomic)TapLabelNode *tapLabel;
 @property (nonatomic)BallNode *ball;
 @property (nonatomic)FlipperNode *rightFlipper;
@@ -103,7 +104,7 @@
     self.tapLabel = [TapLabelNode tapAtPosition:CGPointMake(self.size.width / 2, 280)];
     
     // Add score HUD
-    HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-40) inFrame:self.frame];
+    self.hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-40) inFrame:self.frame];
     
     [world addChild:self.ball];
     [world addChild:self.tapToStart];
@@ -113,7 +114,7 @@
     [world addChild:self.leftFlipper];
     [world addChild:self.rightFlipper];
     [world addChild:drain];
-    [world addChild:hud];
+    [world addChild:self.hud];
     
 //    if (self.ball.position.y > self.leftFlipper.position.y)
 //    {
@@ -287,13 +288,13 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
-    
     // TAP TO START - Logic and Removal
     if (!self.ball.physicsBody.dynamic)
     {
-        if (self.tapToStart)
+        if (self.tapToStart && self.hud.lives == 3)
         {
             [self.tapToStart removeFromParent];
+            [self spawnBrickRows];
         }
         if (self.tapLabel)
         {
@@ -303,7 +304,7 @@
         self.ball.physicsBody.dynamic = YES;
         [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
         
-        [self spawnBrickRows];
+        
     }
     
     // Touch on Flippers logic
