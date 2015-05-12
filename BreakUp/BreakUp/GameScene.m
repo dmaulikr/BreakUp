@@ -229,6 +229,7 @@
         NSLog(@"POW!");
         BrickNode *brick = (BrickNode *)secondBody.node;
 //        BallNode *ball = (BallNode *)secondBody.node;
+        brick.name = @"Brick";
         if (!self.gameOver)
         {
             if (brick.position.y > 500)
@@ -373,21 +374,31 @@
     {
         self.addBrickTimeInterval = 18;
     }
-    if (self.timeSinceBrickAdded == 0 || currentTime - self.timeSinceBrickAdded > 0.025) {
-        SKNode *sprite = [world childNodeWithName:@"Brick"];
-        
-        SKSpriteNode *trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Red_Brick"];
-        trailSprite1.zRotation = sprite.zRotation;
-        trailSprite1.blendMode = SKBlendModeAdd;
-        trailSprite1.position = CGPointMake(sprite.position.x, sprite.position.y -2);
-        
-        [world addChild:trailSprite1];
-        
-        [trailSprite1 runAction:[SKAction sequence:@[[SKAction fadeAlphaTo:0 duration:1.0],
-                                                     [SKAction removeFromParent]]]];
-        
-        self.lastUpdateTimeInterval = currentTime;
-    }
+//    if (self.totalGameTime == 10)
+//    {
+        if (self.timeSinceBrickAdded == 0 || currentTime - self.timeSinceBrickAdded > 0.025) {
+            SKNode *sprite = [self childNodeWithName:@"Brick"];
+            
+            SKSpriteNode *trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Red_Brick"];
+            trailSprite1.zRotation = sprite.zRotation;
+            trailSprite1.blendMode = SKBlendModeAdd;
+            trailSprite1.position = CGPointMake(sprite.position.x, sprite.position.y -2);
+            
+            
+            
+            
+            [trailSprite1 runAction:[SKAction sequence:@[[SKAction waitForDuration:5.0],
+                                                         [SKAction runBlock:^(void)
+                                                          {
+                                                              [world addChild:trailSprite1];
+                                                          }],
+                                                         [SKAction fadeAlphaTo:0 duration:0.001],
+                                                         [SKAction removeFromParent]]]];
+            
+//            self.timeSinceBrickAdded = currentTime;
+        }
+//    }
+    
 }
 
 #pragma mark - Setup Methods
@@ -433,13 +444,13 @@
                 int yPos = rowThreeHeight-30;
                 //        brickA.position = CGPointMake(xPos+44, yPos+220);
                 brickA.position = CGPointMake(xPos-10, yPos);
-                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
-                trailSprite.zRotation = brickA.zRotation;
-                trailSprite.zPosition = 9;
+//                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
+//                trailSprite.zRotation = brickA.zRotation;
+//                trailSprite.zPosition = 9;
                 
                 [BrickNode moveBricks:brickA];
                 [self addChild:brickA];
-                [self addChild:trailSprite];
+//                [self addChild:trailSprite];
             }
             for (int i = 0; i < 7; i++)
             {
