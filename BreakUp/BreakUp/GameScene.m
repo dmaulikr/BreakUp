@@ -749,7 +749,7 @@
     explosion.position = position;
     [self addChild:explosion];
     
-    [explosion runAction:[SKAction waitForDuration:0.5] completion:^{
+    [explosion runAction:[SKAction waitForDuration:0.2] completion:^{
         [explosion removeFromParent];
     }];
 }
