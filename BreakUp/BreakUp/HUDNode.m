@@ -55,7 +55,7 @@
     scoreLabel.text = @"0";
     scoreLabel.fontSize = 30;
     scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
-    scoreLabel.position = CGPointMake(frame.size.width-70, pinballLife.position.y-20);
+    scoreLabel.position = CGPointMake(frame.size.width-90, pinballLife.position.y-10);
     [hud addChild:scoreLabel];
     
     return hud;
