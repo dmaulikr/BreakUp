@@ -21,6 +21,7 @@
 
 #import "TapToStartNode.h"
 #import "GameOverNode.h"
+#import "TapLabelNode.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -198,6 +199,7 @@
         NSLog(@"BALL/DRAIN contact");
 //        self.gameOver = YES;
         [self loseLife];
+        self.ball.physicsBody.dynamic = NO;
         
         // Moves the ball after a *life is lost
         if (!self.gameOver)

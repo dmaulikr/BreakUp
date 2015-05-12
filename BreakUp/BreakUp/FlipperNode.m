@@ -19,6 +19,7 @@
 + (instancetype)leftFlipperAtPosition:(CGPoint)position
 {
     FlipperNode *flipperLeft = [self spriteNodeWithImageNamed:@"Angle_Flipper_Left"];
+    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
     
     flipperLeft.position = position;
     flipperLeft.anchorPoint = CGPointMake(0.1, 0.8);
@@ -45,6 +46,9 @@
     
     flipperLeft.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     
+    flipperLeft.shader = bloom;
+    flipperLeft.blendMode = SKBlendModeAdd;
+    
     [flipperLeft setupPhysicsBodyLeft];
     return flipperLeft;
 }
@@ -52,6 +56,7 @@
 + (instancetype)rightFlipperAtPosition:(CGPoint)position
 {
     FlipperNode *flipperRight = [self spriteNodeWithImageNamed:@"Angle_Flipper_Right"];
+    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
     
     flipperRight.position = position;
     flipperRight.anchorPoint = CGPointMake(0.9, 0.8);
@@ -77,6 +82,9 @@
     CGPathCloseSubpath(path);
     
     flipperRight.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
+    
+    flipperRight.shader = bloom;
+    flipperRight.blendMode = SKBlendModeAdd;
     
     [flipperRight setupPhysicsBodyRight];
     return flipperRight;

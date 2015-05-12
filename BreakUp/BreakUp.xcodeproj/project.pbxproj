@@ -10,6 +10,7 @@
 		1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCC31AF568B9002FB21D /* HUDNode.m */; };
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
+		1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849622E1B02A5A900035F0E /* TapLabelNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
 		1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */; };
 		1866FD831AFFDFFE00C25ACE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD811AFFDFFE00C25ACE /* spark.png */; };
@@ -52,6 +53,8 @@
 		1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-GlassView.mp3"; sourceTree = "<group>"; };
 		1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverNode.h; sourceTree = "<group>"; };
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
+		1849622D1B02A5A900035F0E /* TapLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapLabelNode.h; sourceTree = "<group>"; };
+		1849622E1B02A5A900035F0E /* TapLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapLabelNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
 		1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipperGuardNode.m; sourceTree = "<group>"; };
 		1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RedBrickExplosion.sks; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */,
 				18C18E8D1AEFCB0600622D72 /* TapToStartNode.h */,
 				18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */,
+				1849622D1B02A5A900035F0E /* TapLabelNode.h */,
+				1849622E1B02A5A900035F0E /* TapLabelNode.m */,
 			);
 			name = "Label Nodes";
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 			files = (
 				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
 				1894E7BF1B01418B0003988F /* TrailingSpriteNode.m in Sources */,
+				1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */,
 				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
 				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
