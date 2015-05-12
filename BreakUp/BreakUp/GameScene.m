@@ -70,8 +70,8 @@
 //    SKShader *pattern = [SKShader shaderWithSource:@""];
     
     /* Setup your scene here */
-    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
-    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+//    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
+//    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     
     // Some sort of scene...
     world = [SKNode node];
@@ -104,7 +104,7 @@
     
     [world addChild:self.ball];
     [world addChild:self.tapToStart];
-    [world addChild:background];
+//    [world addChild:background];
     [world addChild:wallLeft];
     [world addChild:wallRight];
     [world addChild:self.leftFlipper];
@@ -223,6 +223,7 @@
         
     }
     // Brick Contact Logic and Brick scoring
+    // More points if above 500 points of the y axis
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryBrick)
     {
@@ -247,7 +248,7 @@
                     [self addPoints:200];
                 }
                 [self addPoints:100];
-                [self explosionAtPosition:contact.contactPoint];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"RedBrickExplosion"];
             }
             
             if (brick.type == BrickTypeB)
@@ -258,7 +259,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
             }
         }
         
@@ -376,27 +377,27 @@
     }
 //    if (self.totalGameTime == 10)
 //    {
-        if (self.timeSinceBrickAdded == 0 || currentTime - self.timeSinceBrickAdded > 0.025) {
-            SKNode *sprite = [self childNodeWithName:@"Brick"];
-            
-            SKSpriteNode *trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Red_Brick"];
-            trailSprite1.zRotation = sprite.zRotation;
-            trailSprite1.blendMode = SKBlendModeAdd;
-            trailSprite1.position = CGPointMake(sprite.position.x, sprite.position.y -2);
-            
-            
-            
-            
-            [trailSprite1 runAction:[SKAction sequence:@[[SKAction waitForDuration:5.0],
-                                                         [SKAction runBlock:^(void)
-                                                          {
-                                                              [world addChild:trailSprite1];
-                                                          }],
-                                                         [SKAction fadeAlphaTo:0 duration:0.001],
-                                                         [SKAction removeFromParent]]]];
-            
+//        if (self.timeSinceBrickAdded == 0 || currentTime - self.timeSinceBrickAdded > 0.025) {
+//            SKNode *sprite = [self childNodeWithName:@"Pinball"];
+//            
+//            SKSpriteNode *trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Pinball"];
+//            trailSprite1.zRotation = sprite.zRotation;
+//            trailSprite1.blendMode = SKBlendModeAdd;
+//            trailSprite1.position = CGPointMake(sprite.position.x, sprite.position.y -2);
+//            
+//            
+//            
+//            
+//            [trailSprite1 runAction:[SKAction sequence:@[[SKAction waitForDuration:5.0],
+//                                                         [SKAction runBlock:^(void)
+//                                                          {
+//                                                              [world addChild:trailSprite1];
+//                                                          }],
+//                                                         [SKAction fadeAlphaTo:0 duration:0.001],
+//                                                         [SKAction removeFromParent]]]];
+//            
 //            self.timeSinceBrickAdded = currentTime;
-        }
+//        }
 //    }
     
 }
@@ -421,10 +422,147 @@
 
 #pragma mark - Custom Methods
 
+// TESTING RANDOM BRICKS v
+//- (void)addBrickRowWithSize:(CGSize)size AndScreenSize:(CGSize)screenSize
+//{
+////    int xPos;
+////    int yPos;
+//    int rowOneHeight = [Utilites randomWithMin:700 max:760];
+//    int rowTwoHeight = [Utilites randomWithMin:780 max:840];
+//    int rowThreeHeight = [Utilites randomWithMin:860 max:900];
+//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+//    {
+//        screenSize = [[UIScreen mainScreen] bounds].size;
+//        // iPhone 5/5s/5c RCL: Removed a brick...
+//        if (screenSize.height == 568)
+//        {
+//            for (int i = 0; i < 7; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                
+//                int xPos = size.width/6.5 * (i+.5);
+//                // increment yPos by 20 for another row(size of brick)
+//                int yPos = rowThreeHeight-30;
+//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
+//                brickA.position = CGPointMake(xPos-10, yPos);
+////                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
+////                trailSprite.zRotation = brickA.zRotation;
+////                trailSprite.zPosition = 9;
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+////                [self addChild:trailSprite];
+//            }
+//            for (int i = 0; i < 7; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/6.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
+//                int yPos = rowTwoHeight-30;
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < 7; i++)
+//            {
+//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+//                
+//                int xPos = size.width/6.5 * (i+.5);
+//                int yPos = rowOneHeight-30;
+//                brickB.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickB];
+//                [self addChild:brickB];
+//            }
+//        }
+//        // iPhone 6 RCL: correct spacing
+//        else if (screenSize.height == 667)
+//        {
+//            for (int i = 0; i < 8; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/7.5 * (i+.5);
+//                // increment yPos by 20 for another row(size of brick)
+//                int yPos = rowThreeHeight-70;
+//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < 8; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
+//                int yPos = rowTwoHeight-70;
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < 8; i++)
+//            {
+//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+//                
+//                int xPos = size.width/7.5 * (i+.5);
+//                int yPos = rowOneHeight-70;
+//                brickB.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickB];
+//                [self addChild:brickB];
+//            }
+//        }
+//        // iPhone 6+ RCL: close nuff...added an extra brick
+//        else if (screenSize.height == 736)
+//        {
+//            for (int i = 0; i < [Utilites randomWithMin:1 max:9]; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/8.5 * (i+.5);
+//                // increment yPos by 20 for another row(size of brick)
+//                int yPos = rowThreeHeight;
+//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < [Utilites randomWithMin:1 max:9]; i++)
+//            {
+//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+//                
+//                int xPos = size.width/8.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
+//                int yPos = rowTwoHeight;
+//                brickA.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickA];
+//                [self addChild:brickA];
+//            }
+//            for (int i = 0; i < [Utilites randomWithMin:1 max:9]; i++)
+//            {
+//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+//                
+//                int xPos = size.width/8.5 * (i+.5);
+//                int yPos = rowOneHeight;
+//                brickB.position = CGPointMake(xPos-10, yPos);
+//                
+//                [BrickNode moveBricks:brickB];
+//                [self addChild:brickB];
+//            }
+//        }
+//    }
+//}
+// TESTING RANDOM BRICKS ^
+
 - (void)addBrickRowWithSize:(CGSize)size AndScreenSize:(CGSize)screenSize
 {
-//    int xPos;
-//    int yPos;
+    //    int xPos;
+    //    int yPos;
     int rowOneHeight = 760;
     int rowTwoHeight = 780;
     int rowThreeHeight = 800;
@@ -444,13 +582,13 @@
                 int yPos = rowThreeHeight-30;
                 //        brickA.position = CGPointMake(xPos+44, yPos+220);
                 brickA.position = CGPointMake(xPos-10, yPos);
-//                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
-//                trailSprite.zRotation = brickA.zRotation;
-//                trailSprite.zPosition = 9;
+                //                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
+                //                trailSprite.zRotation = brickA.zRotation;
+                //                trailSprite.zPosition = 9;
                 
                 [BrickNode moveBricks:brickA];
                 [self addChild:brickA];
-//                [self addChild:trailSprite];
+                //                [self addChild:trailSprite];
             }
             for (int i = 0; i < 7; i++)
             {
@@ -592,14 +730,14 @@
     }
 }
 
-- (void)explosionAtPosition:(CGPoint)position
+- (void)explosionAtPosition:(CGPoint)position AndExplosionColor:(NSString *)colorType
 {
-    NSString *explosionPath = [[NSBundle mainBundle] pathForResource:@"BrickExplosion" ofType:@"sks"]; // particle effect
+    NSString *explosionPath = [[NSBundle mainBundle] pathForResource:colorType ofType:@"sks"]; // particle effect
     SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
     explosion.position = position;
     [self addChild:explosion];
     
-    [explosion runAction:[SKAction waitForDuration:0.2] completion:^{
+    [explosion runAction:[SKAction waitForDuration:0.5] completion:^{
         [explosion removeFromParent];
     }];
 }

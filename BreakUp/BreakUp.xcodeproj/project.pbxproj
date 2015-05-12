@@ -11,10 +11,11 @@
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
-		1866FD821AFFDFFE00C25ACE /* BrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* BrickExplosion.sks */; };
+		1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */; };
 		1866FD831AFFDFFE00C25ACE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD811AFFDFFE00C25ACE /* spark.png */; };
 		1894E7BC1B00F7A50003988F /* bloom.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1894E7BB1B00F7A50003988F /* bloom.fsh */; };
 		1894E7BF1B01418B0003988F /* TrailingSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894E7BE1B01418B0003988F /* TrailingSpriteNode.m */; };
+		18BEA92E1B027C2600EEE8D1 /* PinkBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA92D1B027C2600EEE8D1 /* PinkBrickExplosion.sks */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
 		18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E501AEE9D2C00622D72 /* AppDelegate.m */; };
 		18C18E541AEE9D2C00622D72 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E531AEE9D2C00622D72 /* GameScene.m */; };
@@ -53,11 +54,12 @@
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
 		1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipperGuardNode.m; sourceTree = "<group>"; };
-		1866FD801AFFDFFE00C25ACE /* BrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrickExplosion.sks; sourceTree = "<group>"; };
+		1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RedBrickExplosion.sks; sourceTree = "<group>"; };
 		1866FD811AFFDFFE00C25ACE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		1894E7BB1B00F7A50003988F /* bloom.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bloom.fsh; sourceTree = "<group>"; };
 		1894E7BD1B01418B0003988F /* TrailingSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrailingSpriteNode.h; sourceTree = "<group>"; };
 		1894E7BE1B01418B0003988F /* TrailingSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrailingSpriteNode.m; sourceTree = "<group>"; };
+		18BEA92D1B027C2600EEE8D1 /* PinkBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PinkBrickExplosion.sks; sourceTree = "<group>"; };
 		18C18E481AEE9D2C00622D72 /* BreakUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C18E4C1AEE9D2C00622D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C18E4D1AEE9D2C00622D72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,7 +124,8 @@
 		1866FD841AFFE47300C25ACE /* Particle Effects and Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				1866FD801AFFDFFE00C25ACE /* BrickExplosion.sks */,
+				1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */,
+				18BEA92D1B027C2600EEE8D1 /* PinkBrickExplosion.sks */,
 				1866FD811AFFDFFE00C25ACE /* spark.png */,
 				1894E7BB1B00F7A50003988F /* bloom.fsh */,
 			);
@@ -333,8 +336,9 @@
 				18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */,
 				18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */,
 				1894E7BC1B00F7A50003988F /* bloom.fsh in Resources */,
-				1866FD821AFFDFFE00C25ACE /* BrickExplosion.sks in Resources */,
+				1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */,
 				1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */,
+				18BEA92E1B027C2600EEE8D1 /* PinkBrickExplosion.sks in Resources */,
 				18C18E5E1AEE9D2D00622D72 /* Images.xcassets in Resources */,
 				1866FD831AFFDFFE00C25ACE /* spark.png in Resources */,
 				18C18E561AEE9D2C00622D72 /* GameScene.sks in Resources */,
