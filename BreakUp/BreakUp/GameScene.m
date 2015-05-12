@@ -28,6 +28,7 @@
 @interface GameScene ()
 
 @property (nonatomic)TapToStartNode *tapToStart;
+@property (nonatomic)TapLabelNode *tapLabel;
 @property (nonatomic)BallNode *ball;
 @property (nonatomic)FlipperNode *rightFlipper;
 @property (nonatomic)FlipperNode *leftFlipper;
@@ -99,6 +100,7 @@
     
     // Add taptostart label
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
+    self.tapLabel = [TapLabelNode tapAtPosition:CGPointMake(self.size.width / 2, 280)];
     
     // Add score HUD
     HUDNode *hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-40) inFrame:self.frame];
@@ -199,13 +201,13 @@
         NSLog(@"BALL/DRAIN contact");
 //        self.gameOver = YES;
         [self loseLife];
-        self.ball.physicsBody.dynamic = NO;
-        
         // Moves the ball after a *life is lost
         if (!self.gameOver)
         {
-            SKAction *moveBall = [SKAction moveTo:CGPointMake(CGRectGetMaxX(self.frame)+[Utilites randomWithMin:-50.0 max:-15.0], CGRectGetMidY(self.frame)) duration:0.1];
+            SKAction *moveBall = [SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame), 100) duration:0.1];
             [self.ball runAction:moveBall];
+            self.ball.physicsBody.dynamic = NO;
+            [world addChild:self.tapLabel];
         }
     }
     // Game restart on Brick/Drain Contact
@@ -289,7 +291,15 @@
     // TAP TO START - Logic and Removal
     if (!self.ball.physicsBody.dynamic)
     {
-        [self.tapToStart removeFromParent];
+        if (self.tapToStart)
+        {
+            [self.tapToStart removeFromParent];
+        }
+        if (self.tapLabel)
+        {
+            [self.tapLabel removeFromParent];
+        }
+        
         self.ball.physicsBody.dynamic = YES;
         [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
         
