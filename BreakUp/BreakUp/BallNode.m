@@ -13,19 +13,15 @@
 
 + (instancetype)ballAtPosition:(CGPoint)position
 {
+//    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
     BallNode *ball = [self spriteNodeWithImageNamed:@"Pinball"];
     ball.position = position;
     ball.name = @"Pinball";
     ball.zPosition = 8;
-//    ball.size = CGSizeMake(0.5, 0.5);
-//    ball.xScale = 0.8;
-//    ball.yScale = 0.8;
     
+//    ball.shader = bloom;
+//    ball.blendMode = SKBlendModeAdd;
     [ball setupPhysicsBody];
-//    if (ball.position.y > 200)
-//    {
-//        ball.physicsBody.restitution = 1.0;
-//    }
     
     return ball;
 }
@@ -44,6 +40,5 @@
 //    self.physicsBody.linearDamping = 1.5;
     
 }
-
 
 @end

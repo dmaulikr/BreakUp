@@ -12,40 +12,9 @@
 @implementation BrickNode
 
 
-// Add a new brick row with different color for patterns...
-//+ (instancetype)brickRowOfType:(BrickType)type AndBrickColor:(SKColor *)color
-//{
-//    BrickNode *brick;
-//    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
-//    brick.damaged = NO;
-//    
-////    NSArray *textures;
-//    if (type == BrickTypeA)
-//    {
-//        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
-////        textures = @[[SKTexture textureWithImageNamed:@"Brick_Double_Hit"]];
-//        brick.type = BrickTypeA;
-//    }
-//    if (type == BrickTypeB)
-//    {
-//        brick = [self spriteNodeWithColor:color size:CGSizeMake(50, 20)];
-////        textures = @[[SKTexture textureWithImageNamed:@"Brick"]];
-//        brick.type = BrickTypeB;
-//    }
-////    brick.name = @"Brick";
-////    brick.position = position;
-//    brick.zPosition = 8;
-//
-//    
-//    [brick setupPhysicsBody];
-//    brick.shader = bloom;
-//    return brick;
-//}
-
 + (instancetype)brickRowOfType:(BrickType)type
 {
     BrickNode *brick;
-//    BrickNode *trailSprite1;
     brick.damaged = NO;
     SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
 
@@ -104,7 +73,6 @@
 
 + (instancetype)moveBricks:(BrickNode *)brick
 {
-//    BrickNode *brick;
     NSArray *sequence = @[[SKAction waitForDuration:0.0],
                           [SKAction moveByX:0 y:BrickDropSpeed duration:BrickDurationSpeed]];
     SKAction *repeatMove = [SKAction repeatActionForever:[SKAction sequence:sequence]];
@@ -113,19 +81,14 @@
     return brick;
 }
 
-//+ (instancetype)addTrailingSprite:(NSString *)texture AndWorld:(SKNode *)world
-//{
-//    
-//}
 
 
--(BOOL)isDamaged       // RCL: find out how to animate this over the colored physics body
+-(BOOL)isDamaged
 {
     NSArray *textures;
     
     if (!_damaged)
     {
-//        [self removeActionForKey:@"animation"]; // removes the animation runAction
         if (self.type == BrickTypeRed)
         {
             textures = @[[SKTexture textureWithImageNamed:@"Red_Brick_Damaged"]];
