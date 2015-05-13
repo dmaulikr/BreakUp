@@ -10,4 +10,13 @@
 
 @implementation PauseButtonNode
 
++ (instancetype)pauseButtonAtPosition:(CGPoint)position
+{
+    PauseButtonNode *pauseButton = [self spriteNodeWithImageNamed:@"Pause_Button"];
+    pauseButton.position = position;
+    pauseButton.name = @"PauseButton";
+    pauseButton.zPosition = 99;
+    return pauseButton;
+}
+
 @end

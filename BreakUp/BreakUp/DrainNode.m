@@ -23,7 +23,8 @@
     
 }
 
-- (void)setupPhysicsBody {
+- (void)setupPhysicsBody
+{
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = NO;

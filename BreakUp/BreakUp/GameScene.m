@@ -22,12 +22,14 @@
 #import "TapToStartNode.h"
 #import "GameOverNode.h"
 #import "TapLabelNode.h"
+#import "PauseButtonNode.h"
 
 #import <AVFoundation/AVFoundation.h>
 
 @interface GameScene ()
 
 @property (nonatomic)TapToStartNode *tapToStart;
+@property (nonatomic)PauseButtonNode *pauseButton;
 @property (nonatomic)HUDNode *hud;
 @property (nonatomic)TapLabelNode *tapLabel;
 @property (nonatomic)BallNode *ball;
@@ -72,9 +74,9 @@
     
 //    SKShader *pattern = [SKShader shaderWithSource:@""];
     
-    /* Setup your scene here */
-//    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_test"];
-//    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+//     Setup your scene here 
+    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"BlackGround"];
+    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     
     // Some sort of scene...
     world = [SKNode node];
@@ -106,15 +108,19 @@
     // Add score HUD
     self.hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-40) inFrame:self.frame];
     
+    // Add Pause Button
+    self.pauseButton = [PauseButtonNode pauseButtonAtPosition:CGPointMake(CGRectGetMidX(self.frame), self.hud.position.y)];
+    
     [world addChild:self.ball];
     [world addChild:self.tapToStart];
-//    [world addChild:background];
+    [world addChild:background];
     [world addChild:wallLeft];
     [world addChild:wallRight];
     [world addChild:self.leftFlipper];
     [world addChild:self.rightFlipper];
     [world addChild:drain];
     [world addChild:self.hud];
+    [world addChild:self.pauseButton];
     
 //    if (self.ball.position.y > self.leftFlipper.position.y)
 //    {

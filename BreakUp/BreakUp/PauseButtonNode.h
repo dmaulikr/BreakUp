@@ -10,4 +10,6 @@
 
 @interface PauseButtonNode : SKSpriteNode
 
++ (instancetype)pauseButtonAtPosition:(CGPoint)position;
+
 @end
