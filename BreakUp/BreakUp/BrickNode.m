@@ -51,39 +51,54 @@
 
     NSArray *textures;
     
-    if (type == BrickTypeA)
+    if (type == BrickTypeRed)
     {
         brick = [self spriteNodeWithImageNamed:@"Red_Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Red_Brick"]];
-//        trailSprite1 = [self spriteNodeWithImageNamed:@"Red_Brick"];
-        brick.type = BrickTypeA;
+        brick.type = BrickTypeRed;
     }
-    if (type == BrickTypeB)
+    if (type == BrickTypePink)
     {
         brick = [self spriteNodeWithImageNamed:@"Pink_Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Pink_Brick"]];
-//        trailSprite1 = [self spriteNodeWithImageNamed:@"Pink_Brick"];
-        brick.type = BrickTypeB;
+        brick.type = BrickTypePink;
     }
-//    brick.name = @"Brick";
-//    brick.position = position;
+    if (type == BrickTypeCyan)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Cyan_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Cyan_Brick"]];
+        brick.type = BrickTypeCyan;
+    }
+    if (type == BrickTypeBlue)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Blue_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Blue_Brick"]];
+        brick.type = BrickTypeBlue;
+    }
+    if (type == BrickTypeGreen)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Green_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Green_Brick"]];
+        brick.type = BrickTypeGreen;
+    }
+    if (type == BrickTypeYellow)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Yellow_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Yellow_Brick"]];
+        brick.type = BrickTypeCyan;
+    }
+    if (type == BrickTypePurple)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Purple_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Purple_Brick"]];
+        brick.type = BrickTypeBlue;
+    }
     brick.zPosition = 8;
-   
     brick.name = @"Brick";
     [brick setupPhysicsBody];
     brick.shader = bloom;
     brick.blendMode = SKBlendModeAdd;
-//    SKNode *sprite = [world childNodeWithName:@"Brick"];
-    
-//    trailSprite1 = [SKSpriteNode spriteNodeWithImageNamed:@"Red_Brick"];
-//    trailSprite1.zRotation = brick.zRotation;
-//    trailSprite1.blendMode = SKBlendModeAdd;
-//    trailSprite1.position = CGPointMake(brick.position.x, brick.position.y -2);
-    
-//    [brick addChild:trailSprite1];
-//    
-//    [trailSprite1 runAction:[SKAction sequence:@[[SKAction fadeAlphaTo:0 duration:1.0],
-//                                                 [SKAction removeFromParent]]]];
+
     return brick;
 }
 
@@ -111,14 +126,34 @@
     if (!_damaged)
     {
 //        [self removeActionForKey:@"animation"]; // removes the animation runAction
-        if (self.type == BrickTypeA)
+        if (self.type == BrickTypeRed)
         {
             textures = @[[SKTexture textureWithImageNamed:@"Red_Brick_Damaged"]];
         }
-//        else
-//        {
-//            textures = @[[SKTexture textureWithImageNamed:@""]];
-//        }
+        if (self.type == BrickTypePink)
+        {
+            textures = @[[SKTexture textureWithImageNamed:@"Pink_Brick_Damaged"]];
+        }
+        if (self.type == BrickTypeYellow)
+        {
+            textures = @[[SKTexture textureWithImageNamed:@"Yellow_Brick_Damaged"]];
+        }
+        if (self.type == BrickTypePurple)
+        {
+            textures = @[[SKTexture textureWithImageNamed:@"Purple_Brick_Damaged"]];
+        }
+        if (self.type == BrickTypeGreen)
+        {
+            textures = @[[SKTexture textureWithImageNamed:@"Green_Brick_Damaged"]];
+        }
+        if (self.type == BrickTypeCyan)
+        {
+            textures = @[[SKTexture textureWithImageNamed:@"Cyan_Brick_Damaged"]];
+        }
+        if (self.type == BrickTypeBlue)
+        {
+            textures = @[[SKTexture textureWithImageNamed:@"Blue_Brick_Damaged"]];
+        }
         
         SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1];
         [self runAction:[SKAction repeatActionForever:animation] withKey:@"damage_animation"];

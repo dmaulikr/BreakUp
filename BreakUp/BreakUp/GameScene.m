@@ -245,7 +245,7 @@
             [self addPoints:10];
             
             if ([brick isDamaged] &&
-                brick.type == BrickTypeA)
+                brick.type == BrickTypeRed)
             {
                 [brick removeFromParent];
                 if (brick.position.y > 500)
@@ -256,7 +256,17 @@
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"RedBrickExplosion"];
             }
             
-            if (brick.type == BrickTypeB)
+            if (brick.type == BrickTypePink)
+            {
+                [brick removeFromParent];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+            }
+            else
             {
                 [brick removeFromParent];
                 if (brick.position.y > 500)
@@ -579,6 +589,7 @@
     int rowOneHeight = 760;
     int rowTwoHeight = 780;
     int rowThreeHeight = 800;
+    NSUInteger randomBrick = [Utilites randomWithMin:0 max:7];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         screenSize = [[UIScreen mainScreen] bounds].size;
@@ -587,7 +598,7 @@
         {
             for (int i = 0; i < 7; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeRed];
                 
                 
                 int xPos = size.width/6.5 * (i+.5);
@@ -605,7 +616,7 @@
             }
             for (int i = 0; i < 7; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeRed];
                 
                 int xPos = size.width/6.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
                 int yPos = rowTwoHeight-30;
@@ -616,7 +627,7 @@
             }
             for (int i = 0; i < 7; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypePink];
                 
                 int xPos = size.width/6.5 * (i+.5);
                 int yPos = rowOneHeight-30;
@@ -631,7 +642,7 @@
         {
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypePink];
                 
                 int xPos = size.width/7.5 * (i+.5);
                 // increment yPos by 20 for another row(size of brick)
@@ -644,7 +655,7 @@
             }
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeRed];
                 
                 int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
                 int yPos = rowTwoHeight-70;
@@ -655,7 +666,7 @@
             }
             for (int i = 0; i < 8; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeRed];
                 
                 int xPos = size.width/7.5 * (i+.5);
                 int yPos = rowOneHeight-70;
@@ -670,7 +681,7 @@
         {
             for (int i = 0; i < 9; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeRed];
                 
                 int xPos = size.width/8.5 * (i+.5);
                 // increment yPos by 20 for another row(size of brick)
@@ -683,7 +694,7 @@
             }
             for (int i = 0; i < 9; i++)
             {
-                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
+                BrickNode *brickA = [BrickNode brickRowOfType:randomBrick];
                 
                 int xPos = size.width/8.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
                 int yPos = rowTwoHeight;
@@ -694,7 +705,7 @@
             }
             for (int i = 0; i < 9; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypePink];
                 
                 int xPos = size.width/8.5 * (i+.5);
                 int yPos = rowOneHeight;
