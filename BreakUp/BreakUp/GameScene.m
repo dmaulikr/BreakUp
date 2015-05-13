@@ -23,6 +23,7 @@
 #import "GameOverNode.h"
 #import "TapLabelNode.h"
 #import "PauseButtonNode.h"
+#import "AudioMuteButtonNode.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -30,6 +31,7 @@
 
 @property (nonatomic)TapToStartNode *tapToStart;
 @property (nonatomic)PauseButtonNode *pauseButton;
+@property (nonatomic)AudioMuteButtonNode *audioMute;
 @property (nonatomic)HUDNode *hud;
 @property (nonatomic)TapLabelNode *tapLabel;
 @property (nonatomic)BallNode *ball;
@@ -77,6 +79,7 @@
 //     Setup your scene here 
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"BlackGround"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    background.zPosition = 1;
     
     // Some sort of scene...
     world = [SKNode node];
@@ -102,14 +105,15 @@
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame)+10, 300)];
     
     // Add taptostart label
-    self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width / 2, 280)];
-    self.tapLabel = [TapLabelNode tapAtPosition:CGPointMake(self.size.width / 2, 280)];
+    self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width/2, 280)];
+    self.tapLabel = [TapLabelNode tapAtPosition:CGPointMake(self.size.width/2, 280)];
     
     // Add score HUD
-    self.hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-40) inFrame:self.frame];
+    self.hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-60) inFrame:self.frame];
     
-    // Add Pause Button
-    self.pauseButton = [PauseButtonNode pauseButtonAtPosition:CGPointMake(CGRectGetMidX(self.frame), self.hud.position.y)];
+    // Add Buttons
+    self.pauseButton = [PauseButtonNode pauseButtonAtPosition:CGPointMake(CGRectGetMaxX(self.frame)-30, self.hud.position.y+40)];
+    self.audioMute = [AudioMuteButtonNode AudioButtonAtPosition:CGPointMake(self.pauseButton.position.x-55, self.pauseButton.position.y)];
     
     [world addChild:self.ball];
     [world addChild:self.tapToStart];
@@ -121,6 +125,7 @@
     [world addChild:drain];
     [world addChild:self.hud];
     [world addChild:self.pauseButton];
+    [world addChild:self.audioMute];
     
 //    if (self.ball.position.y > self.leftFlipper.position.y)
 //    {
@@ -272,16 +277,16 @@
                 [self addPoints:50];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
             }
-            else
-            {
-                [brick removeFromParent];
-                if (brick.position.y > 500)
-                {
-                    [self addPoints:100];
-                }
-                [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
-            }
+//            else
+//            {
+//                [brick removeFromParent];
+//                if (brick.position.y > 500)
+//                {
+//                    [self addPoints:100];
+//                }
+//                [self addPoints:50];
+//                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+//            }
         }
         
     }
