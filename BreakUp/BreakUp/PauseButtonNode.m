@@ -16,7 +16,16 @@
     pauseButton.position = position;
     pauseButton.name = @"PauseButton";
     pauseButton.zPosition = 99;
+    
+    [pauseButton setupPhysicsBody];
     return pauseButton;
+}
+
+- (void)setupPhysicsBody
+{
+    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.frame.size.width];
+    self.physicsBody.affectedByGravity = NO;
+    self.physicsBody.dynamic = NO;
 }
 
 @end

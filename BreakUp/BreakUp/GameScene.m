@@ -79,7 +79,7 @@
 //     Setup your scene here 
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"BlackGround"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    background.zPosition = 1;
+//    background.zPosition = 0;
     
     // Some sort of scene...
     world = [SKNode node];
@@ -277,6 +277,56 @@
                 [self addPoints:50];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
             }
+            if (brick.type == BrickTypeBlue)
+            {
+                [brick removeFromParent];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+            }
+            if (brick.type == BrickTypeCyan)
+            {
+                [brick removeFromParent];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+            }
+            if (brick.type == BrickTypeGreen)
+            {
+                [brick removeFromParent];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+            }
+            if (brick.type == BrickTypePurple)
+            {
+                [brick removeFromParent];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+            }
+            if (brick.type == BrickTypeYellow)
+            {
+                [brick removeFromParent];
+                if (brick.position.y > 500)
+                {
+                    [self addPoints:100];
+                }
+                [self addPoints:50];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+            }
 //            else
 //            {
 //                [brick removeFromParent];
@@ -309,6 +359,22 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:touchLocation];
+    
+    
+    // Pause Button
+    if ([node.name isEqualToString:@"PauseButton"])
+    {
+        self.scene.view.paused = YES;
+//        [self.pauseButton runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"Resume_Button"] resize:YES]];
+        self.pauseButton.texture = [SKTexture textureWithImageNamed:@"Resume_Button"];
+    }
+    else
+    {
+        self.scene.view.paused = NO;
+        [self.pauseButton runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"Pause_Button"] resize:YES]];
+    }
+    
     // TAP TO START - Logic and Removal
     if (!self.ball.physicsBody.dynamic)
     {
@@ -325,11 +391,10 @@
         self.ball.physicsBody.dynamic = YES;
         [self.ball.physicsBody applyImpulse:CGVectorMake([Utilites randomWithMin:1.0 max:20.0], [Utilites randomWithMin:50.0 max:80.0])];
         
-        
     }
     
     // Touch on Flippers logic
-    if (touchLocation.x > 188)
+    if (touchLocation.x > 188 && touchLocation.y < 500)
     {
 //        NSLog(@"Right Flipper Tapped");
         NSArray *sequence = @[[SKAction runBlock:^{self.rightFlipperActive = YES;}],
@@ -338,7 +403,7 @@
         
         [self.rightFlipper runAction:[SKAction sequence:sequence]];
     }
-    if (touchLocation.x < 188)
+    if (touchLocation.x < 188 && touchLocation.y < 500)
     {
 //        NSLog(@"Left Flipper Tapped");
         NSArray *sequence = @[[SKAction runBlock:^{self.leftFlipperActive = YES;}],
