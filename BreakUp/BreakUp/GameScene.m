@@ -12,7 +12,6 @@
 #import "BallNode.h"
 #import "FlipperNode.h"
 #import "BrickNode.h"
-#import "TrailingSpriteNode.h"
 
 #import "DrainNode.h"
 #import "WallNode.h"
@@ -126,11 +125,6 @@
     [world addChild:self.hud];
     [world addChild:self.pauseButton];
     [world addChild:self.audioMute];
-    
-//    if (self.ball.position.y > self.leftFlipper.position.y)
-//    {
-//        self.ball.physicsBody.restitution = 1.0;
-//    }
     
     [self setupSounds];
     
@@ -429,14 +423,12 @@
     CGPoint touchLocation = [touch locationInNode:self];
     if (touchLocation.x > 188)
     {
-//        NSLog(@"Right Flipper Tapped");
         NSArray *sequence = @[[SKAction rotateToAngle:0 * M_PI / 180 duration:0.1]];
         
         [self.rightFlipper runAction:[SKAction sequence:sequence]];
     }
     if (touchLocation.x < 188)
     {
-//        NSLog(@"Left Flipper Tapped");
         NSArray *sequence = @[[SKAction rotateToAngle:0 * M_PI / 180 duration:0.1]];
         
         [self.leftFlipper runAction:[SKAction sequence:sequence]];
@@ -482,6 +474,8 @@
     {
         self.addBrickTimeInterval = 18;
     }
+    
+    // Trailing sprites for the bricks...causes major problems with fps
 //    if (self.totalGameTime == 10)
 //    {
 //        if (self.timeSinceBrickAdded == 0 || currentTime - self.timeSinceBrickAdded > 0.025) {
@@ -532,12 +526,12 @@
 
 - (void)addBrickRowWithSize:(CGSize)size AndScreenSize:(CGSize)screenSize
 {
-    //    int xPos;
-    //    int yPos;
     int rowOneHeight = 760;
     int rowTwoHeight = 780;
     int rowThreeHeight = 800;
-    NSUInteger randomBrick = [Utilites randomWithMin:0 max:7];
+    // 1 - 7 excludes RedBrick <--
+    NSUInteger randomBrick = [Utilites randomWithMin:1 max:7];
+    NSUInteger randomBrick2 = [Utilites randomWithMin:1 max:7];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         screenSize = [[UIScreen mainScreen] bounds].size;
@@ -550,17 +544,10 @@
                 
                 
                 int xPos = size.width/6.5 * (i+.5);
-                // increment yPos by 20 for another row(size of brick)
                 int yPos = rowThreeHeight-30;
-                //        brickA.position = CGPointMake(xPos+44, yPos+220);
                 brickA.position = CGPointMake(xPos-10, yPos);
-                //                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
-                //                trailSprite.zRotation = brickA.zRotation;
-                //                trailSprite.zPosition = 9;
-                
                 [BrickNode moveBricks:brickA];
                 [self addChild:brickA];
-                //                [self addChild:trailSprite];
             }
             for (int i = 0; i < 7; i++)
             {
@@ -653,7 +640,7 @@
             }
             for (int i = 0; i < 9; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypePurple];
+                BrickNode *brickB = [BrickNode brickRowOfType:randomBrick2];
                 
                 int xPos = size.width/8.5 * (i+.5);
                 int yPos = rowOneHeight;

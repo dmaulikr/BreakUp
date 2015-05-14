@@ -21,7 +21,6 @@
 		1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */; };
 		1866FD831AFFDFFE00C25ACE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD811AFFDFFE00C25ACE /* spark.png */; };
 		1894E7BC1B00F7A50003988F /* bloom.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1894E7BB1B00F7A50003988F /* bloom.fsh */; };
-		1894E7BF1B01418B0003988F /* TrailingSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894E7BE1B01418B0003988F /* TrailingSpriteNode.m */; };
 		18970A1E1B039D890096012C /* PauseButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18970A1D1B039D890096012C /* PauseButtonNode.m */; };
 		18BEA92E1B027C2600EEE8D1 /* PinkBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA92D1B027C2600EEE8D1 /* PinkBrickExplosion.sks */; };
 		18C18E4E1AEE9D2C00622D72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E4D1AEE9D2C00622D72 /* main.m */; };
@@ -74,8 +73,6 @@
 		1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RedBrickExplosion.sks; sourceTree = "<group>"; };
 		1866FD811AFFDFFE00C25ACE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		1894E7BB1B00F7A50003988F /* bloom.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = bloom.fsh; sourceTree = "<group>"; };
-		1894E7BD1B01418B0003988F /* TrailingSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrailingSpriteNode.h; sourceTree = "<group>"; };
-		1894E7BE1B01418B0003988F /* TrailingSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrailingSpriteNode.m; sourceTree = "<group>"; };
 		18970A1C1B039D890096012C /* PauseButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseButtonNode.h; sourceTree = "<group>"; };
 		18970A1D1B039D890096012C /* PauseButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseButtonNode.m; sourceTree = "<group>"; };
 		18BEA92D1B027C2600EEE8D1 /* PinkBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PinkBrickExplosion.sks; sourceTree = "<group>"; };
@@ -238,8 +235,6 @@
 				18970A1D1B039D890096012C /* PauseButtonNode.m */,
 				183E6C0C1B03D8310066263C /* AudioMuteButtonNode.h */,
 				183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */,
-				1894E7BD1B01418B0003988F /* TrailingSpriteNode.h */,
-				1894E7BE1B01418B0003988F /* TrailingSpriteNode.m */,
 				18C18E901AEFCB0B00622D72 /* Label Nodes */,
 				1866FD841AFFE47300C25ACE /* Particle Effects and Shaders */,
 			);
@@ -397,7 +392,6 @@
 			files = (
 				18970A1E1B039D890096012C /* PauseButtonNode.m in Sources */,
 				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
-				1894E7BF1B01418B0003988F /* TrailingSpriteNode.m in Sources */,
 				1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */,
 				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,

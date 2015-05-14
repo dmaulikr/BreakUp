@@ -26,6 +26,8 @@
     self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.frame.size.width];
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = NO;
+    self.physicsBody.contactTestBitMask = 0;
+    self.physicsBody.collisionBitMask = 0;
 }
 
 @end

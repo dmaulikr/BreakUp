@@ -32,17 +32,17 @@
         textures = @[[SKTexture textureWithImageNamed:@"Pink_Brick"]];
         brick.type = BrickTypePink;
     }
-    if (type == BrickTypeCyan)
-    {
-        brick = [self spriteNodeWithImageNamed:@"Cyan_Brick"];
-        textures = @[[SKTexture textureWithImageNamed:@"Cyan_Brick"]];
-        brick.type = BrickTypeCyan;
-    }
     if (type == BrickTypeBlue)
     {
         brick = [self spriteNodeWithImageNamed:@"Blue_Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Blue_Brick"]];
         brick.type = BrickTypeBlue;
+    }
+    if (type == BrickTypeCyan)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Cyan_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Cyan_Brick"]];
+        brick.type = BrickTypeCyan;
     }
     if (type == BrickTypeGreen)
     {
@@ -50,17 +50,17 @@
         textures = @[[SKTexture textureWithImageNamed:@"Green_Brick"]];
         brick.type = BrickTypeGreen;
     }
-    if (type == BrickTypeYellow)
-    {
-        brick = [self spriteNodeWithImageNamed:@"Yellow_Brick"];
-        textures = @[[SKTexture textureWithImageNamed:@"Yellow_Brick"]];
-        brick.type = BrickTypeCyan;
-    }
     if (type == BrickTypePurple)
     {
         brick = [self spriteNodeWithImageNamed:@"Purple_Brick"];
         textures = @[[SKTexture textureWithImageNamed:@"Purple_Brick"]];
-        brick.type = BrickTypeBlue;
+        brick.type = BrickTypePurple;
+    }
+    if (type == BrickTypeYellow)
+    {
+        brick = [self spriteNodeWithImageNamed:@"Yellow_Brick"];
+        textures = @[[SKTexture textureWithImageNamed:@"Yellow_Brick"]];
+        brick.type = BrickTypeYellow;
     }
     brick.zPosition = 8;
     brick.name = @"Brick";
