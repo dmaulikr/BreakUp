@@ -84,14 +84,14 @@
     world = [SKNode node];
     [self addChild:world];
     
-    // Setup physics
+    // Setup World Physics
     self.physicsWorld.gravity = CGVectorMake(0, -7.8); // -9.8
     self.physicsWorld.contactDelegate = self;
     
-    // Add ball
+    // Add Ball
     self.ball = [BallNode ballAtPosition:CGPointMake(CGRectGetMidX(self.frame), 100)];
     
-    // Add flippers
+    // Add Flippers
     self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-175, 80)];
     self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+348,
                                                                         self.leftFlipper.position.y)];
@@ -103,11 +103,11 @@
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame)-10, 300)];
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame)+10, 300)];
     
-    // Add taptostart label
+    // Add tapToStart label
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width/2, 280)];
     self.tapLabel = [TapLabelNode tapAtPosition:CGPointMake(self.size.width/2, 280)];
     
-    // Add score HUD
+    // Add Score HUD
     self.hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-60) inFrame:self.frame];
     
     // Add Buttons
@@ -153,10 +153,18 @@
         // iPhone 6+
         else if (self.screenSize.height == 736)
         {
+            [self.leftFlipper removeFromParent];
+            [self.rightFlipper removeFromParent];
+            self.leftFlipper = [FlipperNode leftFlipperAtPosition:CGPointMake(CGRectGetMidX(self.frame)-185, 90)];
+            self.rightFlipper = [FlipperNode rightFlipperAtPosition:CGPointMake(self.leftFlipper.position.x+368,
+                                                                                self.leftFlipper.position.y)];
+
             FlipperGuardNode *leftGuard = [FlipperGuardNode leftFlipperGuardAtPosition:CGPointMake(self.leftFlipper.position.x-15,
-                                                                                                   self.leftFlipper.position.y+4)];
+                                                                                                   self.leftFlipper.position.y+7)];
             FlipperGuardNode *rightGuard = [FlipperGuardNode rightFlipperGuardAtPosition:CGPointMake(self.rightFlipper.position.x+15,
-                                                                                                     self.rightFlipper.position.y+4)];
+                                                                                                     self.rightFlipper.position.y+7)];
+            [world addChild:self.leftFlipper];
+            [world addChild:self.rightFlipper];
             [world addChild:leftGuard];
             [world addChild:rightGuard];
         }
