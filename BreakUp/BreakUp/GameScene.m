@@ -249,6 +249,7 @@
         brick.name = @"Brick";
         if (!self.gameOver)
         {
+            NSLog(@"%lu BrickType", (unsigned long)brick.type);
             if (brick.position.y > 500)
             {
                 [self addPoints:30];
@@ -258,6 +259,7 @@
             if ([brick isDamaged] &&
                 brick.type == BrickTypeRed)
             {
+                brick.type = BrickTypeRed;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
@@ -267,8 +269,9 @@
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"RedBrickExplosion"];
             }
             
-            if (brick.type == BrickTypePink)
+            else if (brick.type == BrickTypePink)
             {
+                brick.type = BrickTypePink;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
@@ -277,55 +280,60 @@
                 [self addPoints:50];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
             }
-            if (brick.type == BrickTypeBlue)
+            else if (brick.type == BrickTypeBlue)
             {
+                brick.type = BrickTypeBlue;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
                     [self addPoints:100];
                 }
                 [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"BlueBrickExplosion"];
             }
-            if (brick.type == BrickTypeCyan)
+            else if (brick.type == BrickTypeCyan)
             {
+                brick.type = BrickTypeCyan;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
                     [self addPoints:100];
                 }
                 [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"CyanBrickExplosion"];
             }
-            if (brick.type == BrickTypeGreen)
+            else if (brick.type == BrickTypeGreen)
             {
+                brick.type = BrickTypeGreen;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
                     [self addPoints:100];
                 }
                 [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"GreenBrickExplosion"];
             }
-            if (brick.type == BrickTypePurple)
+            else if (brick.type == BrickTypePurple)
             {
+                brick.type = BrickTypePurple;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
                     [self addPoints:100];
                 }
                 [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PurpleBrickExplosion"];
             }
-            if (brick.type == BrickTypeYellow)
+            else if (brick.type == BrickTypeYellow)
             {
+                brick.type = BrickTypeYellow;
                 [brick removeFromParent];
                 if (brick.position.y > 500)
                 {
                     [self addPoints:100];
                 }
                 [self addPoints:50];
-                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
+                [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"YellowBrickExplosion"];
             }
 //            else
 //            {
@@ -521,142 +529,6 @@
 
 #pragma mark - Custom Methods
 
-// TESTING RANDOM BRICKS v
-//- (void)addBrickRowWithSize:(CGSize)size AndScreenSize:(CGSize)screenSize
-//{
-////    int xPos;
-////    int yPos;
-//    int rowOneHeight = [Utilites randomWithMin:700 max:760];
-//    int rowTwoHeight = [Utilites randomWithMin:780 max:840];
-//    int rowThreeHeight = [Utilites randomWithMin:860 max:900];
-//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-//    {
-//        screenSize = [[UIScreen mainScreen] bounds].size;
-//        // iPhone 5/5s/5c RCL: Removed a brick...
-//        if (screenSize.height == 568)
-//        {
-//            for (int i = 0; i < 7; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                
-//                int xPos = size.width/6.5 * (i+.5);
-//                // increment yPos by 20 for another row(size of brick)
-//                int yPos = rowThreeHeight-30;
-//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
-//                brickA.position = CGPointMake(xPos-10, yPos);
-////                TrailingSpriteNode *trailSprite = [TrailingSpriteNode trailingSpriteAtPosition:CGPointMake(brickA.position.x, brickA.position.y -10)];
-////                trailSprite.zRotation = brickA.zRotation;
-////                trailSprite.zPosition = 9;
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-////                [self addChild:trailSprite];
-//            }
-//            for (int i = 0; i < 7; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/6.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-//                int yPos = rowTwoHeight-30;
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < 7; i++)
-//            {
-//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
-//                
-//                int xPos = size.width/6.5 * (i+.5);
-//                int yPos = rowOneHeight-30;
-//                brickB.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickB];
-//                [self addChild:brickB];
-//            }
-//        }
-//        // iPhone 6 RCL: correct spacing
-//        else if (screenSize.height == 667)
-//        {
-//            for (int i = 0; i < 8; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/7.5 * (i+.5);
-//                // increment yPos by 20 for another row(size of brick)
-//                int yPos = rowThreeHeight-70;
-//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < 8; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/7.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-//                int yPos = rowTwoHeight-70;
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < 8; i++)
-//            {
-//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
-//                
-//                int xPos = size.width/7.5 * (i+.5);
-//                int yPos = rowOneHeight-70;
-//                brickB.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickB];
-//                [self addChild:brickB];
-//            }
-//        }
-//        // iPhone 6+ RCL: close nuff...added an extra brick
-//        else if (screenSize.height == 736)
-//        {
-//            for (int i = 0; i < [Utilites randomWithMin:1 max:9]; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/8.5 * (i+.5);
-//                // increment yPos by 20 for another row(size of brick)
-//                int yPos = rowThreeHeight;
-//                //        brickA.position = CGPointMake(xPos+44, yPos+220);
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < [Utilites randomWithMin:1 max:9]; i++)
-//            {
-//                BrickNode *brickA = [BrickNode brickRowOfType:BrickTypeA];
-//                
-//                int xPos = size.width/8.5 * (i+.5); // int xPos = size.width/7.5 * (i+.5); i+.5
-//                int yPos = rowTwoHeight;
-//                brickA.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickA];
-//                [self addChild:brickA];
-//            }
-//            for (int i = 0; i < [Utilites randomWithMin:1 max:9]; i++)
-//            {
-//                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypeB];
-//                
-//                int xPos = size.width/8.5 * (i+.5);
-//                int yPos = rowOneHeight;
-//                brickB.position = CGPointMake(xPos-10, yPos);
-//                
-//                [BrickNode moveBricks:brickB];
-//                [self addChild:brickB];
-//            }
-//        }
-//    }
-//}
-// TESTING RANDOM BRICKS ^
 
 - (void)addBrickRowWithSize:(CGSize)size AndScreenSize:(CGSize)screenSize
 {
@@ -781,7 +653,7 @@
             }
             for (int i = 0; i < 9; i++)
             {
-                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypePink];
+                BrickNode *brickB = [BrickNode brickRowOfType:BrickTypePurple];
                 
                 int xPos = size.width/8.5 * (i+.5);
                 int yPos = rowOneHeight;
@@ -835,11 +707,13 @@
     NSString *explosionPath = [[NSBundle mainBundle] pathForResource:colorType ofType:@"sks"]; // particle effect
     SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
     explosion.position = position;
+    explosion.zPosition = 7;
     [self addChild:explosion];
     
     [explosion runAction:[SKAction waitForDuration:0.2] completion:^{
         [explosion removeFromParent];
     }];
+    NSLog(@"Explosion");
 }
 
 @end

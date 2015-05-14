@@ -11,6 +11,11 @@
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		183E6C0E1B03D8310066263C /* AudioMuteButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */; };
+		183E6C101B03FE9E0066263C /* BlueBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */; };
+		183E6C121B03FF230066263C /* CyanBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C111B03FF230066263C /* CyanBrickExplosion.sks */; };
+		183E6C141B03FF640066263C /* GreenBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C131B03FF640066263C /* GreenBrickExplosion.sks */; };
+		183E6C161B03FF980066263C /* PurpleBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C151B03FF980066263C /* PurpleBrickExplosion.sks */; };
+		183E6C181B03FFCD0066263C /* YellowBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */; };
 		1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849622E1B02A5A900035F0E /* TapLabelNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
 		1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */; };
@@ -57,6 +62,11 @@
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
 		183E6C0C1B03D8310066263C /* AudioMuteButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioMuteButtonNode.h; sourceTree = "<group>"; };
 		183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMuteButtonNode.m; sourceTree = "<group>"; };
+		183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBrickExplosion.sks; sourceTree = "<group>"; };
+		183E6C111B03FF230066263C /* CyanBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CyanBrickExplosion.sks; sourceTree = "<group>"; };
+		183E6C131B03FF640066263C /* GreenBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreenBrickExplosion.sks; sourceTree = "<group>"; };
+		183E6C151B03FF980066263C /* PurpleBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PurpleBrickExplosion.sks; sourceTree = "<group>"; };
+		183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = YellowBrickExplosion.sks; sourceTree = "<group>"; };
 		1849622D1B02A5A900035F0E /* TapLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapLabelNode.h; sourceTree = "<group>"; };
 		1849622E1B02A5A900035F0E /* TapLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapLabelNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
@@ -135,6 +145,11 @@
 			children = (
 				18BEA92D1B027C2600EEE8D1 /* PinkBrickExplosion.sks */,
 				1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */,
+				183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */,
+				183E6C111B03FF230066263C /* CyanBrickExplosion.sks */,
+				183E6C131B03FF640066263C /* GreenBrickExplosion.sks */,
+				183E6C151B03FF980066263C /* PurpleBrickExplosion.sks */,
+				183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */,
 				1866FD811AFFDFFE00C25ACE /* spark.png */,
 				1894E7BB1B00F7A50003988F /* bloom.fsh */,
 			);
@@ -348,10 +363,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183E6C121B03FF230066263C /* CyanBrickExplosion.sks in Resources */,
 				18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */,
 				18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */,
+				183E6C181B03FFCD0066263C /* YellowBrickExplosion.sks in Resources */,
 				1894E7BC1B00F7A50003988F /* bloom.fsh in Resources */,
+				183E6C141B03FF640066263C /* GreenBrickExplosion.sks in Resources */,
+				183E6C101B03FE9E0066263C /* BlueBrickExplosion.sks in Resources */,
 				1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */,
+				183E6C161B03FF980066263C /* PurpleBrickExplosion.sks in Resources */,
 				1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */,
 				18BEA92E1B027C2600EEE8D1 /* PinkBrickExplosion.sks in Resources */,
 				18C18E5E1AEE9D2D00622D72 /* Images.xcassets in Resources */,
