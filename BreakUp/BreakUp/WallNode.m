@@ -30,6 +30,7 @@
     self.physicsBody.categoryBitMask = CollisionCategoryWall;
     self.physicsBody.collisionBitMask = 0;
     self.physicsBody.contactTestBitMask = CollisionCategoryBall;
+    self.physicsBody.restitution = 0.5;
 }
 
 @end

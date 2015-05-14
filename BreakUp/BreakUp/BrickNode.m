@@ -62,7 +62,7 @@
         textures = @[[SKTexture textureWithImageNamed:@"Yellow_Brick"]];
         brick.type = BrickTypeYellow;
     }
-    brick.zPosition = 8;
+    brick.zPosition = 6;
     brick.name = @"Brick";
     [brick setupPhysicsBody];
     brick.shader = bloom;
