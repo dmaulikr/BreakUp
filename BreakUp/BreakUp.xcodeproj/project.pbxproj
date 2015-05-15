@@ -16,6 +16,7 @@
 		183E6C141B03FF640066263C /* GreenBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C131B03FF640066263C /* GreenBrickExplosion.sks */; };
 		183E6C161B03FF980066263C /* PurpleBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C151B03FF980066263C /* PurpleBrickExplosion.sks */; };
 		183E6C181B03FFCD0066263C /* YellowBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */; };
+		183E6C211B0562690066263C /* TapToContinueNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E6C201B0562690066263C /* TapToContinueNode.m */; };
 		1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849622E1B02A5A900035F0E /* TapLabelNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
 		1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */; };
@@ -66,6 +67,8 @@
 		183E6C131B03FF640066263C /* GreenBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreenBrickExplosion.sks; sourceTree = "<group>"; };
 		183E6C151B03FF980066263C /* PurpleBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PurpleBrickExplosion.sks; sourceTree = "<group>"; };
 		183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = YellowBrickExplosion.sks; sourceTree = "<group>"; };
+		183E6C1F1B0562690066263C /* TapToContinueNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToContinueNode.h; sourceTree = "<group>"; };
+		183E6C201B0562690066263C /* TapToContinueNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToContinueNode.m; sourceTree = "<group>"; };
 		1849622D1B02A5A900035F0E /* TapLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapLabelNode.h; sourceTree = "<group>"; };
 		1849622E1B02A5A900035F0E /* TapLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapLabelNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */,
 				1849622D1B02A5A900035F0E /* TapLabelNode.h */,
 				1849622E1B02A5A900035F0E /* TapLabelNode.m */,
+				183E6C1F1B0562690066263C /* TapToContinueNode.h */,
+				183E6C201B0562690066263C /* TapToContinueNode.m */,
 			);
 			name = "Label Nodes";
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18970A1E1B039D890096012C /* PauseButtonNode.m in Sources */,
+				183E6C211B0562690066263C /* TapToContinueNode.m in Sources */,
 				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
 				1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */,
 				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,

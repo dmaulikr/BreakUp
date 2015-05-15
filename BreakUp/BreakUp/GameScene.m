@@ -21,6 +21,8 @@
 #import "TapToStartNode.h"
 #import "GameOverNode.h"
 #import "TapLabelNode.h"
+#import "TapToContinueNode.h"
+
 #import "PauseButtonNode.h"
 #import "AudioMuteButtonNode.h"
 
@@ -29,6 +31,7 @@
 @interface GameScene ()
 
 @property (nonatomic)TapToStartNode *tapToStart;
+@property (nonatomic)TapToContinueNode *tapToContinue;
 @property (nonatomic)PauseButtonNode *pauseButton;
 @property (nonatomic)AudioMuteButtonNode *audioMute;
 @property (nonatomic)HUDNode *hud;
@@ -103,9 +106,10 @@
     WallNode *wallLeft = [WallNode wallAtPosition:CGPointMake(CGRectGetMinX(self.frame)-10, 300)];
     WallNode *wallRight = [WallNode wallAtPosition:CGPointMake(CGRectGetMaxX(self.frame)+10, 300)];
     
-    // Add tapToStart label
+    // Add Labels
     self.tapToStart = [TapToStartNode tapToStartAtPosition:CGPointMake(self.size.width/2, 280)];
     self.tapLabel = [TapLabelNode tapAtPosition:CGPointMake(self.size.width/2, 280)];
+    self.tapToContinue = [TapToContinueNode tapToContinueLabelAtPosition:CGPointMake(self.size.width/2, 280)];
     
     // Add Score HUD
     self.hud = [HUDNode hudAtPosition:CGPointMake(0, self.frame.size.height-60) inFrame:self.frame];
@@ -234,7 +238,7 @@
         // Remove points per brick
         if (!self.gameOver)
         {
-            [self addPoints:-100];
+            [self addPoints:-75];
         }
         [brick removeFromParent];
         
@@ -378,11 +382,13 @@
         self.scene.view.paused = YES;
 //        [self.pauseButton runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"Resume_Button"] resize:YES]];
         self.pauseButton.texture = [SKTexture textureWithImageNamed:@"Resume_Button"];
+        [world addChild:self.tapToContinue];
     }
     else
     {
         self.scene.view.paused = NO;
         [self.pauseButton runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"Pause_Button"] resize:YES]];
+        [self.tapToContinue removeFromParent];
     }
     
     // TAP TO START - Logic and Removal

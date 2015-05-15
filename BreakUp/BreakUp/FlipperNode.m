@@ -18,7 +18,7 @@
 
 + (instancetype)leftFlipperAtPosition:(CGPoint)position
 {
-    FlipperNode *flipperLeft = [self spriteNodeWithImageNamed:@"Left_Flipper_Redux_Gold"];
+    FlipperNode *flipperLeft = [self spriteNodeWithImageNamed:@"Demo_Flipper_Left"];
 //    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
     
     flipperLeft.position = position;
@@ -77,7 +77,7 @@
 
 + (instancetype)rightFlipperAtPosition:(CGPoint)position
 {
-    FlipperNode *flipperRight = [self spriteNodeWithImageNamed:@"Right_Flipper_Redux"];
+    FlipperNode *flipperRight = [self spriteNodeWithImageNamed:@"Demo_Flipper_Right"];
 //    SKShader *bloom = [SKShader shaderWithFileNamed:@"bloom"];
     
     flipperRight.position = position;
