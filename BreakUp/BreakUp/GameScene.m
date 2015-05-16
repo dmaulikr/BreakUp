@@ -538,10 +538,10 @@
 //    self.gameOverMusic.numberOfLoops = -1;
 //    [self.gameOverMusic prepareToPlay];
     
-//    self.spawnBallSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
-//    self.ballContactSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
-//    self.explodeSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
-//    self.flipperSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
+    self.spawnBallSFX = [SKAction playSoundFileNamed:@"Ball_spawn.caf" waitForCompletion:NO];
+    self.ballContactSFX = [SKAction playSoundFileNamed:@"Ball_Contact.caf" waitForCompletion:NO];
+    self.explodeSFX = [SKAction playSoundFileNamed:@"Brick_Explosion.caf" waitForCompletion:NO];
+    self.flipperSFX = [SKAction playSoundFileNamed:@"Flipper_Contact.caf" waitForCompletion:NO];
 }
 
 #pragma mark - Custom Methods

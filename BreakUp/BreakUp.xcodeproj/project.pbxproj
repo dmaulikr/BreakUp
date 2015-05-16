@@ -69,6 +69,11 @@
 		183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = YellowBrickExplosion.sks; sourceTree = "<group>"; };
 		183E6C1F1B0562690066263C /* TapToContinueNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToContinueNode.h; sourceTree = "<group>"; };
 		183E6C201B0562690066263C /* TapToContinueNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToContinueNode.m; sourceTree = "<group>"; };
+		183E6C221B07EF630066263C /* Ball_Contact.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ball_Contact.caf; sourceTree = "<group>"; };
+		183E6C231B07EFC10066263C /* Ball_spawn.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ball_spawn.caf; sourceTree = "<group>"; };
+		183E6C241B07EFC10066263C /* Brick_Explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brick_Explosion.caf; sourceTree = "<group>"; };
+		183E6C251B07EFC10066263C /* Flipper_Contact.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flipper_Contact.caf; sourceTree = "<group>"; };
+		183E6C261B07EFC10066263C /* Splash_Screen.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splash_Screen.caf; sourceTree = "<group>"; };
 		1849622D1B02A5A900035F0E /* TapLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapLabelNode.h; sourceTree = "<group>"; };
 		1849622E1B02A5A900035F0E /* TapLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapLabelNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
@@ -136,6 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */,
+				183E6C221B07EF630066263C /* Ball_Contact.caf */,
+				183E6C231B07EFC10066263C /* Ball_spawn.caf */,
+				183E6C241B07EFC10066263C /* Brick_Explosion.caf */,
+				183E6C251B07EFC10066263C /* Flipper_Contact.caf */,
+				183E6C261B07EFC10066263C /* Splash_Screen.caf */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
