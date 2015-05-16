@@ -55,6 +55,7 @@
 @property (nonatomic) SKAction *ballContactSFX;
 @property (nonatomic) SKAction *explodeSFX;
 @property (nonatomic) SKAction *flipperSFX;
+@property (nonatomic) SKAction *gameOverSFX;
 
 @property (nonatomic) BOOL gameOver;
 @property (nonatomic) BOOL gameOverDisplayed;
@@ -197,6 +198,17 @@
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
+    
+    if (firstBody.categoryBitMask == CollisionCategoryBall &&
+        secondBody.categoryBitMask == CollisionCategoryWall)
+    {
+        [self runAction:self.ballContactSFX];
+    }
+    if (firstBody.categoryBitMask == CollisionCategoryBall &&
+     secondBody.categoryBitMask == CollisionCategoryFlipperGuard)
+    {
+        [self runAction:self.ballContactSFX];
+    }
     // Velocity from flipper flip
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
         secondBody.categoryBitMask == CollisionCategoryFlipperLeft)
@@ -205,6 +217,7 @@
         {
 //            NSLog(@"Left Flip<");
             [self.ball.physicsBody applyImpulse:CGVectorMake(5.0, ApplyFlipperVelocity)];
+            [self runAction:self.flipperSFX];
         }
     }
     if (firstBody.categoryBitMask == CollisionCategoryBall &&
@@ -214,6 +227,7 @@
         {
 //            NSLog(@"Right Flip>");
             [self.ball.physicsBody applyImpulse:CGVectorMake(-5.0, ApplyFlipperVelocity)];
+            [self runAction:self.flipperSFX];
         }
     }
     // Game restart on Ball/Drain Contact
@@ -230,6 +244,7 @@
             [self.ball runAction:moveBall];
             self.ball.physicsBody.dynamic = NO;
             [world addChild:self.tapLabel];
+            [self runAction:self.spawnBallSFX];
         }
     }
     // Game restart on Brick/Drain Contact
@@ -276,6 +291,7 @@
                     [self addPoints:200];
                 }
                 [self addPoints:100];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"RedBrickExplosion"];
             }
             
@@ -288,6 +304,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PinkBrickExplosion"];
             }
             else if (brick.type == BrickTypeBlue)
@@ -299,6 +316,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"BlueBrickExplosion"];
             }
             else if (brick.type == BrickTypeCyan)
@@ -310,6 +328,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"CyanBrickExplosion"];
             }
             else if (brick.type == BrickTypeGreen)
@@ -321,6 +340,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"GreenBrickExplosion"];
             }
             else if (brick.type == BrickTypePurple)
@@ -332,6 +352,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"PurpleBrickExplosion"];
             }
             else if (brick.type == BrickTypeYellow)
@@ -343,6 +364,7 @@
                     [self addPoints:100];
                 }
                 [self addPoints:50];
+                [self runAction:self.explodeSFX];
                 [self explosionAtPosition:contact.contactPoint AndExplosionColor:@"YellowBrickExplosion"];
             }
 //            else
@@ -526,12 +548,12 @@
 - (void)setupSounds
 {
     // Background sound
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"" withExtension:@"mp3"];
-//    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-//    self.backgroundMusic.numberOfLoops = -1;
-//    [self.backgroundMusic prepareToPlay];
-//    [self.backgroundMusic play];
-//    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Gehenna" withExtension:@"wav"];
+    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.backgroundMusic.numberOfLoops = -1;
+    [self.backgroundMusic prepareToPlay];
+    [self.backgroundMusic play];
+//
 //    // Gameover sound
 //    NSURL *gameOverUrl = [[NSBundle mainBundle] URLForResource:@"" withExtension:@"mp3"];
 //    self.gameOverMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:gameOverUrl error:nil];
@@ -541,7 +563,8 @@
     self.spawnBallSFX = [SKAction playSoundFileNamed:@"Ball_spawn.caf" waitForCompletion:NO];
     self.ballContactSFX = [SKAction playSoundFileNamed:@"Ball_Contact.caf" waitForCompletion:NO];
     self.explodeSFX = [SKAction playSoundFileNamed:@"Brick_Explosion.caf" waitForCompletion:NO];
-    self.flipperSFX = [SKAction playSoundFileNamed:@"Flipper_Contact.caf" waitForCompletion:NO];
+    self.flipperSFX = [SKAction playSoundFileNamed:@"Flipper_Hit_Again.caf" waitForCompletion:NO];
+    self.gameOverSFX = [SKAction playSoundFileNamed:@"Big_Explosion.caf" waitForCompletion:NO];
 }
 
 #pragma mark - Custom Methods
@@ -707,8 +730,10 @@
         
         self.gameOverDisplayed = YES;
         
-        [self.backgroundMusic stop];
-        [self.gameOverMusic play];
+        [self runAction:self.gameOverSFX];
+        
+//        [self.backgroundMusic stop];
+//        [self.gameOverMusic play];
     }
 }
 

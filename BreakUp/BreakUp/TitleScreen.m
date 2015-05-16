@@ -26,22 +26,26 @@
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:background];
     
-//    SKAction *coinSlotSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"DST-GlassView" withExtension:@"mp3"];
-    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    self.backgroundMusic.numberOfLoops = -1;
-    [self.backgroundMusic prepareToPlay];
-    [self.backgroundMusic play];
+    
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"DST-GlassView" withExtension:@"mp3"];
+//    self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+//    self.backgroundMusic.numberOfLoops = -1;
+//    [self.backgroundMusic prepareToPlay];
+//    [self.backgroundMusic play];
+    
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    SKAction *coinSlotSFX = [SKAction playSoundFileNamed:@"Splash_Screen.caf" waitForCompletion:NO];
     GameScene *gameScene = [GameScene sceneWithSize:self.view.bounds.size];
     SKTransition *transition = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:0.8];
     
     [self.view presentScene:gameScene transition:transition];
     
     [self.backgroundMusic stop];
+    [self runAction:coinSlotSFX];
 }
 
 @end

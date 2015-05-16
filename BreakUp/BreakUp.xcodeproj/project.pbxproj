@@ -17,6 +17,16 @@
 		183E6C161B03FF980066263C /* PurpleBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C151B03FF980066263C /* PurpleBrickExplosion.sks */; };
 		183E6C181B03FFCD0066263C /* YellowBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C171B03FFCD0066263C /* YellowBrickExplosion.sks */; };
 		183E6C211B0562690066263C /* TapToContinueNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E6C201B0562690066263C /* TapToContinueNode.m */; };
+		183E6C271B07F4150066263C /* Ball_Contact.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C221B07EF630066263C /* Ball_Contact.caf */; };
+		183E6C281B07F4150066263C /* Ball_spawn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C231B07EFC10066263C /* Ball_spawn.caf */; };
+		183E6C291B07F4150066263C /* Brick_Explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C241B07EFC10066263C /* Brick_Explosion.caf */; };
+		183E6C2A1B07F4150066263C /* Flipper_Contact.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C251B07EFC10066263C /* Flipper_Contact.caf */; };
+		183E6C2B1B07F4150066263C /* Splash_Screen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C261B07EFC10066263C /* Splash_Screen.caf */; };
+		183E6C2D1B07F9540066263C /* Flipper_Hit_Final.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C2C1B07F9480066263C /* Flipper_Hit_Final.caf */; };
+		183E6C2F1B0801070066263C /* Gehenna.wav in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C2E1B0801070066263C /* Gehenna.wav */; };
+		183E6C311B08049A0066263C /* Game_Over.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C301B08049A0066263C /* Game_Over.caf */; };
+		183E6C341B0804B50066263C /* Big_Explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C321B0804B50066263C /* Big_Explosion.caf */; };
+		183E6C351B0804B50066263C /* Flipper_Hit_Again.caf in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C331B0804B50066263C /* Flipper_Hit_Again.caf */; };
 		1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849622E1B02A5A900035F0E /* TapLabelNode.m */; };
 		1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866FD771AFA60C600C25ACE /* FlipperGuardNode.m */; };
 		1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1866FD801AFFDFFE00C25ACE /* RedBrickExplosion.sks */; };
@@ -74,6 +84,11 @@
 		183E6C241B07EFC10066263C /* Brick_Explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brick_Explosion.caf; sourceTree = "<group>"; };
 		183E6C251B07EFC10066263C /* Flipper_Contact.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flipper_Contact.caf; sourceTree = "<group>"; };
 		183E6C261B07EFC10066263C /* Splash_Screen.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splash_Screen.caf; sourceTree = "<group>"; };
+		183E6C2C1B07F9480066263C /* Flipper_Hit_Final.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flipper_Hit_Final.caf; sourceTree = "<group>"; };
+		183E6C2E1B0801070066263C /* Gehenna.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gehenna.wav; sourceTree = "<group>"; };
+		183E6C301B08049A0066263C /* Game_Over.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Game_Over.caf; sourceTree = "<group>"; };
+		183E6C321B0804B50066263C /* Big_Explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Big_Explosion.caf; sourceTree = "<group>"; };
+		183E6C331B0804B50066263C /* Flipper_Hit_Again.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flipper_Hit_Again.caf; sourceTree = "<group>"; };
 		1849622D1B02A5A900035F0E /* TapLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapLabelNode.h; sourceTree = "<group>"; };
 		1849622E1B02A5A900035F0E /* TapLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapLabelNode.m; sourceTree = "<group>"; };
 		1866FD761AFA60C600C25ACE /* FlipperGuardNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperGuardNode.h; sourceTree = "<group>"; };
@@ -141,10 +156,15 @@
 			isa = PBXGroup;
 			children = (
 				1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */,
+				183E6C2E1B0801070066263C /* Gehenna.wav */,
 				183E6C221B07EF630066263C /* Ball_Contact.caf */,
 				183E6C231B07EFC10066263C /* Ball_spawn.caf */,
 				183E6C241B07EFC10066263C /* Brick_Explosion.caf */,
 				183E6C251B07EFC10066263C /* Flipper_Contact.caf */,
+				183E6C321B0804B50066263C /* Big_Explosion.caf */,
+				183E6C331B0804B50066263C /* Flipper_Hit_Again.caf */,
+				183E6C301B08049A0066263C /* Game_Over.caf */,
+				183E6C2C1B07F9480066263C /* Flipper_Hit_Final.caf */,
 				183E6C261B07EFC10066263C /* Splash_Screen.caf */,
 			);
 			name = Sounds;
@@ -373,14 +393,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183E6C2D1B07F9540066263C /* Flipper_Hit_Final.caf in Resources */,
+				183E6C271B07F4150066263C /* Ball_Contact.caf in Resources */,
+				183E6C351B0804B50066263C /* Flipper_Hit_Again.caf in Resources */,
+				183E6C281B07F4150066263C /* Ball_spawn.caf in Resources */,
+				183E6C291B07F4150066263C /* Brick_Explosion.caf in Resources */,
+				183E6C2A1B07F4150066263C /* Flipper_Contact.caf in Resources */,
+				183E6C2B1B07F4150066263C /* Splash_Screen.caf in Resources */,
 				183E6C121B03FF230066263C /* CyanBrickExplosion.sks in Resources */,
+				183E6C2F1B0801070066263C /* Gehenna.wav in Resources */,
 				18C18E611AEE9D2D00622D72 /* LaunchScreen.xib in Resources */,
 				18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */,
 				183E6C181B03FFCD0066263C /* YellowBrickExplosion.sks in Resources */,
+				183E6C341B0804B50066263C /* Big_Explosion.caf in Resources */,
 				1894E7BC1B00F7A50003988F /* bloom.fsh in Resources */,
 				183E6C141B03FF640066263C /* GreenBrickExplosion.sks in Resources */,
 				183E6C101B03FE9E0066263C /* BlueBrickExplosion.sks in Resources */,
 				1866FD821AFFDFFE00C25ACE /* RedBrickExplosion.sks in Resources */,
+				183E6C311B08049A0066263C /* Game_Over.caf in Resources */,
 				183E6C161B03FF980066263C /* PurpleBrickExplosion.sks in Resources */,
 				1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */,
 				18BEA92E1B027C2600EEE8D1 /* PinkBrickExplosion.sks in Resources */,
