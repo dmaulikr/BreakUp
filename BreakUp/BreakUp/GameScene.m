@@ -51,6 +51,10 @@
 // Sounds
 @property (nonatomic) AVAudioPlayer *backgroundMusic;
 @property (nonatomic) AVAudioPlayer *gameOverMusic;
+@property (nonatomic) SKAction *spawnBallSFX;
+@property (nonatomic) SKAction *ballContactSFX;
+@property (nonatomic) SKAction *explodeSFX;
+@property (nonatomic) SKAction *flipperSFX;
 
 @property (nonatomic) BOOL gameOver;
 @property (nonatomic) BOOL gameOverDisplayed;
@@ -533,6 +537,11 @@
 //    self.gameOverMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:gameOverUrl error:nil];
 //    self.gameOverMusic.numberOfLoops = -1;
 //    [self.gameOverMusic prepareToPlay];
+    
+//    self.spawnBallSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
+//    self.ballContactSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
+//    self.explodeSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
+//    self.flipperSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
 }
 
 #pragma mark - Custom Methods

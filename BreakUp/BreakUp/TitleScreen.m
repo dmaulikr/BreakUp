@@ -14,6 +14,7 @@
 @interface TitleScreen ()
 
 @property (nonatomic) AVAudioPlayer *backgroundMusic;
+//@property (nonatomic) SKAction
 
 @end
 
@@ -24,6 +25,8 @@
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"splash_1"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:background];
+    
+//    SKAction *coinSlotSFX = [SKAction playSoundFileNamed:@"Damage.caf" waitForCompletion:NO];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"DST-GlassView" withExtension:@"mp3"];
     self.backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
