@@ -395,11 +395,28 @@
         [self.view presentScene:scene];
         [self.gameOverMusic stop];
         [self.backgroundMusic stop];
+        self.backgroundMusic.currentTime = 0;
     }
     
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:touchLocation];
+    
+    // Audio Mute Button
+    if ([node.name isEqualToString:@"AudioMute"])
+    {
+        if (self.backgroundMusic.playing == YES)
+        {
+            [self.backgroundMusic stop];
+//            self.backgroundMusic.currentTime = 0;
+        }
+        else
+        {
+            self.backgroundMusic.numberOfLoops = -1;
+            [self.backgroundMusic prepareToPlay];
+            [self.backgroundMusic play];
+        }
+    }
     
     
     // Pause Button
