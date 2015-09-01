@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 
 @interface GCUserAuthHelper : NSObject
+{
+    BOOL gameCenterAvailable;
+    BOOL userAuthenticated;
+}
+
+@property (assign, readonly) BOOL gameCenterAvailable;
+
++ (GCUserAuthHelper *)sharedInstance;
+- (void)authenticateLocalUser;
 
 @end
