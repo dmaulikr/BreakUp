@@ -20,4 +20,6 @@
 + (GCUserAuthHelper *)sharedInstance;
 - (void)authenticateLocalUser;
 
++ (void)reportScore: (Float64) score forIdentifier: (NSString*) identifier;
+
 @end
