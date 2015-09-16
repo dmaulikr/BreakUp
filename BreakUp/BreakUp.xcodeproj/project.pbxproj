@@ -10,6 +10,8 @@
 		1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCC31AF568B9002FB21D /* HUDNode.m */; };
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
+		183326A91B9611F100F8DF75 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183326A81B9611F100F8DF75 /* GameKit.framework */; };
+		183326AC1B963F6500F8DF75 /* GCUserAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 183326AB1B963F6500F8DF75 /* GCUserAuthHelper.m */; };
 		183E6C0E1B03D8310066263C /* AudioMuteButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */; };
 		183E6C101B03FE9E0066263C /* BlueBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */; };
 		183E6C121B03FF230066263C /* CyanBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C111B03FF230066263C /* CyanBrickExplosion.sks */; };
@@ -50,6 +52,8 @@
 		18C18E891AEF1D6000622D72 /* Utilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E881AEF1D6000622D72 /* Utilites.m */; };
 		18C18E8C1AEF291D00622D72 /* BrickNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E8B1AEF291D00622D72 /* BrickNode.m */; };
 		18C18E8F1AEFCB0600622D72 /* TapToStartNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */; };
+		18DE3EDC1BA1DCE300802782 /* GameKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE3EDB1BA1DCE300802782 /* GameKitHelper.swift */; };
+		18DE3EDE1BA1F78C00802782 /* BreakUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE3EDD1BA1F78C00802782 /* BreakUpViewController.swift */; };
 		18F01F2F1AF019880049A0D4 /* Break-Up.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 18F01F2E1AF019880049A0D4 /* Break-Up.atlas */; };
 		18F01F321AF15E580049A0D4 /* WallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F01F311AF15E580049A0D4 /* WallNode.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +74,9 @@
 		1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "DST-GlassView.mp3"; sourceTree = "<group>"; };
 		1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverNode.h; sourceTree = "<group>"; };
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
+		183326A81B9611F100F8DF75 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		183326AA1B963F6500F8DF75 /* GCUserAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserAuthHelper.h; sourceTree = "<group>"; };
+		183326AB1B963F6500F8DF75 /* GCUserAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserAuthHelper.m; sourceTree = "<group>"; };
 		183E6C0C1B03D8310066263C /* AudioMuteButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioMuteButtonNode.h; sourceTree = "<group>"; };
 		183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMuteButtonNode.m; sourceTree = "<group>"; };
 		183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBrickExplosion.sks; sourceTree = "<group>"; };
@@ -129,6 +136,9 @@
 		18C18E8B1AEF291D00622D72 /* BrickNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickNode.m; sourceTree = "<group>"; };
 		18C18E8D1AEFCB0600622D72 /* TapToStartNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToStartNode.h; sourceTree = "<group>"; };
 		18C18E8E1AEFCB0600622D72 /* TapToStartNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToStartNode.m; sourceTree = "<group>"; };
+		18DE3EDA1BA1DCE200802782 /* BreakUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreakUp-Bridging-Header.h"; sourceTree = "<group>"; };
+		18DE3EDB1BA1DCE300802782 /* GameKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitHelper.swift; sourceTree = "<group>"; };
+		18DE3EDD1BA1F78C00802782 /* BreakUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakUpViewController.swift; sourceTree = "<group>"; };
 		18F01F2E1AF019880049A0D4 /* Break-Up.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Break-Up.atlas"; sourceTree = "<group>"; };
 		18F01F301AF15E580049A0D4 /* WallNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallNode.h; sourceTree = "<group>"; };
 		18F01F311AF15E580049A0D4 /* WallNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallNode.m; sourceTree = "<group>"; };
@@ -139,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183326A91B9611F100F8DF75 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +218,7 @@
 		18C18E4A1AEE9D2C00622D72 /* BreakUp */ = {
 			isa = PBXGroup;
 			children = (
+				18DE3ED91BA1DCA900802782 /* Game Center */,
 				1803BCC91AF6AA77002FB21D /* Sounds */,
 				18C18E831AEEE33900622D72 /* Default */,
 				18C18E821AEEE31400622D72 /* GameScenes */,
@@ -224,6 +236,7 @@
 		18C18E4B1AEE9D2C00622D72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				183326A81B9611F100F8DF75 /* GameKit.framework */,
 				18C18E4C1AEE9D2C00622D72 /* Info.plist */,
 				18C18E4D1AEE9D2C00622D72 /* main.m */,
 			);
@@ -294,6 +307,7 @@
 				18C18E571AEE9D2C00622D72 /* GameViewController.h */,
 				18C18E581AEE9D2C00622D72 /* GameViewController.m */,
 				18C18E5A1AEE9D2C00622D72 /* Main.storyboard */,
+				18DE3EDD1BA1F78C00802782 /* BreakUpViewController.swift */,
 			);
 			name = Default;
 			sourceTree = "<group>";
@@ -311,6 +325,17 @@
 				183E6C201B0562690066263C /* TapToContinueNode.m */,
 			);
 			name = "Label Nodes";
+			sourceTree = "<group>";
+		};
+		18DE3ED91BA1DCA900802782 /* Game Center */ = {
+			isa = PBXGroup;
+			children = (
+				183326AA1B963F6500F8DF75 /* GCUserAuthHelper.h */,
+				183326AB1B963F6500F8DF75 /* GCUserAuthHelper.m */,
+				18DE3EDB1BA1DCE300802782 /* GameKitHelper.swift */,
+				18DE3EDA1BA1DCE200802782 /* BreakUp-Bridging-Header.h */,
+			);
+			name = "Game Center";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,12 +461,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18970A1E1B039D890096012C /* PauseButtonNode.m in Sources */,
+				18DE3EDC1BA1DCE300802782 /* GameKitHelper.swift in Sources */,
 				183E6C211B0562690066263C /* TapToContinueNode.m in Sources */,
 				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
 				1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */,
+				183326AC1B963F6500F8DF75 /* GCUserAuthHelper.m in Sources */,
 				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
 				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
+				18DE3EDE1BA1F78C00802782 /* BreakUpViewController.swift in Sources */,
 				18F01F321AF15E580049A0D4 /* WallNode.m in Sources */,
 				1803BCC41AF568B9002FB21D /* HUDNode.m in Sources */,
 				18C18E7B1AEEC93900622D72 /* BallNode.m in Sources */,
@@ -579,9 +607,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BreakUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BreakUp/BreakUp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -590,9 +621,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BreakUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BreakUp/BreakUp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
