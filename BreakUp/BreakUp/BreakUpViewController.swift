@@ -10,10 +10,24 @@ import UIKit
 
 class BreakUpViewController: UINavigationController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("showAuthenticationViewController"), name: PresentAuthenticationViewController, object: nil)
+        
+        GameKitHelper.sharedInstance.authenticateLocalPlayer()
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func showAuthenticationViewController()
+    {
+        let gameKitHelper = GameKitHelper.sharedInstance
+        if let authenticationViewController = gameKitHelper.authenticationViewController
+    {
+        topViewController.presentViewController(authenticationViewController, animated: true,
+        completion: nil)
+        }
+    }
+    deinit { NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
