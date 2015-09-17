@@ -72,7 +72,7 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewC
     func showGKGameCenterViewController(viewController: UIViewController!) {
         
         if !gameCenterEnabled {
-            println("Local player is not authenticated")
+            print("Local player is not authenticated")
             return
         }
         
@@ -92,7 +92,7 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewC
     
     func reportAchievements(achievements: [GKAchievement]) {
         if !gameCenterEnabled {
-            println("Local player is not authenticated")
+            print("Local player is not authenticated")
             return
         }
         GKAchievement.reportAchievements(achievements) {(error) in
@@ -103,7 +103,7 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewC
     func reportScore(score: Int64, forLeaderBoardId leaderBoardId: String) {
         
         if !gameCenterEnabled {
-            println("Local player is not authenticated")
+            print("Local player is not authenticated")
             return
         }
         
@@ -124,7 +124,7 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewC
     func findMatch(minPlayers: Int, maxPlayers: Int, presentingViewController viewController: UIViewController, delegate: GameKitHelperDelegate) {
         //1
         if !gameCenterEnabled {
-            println("Local player is not authenticated")
+            print("Local player is not authenticated")
             return
         }
         
@@ -141,68 +141,68 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewC
         
         //4
         let matchMakerViewController = GKMatchmakerViewController(matchRequest: matchRequest)
-        matchMakerViewController.matchmakerDelegate = self
-        presentingViewController?.presentViewController(matchMakerViewController, animated: false, completion:nil)
+        matchMakerViewController!.matchmakerDelegate = self
+        presentingViewController?.presentViewController(matchMakerViewController!, animated: false, completion:nil)
     }
-    
-    func lookupPlayersOfMatch(match: GKMatch!) {
-        println("Looking up \(match.players.count) players")
-        
-        GKPlayer.loadPlayersForIdentifiers(match.players) {(players, error) in
-            if error != nil {
-                println("Error: \(error.localizedDescription)")
-                self.multiplayerMatchStarted = false
-                self.delegate?.matchEnded()
-            } else {
-                for player in players as! [GKPlayer] {
-                    println("Found player: \(player.alias)")
-                    self.playerDetails[player.playerID] = player
-                }
-                self.playerDetails[GKLocalPlayer.localPlayer().playerID] = GKLocalPlayer.localPlayer()
-                self.multiplayerMatchStarted = true
-                self.delegate?.matchStarted()
-            }
-        }
-    }
-    
+  /*
+//    func lookupPlayersOfMatch(match: GKMatch!) {
+//        print("Looking up \(match.players.count) players")
+//        
+//        GKPlayer.loadPlayersForIdentifiers(match) {(players, error) in
+//            if error != nil {
+//                print("Error: \(error.localizedDescription)")
+//                self.multiplayerMatchStarted = false
+//                self.delegate?.matchEnded()
+//            } else {
+//                for player in players as! [GKPlayer] {
+//                    print("Found player: \(player.alias)")
+//                    self.playerDetails[player.playerID] = player
+//                }
+//                self.playerDetails[GKLocalPlayer.localPlayer().playerID] = GKLocalPlayer.localPlayer()
+//                self.multiplayerMatchStarted = true
+//                self.delegate?.matchStarted()
+//            }
+//        }
+//    }
+    */
     // MARK: GKGameCenterControllerDelegate methods
-    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController) {
         
         gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: GKMatchmakerViewControllerDelegate methods
-    func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController!) {
+    func matchmakerViewControllerWasCancelled(viewController: GKMatchmakerViewController) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         delegate?.matchEnded()
     }
     
-    func matchmakerViewController(viewController: GKMatchmakerViewController!, didFailWithError error: NSError!) {
+    func matchmakerViewController(viewController: GKMatchmakerViewController, didFailWithError error: NSError) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-        println("Error creating a match: \(error.localizedDescription)")
+        print("Error creating a match: \(error.localizedDescription)")
         delegate?.matchEnded()
     }
     
-    func matchmakerViewController(viewController: GKMatchmakerViewController!, didFindMatch match: GKMatch!) {
+    func matchmakerViewController(viewController: GKMatchmakerViewController, didFindMatch match: GKMatch) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         multiplayerMatch = match
         multiplayerMatch!.delegate = self
         
         if !multiplayerMatchStarted && multiplayerMatch?.expectedPlayerCount == 0 {
-            println("Ready to start the match")
-            lookupPlayersOfMatch(multiplayerMatch)
+            print("Ready to start the match")
+//            lookupPlayersOfMatch(multiplayerMatch)
         }
     }
     
     // MARK: GKMatchDelegate methods
-    func match(match: GKMatch!, didReceiveData data: NSData!, fromPlayer playerID: String!) {
+    func match(match: GKMatch, didReceiveData data: NSData, fromPlayer playerID: String) {
         if multiplayerMatch != match {
             return
         }
         delegate?.matchReceivedData(match, data: data, fromPlayer: playerID)
     }
     
-    func match(match: GKMatch!, didFailWithError error: NSError!) {
+    func match(match: GKMatch, didFailWithError error: NSError?) {
         if multiplayerMatch != match {
             return
         }
@@ -210,23 +210,23 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewC
         delegate?.matchEnded()
     }
     
-    func match(match: GKMatch!, player playerID: String!, didChangeState state: GKPlayerConnectionState) {
+    func match(match: GKMatch, player playerID: String, didChangeState state: GKPlayerConnectionState) {
         if multiplayerMatch != match {
             return
         }
         switch state {
         case .StateConnected:
-            println("Player connected")
+            print("Player connected")
             if !multiplayerMatchStarted && multiplayerMatch?.expectedPlayerCount == 0 {
-                println("Ready to start the match")
-                lookupPlayersOfMatch(multiplayerMatch)
+                print("Ready to start the match")
+//                lookupPlayersOfMatch(multiplayerMatch)
             }
         case .StateDisconnected:
-            println("Player disconnected")
+            print("Player disconnected")
             multiplayerMatchStarted = false
             delegate?.matchEnded()
         case .StateUnknown:
-            println("Initial player state")
+            print("Initial player state")
         }
     }
 }

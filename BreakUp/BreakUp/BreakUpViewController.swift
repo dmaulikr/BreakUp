@@ -23,7 +23,7 @@ class BreakUpViewController: UINavigationController {
         let gameKitHelper = GameKitHelper.sharedInstance
         if let authenticationViewController = gameKitHelper.authenticationViewController
     {
-        topViewController.presentViewController(authenticationViewController, animated: true,
+        topViewController?.presentViewController(authenticationViewController, animated: true,
         completion: nil)
         }
     }
@@ -34,7 +34,7 @@ class BreakUpViewController: UINavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation

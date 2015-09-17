@@ -11,7 +11,6 @@
 		1803BCCD1AF6AD26002FB21D /* DST-GlassView.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1803BCCC1AF6AD26002FB21D /* DST-GlassView.mp3 */; };
 		1803BCD01AF6CBA2002FB21D /* GameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */; };
 		183326A91B9611F100F8DF75 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183326A81B9611F100F8DF75 /* GameKit.framework */; };
-		183326AC1B963F6500F8DF75 /* GCUserAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 183326AB1B963F6500F8DF75 /* GCUserAuthHelper.m */; };
 		183E6C0E1B03D8310066263C /* AudioMuteButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */; };
 		183E6C101B03FE9E0066263C /* BlueBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */; };
 		183E6C121B03FF230066263C /* CyanBrickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 183E6C111B03FF230066263C /* CyanBrickExplosion.sks */; };
@@ -75,8 +74,6 @@
 		1803BCCE1AF6CBA1002FB21D /* GameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverNode.h; sourceTree = "<group>"; };
 		1803BCCF1AF6CBA1002FB21D /* GameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverNode.m; sourceTree = "<group>"; };
 		183326A81B9611F100F8DF75 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		183326AA1B963F6500F8DF75 /* GCUserAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserAuthHelper.h; sourceTree = "<group>"; };
-		183326AB1B963F6500F8DF75 /* GCUserAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserAuthHelper.m; sourceTree = "<group>"; };
 		183E6C0C1B03D8310066263C /* AudioMuteButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioMuteButtonNode.h; sourceTree = "<group>"; };
 		183E6C0D1B03D8310066263C /* AudioMuteButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMuteButtonNode.m; sourceTree = "<group>"; };
 		183E6C0F1B03FE9E0066263C /* BlueBrickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBrickExplosion.sks; sourceTree = "<group>"; };
@@ -330,8 +327,6 @@
 		18DE3ED91BA1DCA900802782 /* Game Center */ = {
 			isa = PBXGroup;
 			children = (
-				183326AA1B963F6500F8DF75 /* GCUserAuthHelper.h */,
-				183326AB1B963F6500F8DF75 /* GCUserAuthHelper.m */,
 				18DE3EDB1BA1DCE300802782 /* GameKitHelper.swift */,
 				18DE3EDA1BA1DCE200802782 /* BreakUp-Bridging-Header.h */,
 			);
@@ -382,7 +377,9 @@
 		18C18E401AEE9D2C00622D72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Randall Lee";
 				TargetAttributes = {
 					18C18E471AEE9D2C00622D72 = {
@@ -465,7 +462,6 @@
 				183E6C211B0562690066263C /* TapToContinueNode.m in Sources */,
 				18C18E591AEE9D2C00622D72 /* GameViewController.m in Sources */,
 				1849622F1B02A5A900035F0E /* TapLabelNode.m in Sources */,
-				183326AC1B963F6500F8DF75 /* GCUserAuthHelper.m in Sources */,
 				1866FD781AFA60C600C25ACE /* FlipperGuardNode.m in Sources */,
 				18C18E511AEE9D2C00622D72 /* AppDelegate.m in Sources */,
 				18C18E861AEEEAA700622D72 /* DrainNode.m in Sources */,
@@ -544,6 +540,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -610,6 +607,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BreakUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rclee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BreakUp/BreakUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -624,6 +622,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BreakUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rclee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BreakUp/BreakUp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -644,6 +643,7 @@
 				);
 				INFOPLIST_FILE = BreakUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rclee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakUp.app/BreakUp";
 			};
@@ -659,6 +659,7 @@
 				);
 				INFOPLIST_FILE = BreakUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rclee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakUp.app/BreakUp";
 			};

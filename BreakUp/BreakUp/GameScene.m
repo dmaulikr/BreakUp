@@ -455,7 +455,7 @@
     // Touch on Flippers logic
     if (touchLocation.x > 188 && touchLocation.y < 500)
     {
-//        NSLog(@"Right Flipper Tapped");
+        NSLog(@"Right Flipper Tapped");
         NSArray *sequence = @[[SKAction runBlock:^{self.rightFlipperActive = YES;}],
                               [SKAction rotateToAngle:-45 * M_PI / 180 duration:0.1],
                               [SKAction runBlock:^{self.rightFlipperActive = NO;}]];
@@ -464,7 +464,7 @@
     }
     if (touchLocation.x < 188 && touchLocation.y < 500)
     {
-//        NSLog(@"Left Flipper Tapped");
+        NSLog(@"Left Flipper Tapped");
         NSArray *sequence = @[[SKAction runBlock:^{self.leftFlipperActive = YES;}],
                               [SKAction rotateToAngle:+45 * M_PI / 180 duration:0.1],
                               [SKAction runBlock:^{self.leftFlipperActive = NO;}]];
@@ -724,6 +724,7 @@
         [self addBrickRowWithSize:self.size AndScreenSize:(self.screenSize)];
     }];
     [self runAction:spawn];
+    NSLog(@"Spawned a row of bricks");
 }
 
 - (void)addPoints:(NSInteger)points
@@ -736,6 +737,7 @@
 {
     HUDNode *hud = (HUDNode *)[world childNodeWithName:@"HUD"];
     self.gameOver = [hud loseLife];
+    NSLog(@"Lost a life");
 }
 
 - (void)performGameOver
